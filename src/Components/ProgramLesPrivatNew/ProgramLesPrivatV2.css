@@ -1,0 +1,106 @@
+/* Gaya untuk kontainer utama */
+.program-container-v2 {
+  font-family: sans-serif;
+  color: #333;
+  margin-top: 4vh;
+  margin-bottom: 10vh;
+}
+
+/* Gaya untuk bagian header */
+.program-header-v2 {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+.program-title-v2 {
+  font-size: 1.4rem;
+  color: #333333;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-family: "Poppins", sans-serif;
+  margin-bottom: 10px;
+}
+
+.program-description-v2 {
+  font-size: 0.9rem;
+  max-width: 1250px;
+  font-family: "Poppins", sans-serif;
+  margin: 0 auto;
+  line-height: 1.6;
+  color: #666;
+}
+
+/* Gaya untuk kontainer kartu */
+.program-cards-v2 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Gaya untuk setiap kartu */
+.card-v2 {
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 20px 30px 30px rgba(0, 0, 0, 0.08);
+  padding: 20px 20px;
+  display: flex;
+  align-items: flex-start;
+  text-align: left;
+  gap: 10px;
+  flex: 1 1;
+  max-width: 400px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-v2:hover {
+  transform: none;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.card-icon-v2 {
+  width: 80px;
+  height: auto;
+
+  margin-bottom: 0;
+
+  flex-shrink: 0;
+}
+
+.card-content-text-v2 {
+  flex-grow: 1;
+}
+
+.card-title-v2 {
+  font-size: 1.3rem;
+  color: #333333;
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
+
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+
+.card-description-v2 {
+  font-size: 0.9rem;
+  color: #666;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Gaya responsif untuk layar yang lebih kecil */
+@media (max-width: 768px) {
+  .program-cards-v2 {
+    flex-direction: column;
+    align-items: center;
+  }
+  .program-title-v2 {
+    font-size: 1.2rem;
+  }
+  .card-title-v2 {
+    font-size: 1rem;
+  }
+  .program-header-v2 {
+    text-align: start;
+    margin-bottom: 40px;
+  }
+}

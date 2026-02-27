@@ -1,0 +1,62 @@
+.container-slider {
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-bottom: 0px;
+  padding-top: 60px;
+}
+
+@media only screen and (max-width: 1024px) {
+  .container-slider {
+    padding-left: 4%;
+    padding-right: 4%;
+  }
+}
+
+.slider-top,
+.slider-top-2 {
+  position: relative;
+  overflow: hidden;
+}
+
+.embla {
+  overflow: hidden;
+}
+
+.embla__container {
+  display: flex;
+}
+
+.embla__slide {
+  min-width: calc(
+    100% - 3px
+  ); /* Sesuaikan padding dengan margin yang Anda inginkan */
+  padding: 0 5px; /* Ubah nilai ini sesuai dengan jarak yang Anda inginkan */
+}
+
+.top-slider {
+  position: relative;
+}
+
+.slider img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.desktop-only {
+  display: block;
+}
+
+.mobile-only {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .desktop-only {
+    display: none;
+  }
+
+  .mobile-only {
+    display: block;
+  }
+}

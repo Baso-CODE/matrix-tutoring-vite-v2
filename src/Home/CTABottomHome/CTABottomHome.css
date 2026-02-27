@@ -1,0 +1,196 @@
+/* --- Container Utama --- */
+.parent-cta-bottom-home {
+  background-image: url("/images/matrix-cta-bottom.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  padding-top: 4%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.parent-cta-bottom-home::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.088);
+  z-index: 0;
+}
+
+.cta-title-absolute {
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #ffffff;
+  font-family: "Poppins", sans-serif;
+  line-height: 1.2;
+  margin: 0;
+  text-align: center;
+  z-index: 2;
+  text-transform: uppercase;
+}
+
+.cta-content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* --- Title (bisa digeser posisinya) --- */
+.cta-title {
+  font-size: 2.3rem;
+  font-weight: 800;
+  color: #333;
+  font-family: "Poppins", sans-serif;
+  line-height: 1.2;
+  margin: 0;
+
+  /* atur posisi */
+  text-align: left; /* ubah ke center/right kalau mau */
+  align-self: flex-start; /* flex-start / center / flex-end */
+  margin-top: 20px; /* naik-turun */
+  margin-left: 30px; /* geser kanan */
+}
+
+/* --- Container Tombol --- */
+.cta-buttons {
+  display: flex;
+  justify-content: space-between;
+
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+/* --- Style Button --- */
+.animated-button-cta-bottom {
+  display: inline-block;
+  padding: 14px 28px;
+  border-radius: 8px;
+  background: linear-gradient(-45deg, #007bff, #0056b3);
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.animated-button-cta-bottom:hover {
+  background: linear-gradient(-45deg, #28a745, #218838);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.text-cta-bottom {
+  font-size: 1rem;
+  font-family: "Poppins", sans-serif;
+}
+
+.cta-admin {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px; /* jarak antar teks dengan tombol */
+}
+
+.admin-name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  font-family: "Poppins", sans-serif;
+  color: #ffffff;
+  margin: 0;
+}
+
+.admin-phone {
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: #e0e0e0;
+  font-family: "Poppins", sans-serif;
+  margin: 0 0 10px 0; /* kasih jarak ke bawah sebelum button */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .cta-admin {
+    align-items: center;
+    text-align: center;
+    width: 50%;
+  }
+}
+
+/* Button posisi kiri-kanan */
+.left-btn {
+  align-self: flex-start;
+}
+
+.right-btn {
+  align-self: flex-end;
+}
+
+/* --- Responsive --- */
+@media (max-width: 1024px) {
+  .cta-buttons {
+    position: absolute;
+    top: 28rem;
+    display: flex;
+    justify-content: none;
+    right: 5%;
+    left: 5%;
+    gap: 20px;
+    padding-left: 0%;
+    padding-right: 0%;
+  }
+}
+@media (max-width: 768px) {
+  .cta-content {
+    gap: 30px;
+  }
+
+  .cta-title {
+    font-size: 1.5rem;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .cta-title-absolute {
+    width: 80%;
+    font-size: 1.2rem;
+  }
+  .text-cta-bottom {
+    font-size: 0.8rem;
+    font-family: "Poppins", sans-serif;
+  }
+  /* 
+  .cta-buttons {
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  } */
+
+  .cta-buttons {
+    position: absolute;
+    top: 260px;
+    display: flex;
+    justify-content: none;
+    right: 5%;
+    left: 5%;
+    gap: 20px;
+    padding-left: 0%;
+    padding-right: 0%;
+  }
+
+  .left-btn,
+  .right-btn {
+    align-self: center;
+    width: 71%;
+    text-align: center;
+  }
+}

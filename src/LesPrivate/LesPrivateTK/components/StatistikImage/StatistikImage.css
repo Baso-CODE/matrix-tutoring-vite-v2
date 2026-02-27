@@ -1,0 +1,149 @@
+.statistik-image-section {
+  font-family: "Poppins", sans-serif;
+  padding-left: 10%;
+  padding-top: 4%;
+  padding-bottom: 5%;
+  padding-right: 10%;
+  min-height: 80vh;
+  cursor: pointer;
+  text-align: center;
+  background-color: #007bff;
+}
+
+.statistik-image-container {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* === Title & Subtitle === */
+.statistik-image-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin-bottom: 16px;
+}
+
+.statistik-image-subtitle {
+  font-size: 1rem;
+  color: #f2f2f2;
+  margin-bottom: 48px;
+  max-width: 768px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.625;
+}
+
+/* === Grid Layout === */
+.statistik-cards-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  justify-content: center;
+  align-items: stretch;
+}
+
+@media (min-width: 640px) {
+  .statistik-cards-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (min-width: 1024px) {
+  .statistik-cards-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+/* === Card Style === */
+.card {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/12;
+  background-color: #f2f2f2;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  perspective: 1000px;
+  box-shadow: 0 0 0 4px #ffffff80;
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Hover Scale Effect */
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Content (Hidden, Appear on Hover) */
+.card__content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #f2f2f2;
+  transform: rotateX(-90deg);
+  transform-origin: bottom;
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.card:hover .card__content {
+  transform: rotateX(0deg);
+}
+
+/* === Text Content === */
+.card__title {
+  margin: 0 0 10px 0;
+  font-size: 1.2rem;
+  color: #007bff;
+  font-weight: 700;
+}
+
+.card__description {
+  margin: 0 0 15px;
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.4;
+}
+
+/* === Button Style === */
+.card__button {
+  padding: 10px 15px;
+  border-radius: 8px;
+  background: #007bff;
+  border: none;
+  color: white;
+  cursor: pointer;
+  margin: 5px auto 0;
+  transition: background 0.3s ease;
+}
+
+.card__button:hover {
+  background: #0056b3;
+}
+
+@media (max-width: 768px) {
+  .statistik-image-section {
+    padding-left: 5%;
+    padding-top: 4%;
+    padding-bottom: 5%;
+    padding-right: 5%;
+  }
+  .statistik-image-title {
+    font-size: 1.25rem;
+  }
+}

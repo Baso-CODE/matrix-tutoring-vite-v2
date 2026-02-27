@@ -1,0 +1,40 @@
+import React from "react";
+import "./Keunggulan.css";
+
+const Keunggulan = () => {
+  const keunggulanData = [
+    "/images/keunggulan/fitur-pelayanan-terbaik.webp",
+    "/images/keunggulan/hasil-membuktikan.webp",
+    "/images/keunggulan/kurikulum-personal.webp",
+    "/images/keunggulan/intensive-quiz.webp",
+    "/images/keunggulan/program-lengkap.webp",
+    "/images/keunggulan/pengajar-berkualitas.webp",
+    "/images/keunggulan/quality-control.webp",
+    "/images/keunggulan/smart-methode.webp",
+  ];
+
+  return (
+    <React.Fragment>
+      <section className="container-induk-testimonial-siswa-container">
+        <div className="container-all">
+          <div className="parent-box-keunggulan">
+            <h2 className="title-keunggulan">Keunggulan</h2>
+            <div className="parent-card-keunggulan">
+              {keunggulanData.map((item, index) => (
+                <img
+                  loading="lazy"
+                  key={index}
+                  className="keunggulan-img"
+                  src={item}
+                  alt="les privat Online & Guru ke Rumah (TK, SD, SMP, SMA, TKA, Mahasiswa, Bahasa Asing, Simak UI, SBMPTN) - Matrix Tutoring"
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+    </React.Fragment>
+  );
+};
+
+export default Keunggulan;
