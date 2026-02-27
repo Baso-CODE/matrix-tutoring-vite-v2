@@ -1,4 +1,4 @@
-import { Route, Routes, useLocation } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
 
 import AboutUsLesPrivate from "./Components/AboutUsLesPrivate/AboutUsLesPrivate";
@@ -32,7 +32,6 @@ import LesPrivateBahasaKelurahan from "./LesPrivate/LesPrivateBahasa/LesPrivateB
 import LesPrivateBahasaKota from "./LesPrivate/LesPrivateBahasa/LesPrivateBahasaKota/LesPrivateBahasaKota";
 
 import MatrixFooterV2 from "./Components/MatrixFooterV2/MatrixFooterV2";
-import LoadingSpinner from "./helper/LoadingSpinner/LoadingSpinner";
 import MoreModal from "./Home/MoreModal/MoreModal";
 import LesPrivateTKA from "./LesPrivate/LesPrivateAKM/LesPrivateTKA";
 import LesPrivateTKAKabupaten from "./LesPrivate/LesPrivateAKM/LesPrivateTKAKabupaten/LesPrivateTKAKabupaten";
@@ -68,12 +67,12 @@ import LesPrivateTKKelurahan from "./LesPrivate/LesPrivateTK/LesPrivateTkKelurah
 import LesPrivateTKKota from "./LesPrivate/LesPrivateTK/LesPrivateTKKota/LesPrivateTKKota";
 import { fetchContactCs } from "./lib/features/contactCsSlice";
 import { useAppDispatch } from "./lib/hooks";
+import AllBlog from "./pages/Blog/AllBlog/AllBlog";
+import BlogDetail from "./pages/Blog/BlogDetail/BlogDetail";
 import ContactUsPage from "./pages/ContactUs/ContactUsPage";
 import Promo from "./pages/Promo/Promo";
 import Term from "./pages/Term/Term";
 import Testimoni from "./pages/Testimoni/Testimoni";
-import BlogDetail from "./pages/Blog/BlogDetail/BlogDetail";
-import AllBlog from "./pages/Blog/AllBlog/AllBlog";
 
 // const TRACKING_ID = "G-NZRFMBB12N";
 // ReactGA.initialize(TRACKING_ID);
@@ -86,22 +85,10 @@ const mainNavItems = ["Home", "About Us", "Program"];
 const otherMenus = Menus.filter((menu) => !mainNavItems.includes(menu.name));
 
 function App() {
-  const [loading, setLoading] = useState(true);
-  const location = useLocation();
   const dispatch = useAppDispatch();
   useEffect(() => {
     dispatch(fetchContactCs());
   }, [dispatch]);
-
-  useEffect(() => {
-    setLoading(true);
-
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 1000); // tampilkan minimal 1 detik
-
-    return () => clearTimeout(timer);
-  }, [location]);
 
   const [showProgramModal, setShowProgramModal] = useState(false);
   const [showMoreModal, setShowMoreModal] = useState(false);
@@ -126,248 +113,249 @@ function App() {
     <>
       <ScrollToTop />
       <Nav />
-      {loading && <LoadingSpinner />}
-      <Routes>
-        <Route exact path="/" element={<Homepage />}></Route>
-        <Route exact path="/blog" element={<AllBlog />}></Route>
-        <Route exact path="/blog/:slug" element={<BlogDetail />}></Route>
-        {/* Rute dinamis untuk kota */}
-        <Route
-          exact
-          path="/les-privat-di-kota/:kotaSlug"
-          element={<Halamankota />}
-        />
-        {/* Rute dinamis untuk kabupaten */}
-        <Route
-          exact
-          path="/les-privat-di-kota/:kotaSlug/:kabupatenSlug"
-          element={<Halamankabupaten />}
-        />
-        {/* Rute dinamis untuk kecamatan */}
-        <Route
-          exact
-          path="/les-privat-di-kota/:kotaSlug/:kabupatenSlug/:kecamatanSlug"
-          element={<Halamankecamatan />}
-        />
-        {/* Rute dinamis untuk kelurahan */}
-        <Route
-          exact
-          path="/les-privat-di-kota/:kotaSlug/:kabupatenSlug/:kecamatanSlug/:kelurahanSlug"
-          element={<Halamankelurahan />}
-        />
+      <main>
+        <Routes>
+          <Route exact path="/" element={<Homepage />}></Route>
+          <Route exact path="/blog" element={<AllBlog />}></Route>
+          <Route exact path="/blog/:slug" element={<BlogDetail />}></Route>
+          {/* Rute dinamis untuk kota */}
+          <Route
+            exact
+            path="/les-privat-di-kota/:kotaSlug"
+            element={<Halamankota />}
+          />
+          {/* Rute dinamis untuk kabupaten */}
+          <Route
+            exact
+            path="/les-privat-di-kota/:kotaSlug/:kabupatenSlug"
+            element={<Halamankabupaten />}
+          />
+          {/* Rute dinamis untuk kecamatan */}
+          <Route
+            exact
+            path="/les-privat-di-kota/:kotaSlug/:kabupatenSlug/:kecamatanSlug"
+            element={<Halamankecamatan />}
+          />
+          {/* Rute dinamis untuk kelurahan */}
+          <Route
+            exact
+            path="/les-privat-di-kota/:kotaSlug/:kabupatenSlug/:kecamatanSlug/:kelurahanSlug"
+            element={<Halamankelurahan />}
+          />
 
-        <Route exact path="*" element={<Homepage />}></Route>
-        {/* Go to Search Kelas */}
+          <Route exact path="*" element={<Homepage />}></Route>
+          {/* Go to Search Kelas */}
 
-        <Route
-          exact
-          path="/tentang-kami"
-          element={<AboutUsLesPrivate />}></Route>
+          <Route
+            exact
+            path="/tentang-kami"
+            element={<AboutUsLesPrivate />}></Route>
 
-        {/* LES PRIVATE */}
-        {/* LES PRIVATE TK */}
-        <Route
-          exact
-          path="/bimbel-les-privat-tk-terbaik"
-          element={<LesPrivateTK />}></Route>
-        <Route
-          exact
-          path="/bimbel-les-privat-tk-terbaik/kota/:slug"
-          element={<LesPrivateTKKota />}></Route>
-        <Route
-          exact
-          path="/bimbel-les-privat-tk-terbaik/kabupaten/:slug"
-          element={<LesPrivateTKKabupaten />}></Route>
-        <Route
-          exact
-          path="/bimbel-les-privat-tk-terbaik/kecamatan/:slug"
-          element={<LesPrivateTKKecamatan />}></Route>
-        <Route
-          exact
-          path="/bimbel-les-privat-tk-terbaik/kelurahan/:slug"
-          element={<LesPrivateTKKelurahan />}></Route>
+          {/* LES PRIVATE */}
+          {/* LES PRIVATE TK */}
+          <Route
+            exact
+            path="/bimbel-les-privat-tk-terbaik"
+            element={<LesPrivateTK />}></Route>
+          <Route
+            exact
+            path="/bimbel-les-privat-tk-terbaik/kota/:slug"
+            element={<LesPrivateTKKota />}></Route>
+          <Route
+            exact
+            path="/bimbel-les-privat-tk-terbaik/kabupaten/:slug"
+            element={<LesPrivateTKKabupaten />}></Route>
+          <Route
+            exact
+            path="/bimbel-les-privat-tk-terbaik/kecamatan/:slug"
+            element={<LesPrivateTKKecamatan />}></Route>
+          <Route
+            exact
+            path="/bimbel-les-privat-tk-terbaik/kelurahan/:slug"
+            element={<LesPrivateTKKelurahan />}></Route>
 
-        {/* LES PRIVATE SD */}
-        <Route
-          exact
-          path="/bimbel-les-privat-sd-terbaik"
-          element={<LesPrivateSD />}></Route>
-        <Route
-          exact
-          path="/bimbel-les-privat-sd-terbaik/kota/:slug"
-          element={<LesPrivateSDKota />}></Route>
-        <Route
-          exact
-          path="/bimbel-les-privat-sd-terbaik/kabupaten/:slug"
-          element={<LesPrivateSDKabupaten />}></Route>
-        <Route
-          exact
-          path="/bimbel-les-privat-sd-terbaik/kecamatan/:slug"
-          element={<LesPrivateSDKecamatan />}></Route>
-        <Route
-          exact
-          path="/bimbel-les-privat-sd-terbaik/kelurahan/:slug"
-          element={<LesPrivateSDKelurahan />}></Route>
+          {/* LES PRIVATE SD */}
+          <Route
+            exact
+            path="/bimbel-les-privat-sd-terbaik"
+            element={<LesPrivateSD />}></Route>
+          <Route
+            exact
+            path="/bimbel-les-privat-sd-terbaik/kota/:slug"
+            element={<LesPrivateSDKota />}></Route>
+          <Route
+            exact
+            path="/bimbel-les-privat-sd-terbaik/kabupaten/:slug"
+            element={<LesPrivateSDKabupaten />}></Route>
+          <Route
+            exact
+            path="/bimbel-les-privat-sd-terbaik/kecamatan/:slug"
+            element={<LesPrivateSDKecamatan />}></Route>
+          <Route
+            exact
+            path="/bimbel-les-privat-sd-terbaik/kelurahan/:slug"
+            element={<LesPrivateSDKelurahan />}></Route>
 
-        {/* LES PRIVATE SMP */}
-        <Route
-          exact
-          path="/bimbel-les-privat-smp-terbaik"
-          element={<LesPrivateSMP />}></Route>
-        <Route
-          exact
-          path="/bimbel-les-privat-smp-terbaik/kota/:slug"
-          element={<LesPrivateSMPKota />}></Route>
-        <Route
-          exact
-          path="/bimbel-les-privat-smp-terbaik/kabupaten/:slug"
-          element={<LesPrivateSMPKabupaten />}></Route>
-        <Route
-          exact
-          path="/bimbel-les-privat-smp-terbaik/kecamatan/:slug"
-          element={<LesPrivateSMPKecamatan />}></Route>
-        <Route
-          exact
-          path="/bimbel-les-privat-smp-terbaik/kelurahan/:slug"
-          element={<LesPrivateSMPKelurahan />}></Route>
+          {/* LES PRIVATE SMP */}
+          <Route
+            exact
+            path="/bimbel-les-privat-smp-terbaik"
+            element={<LesPrivateSMP />}></Route>
+          <Route
+            exact
+            path="/bimbel-les-privat-smp-terbaik/kota/:slug"
+            element={<LesPrivateSMPKota />}></Route>
+          <Route
+            exact
+            path="/bimbel-les-privat-smp-terbaik/kabupaten/:slug"
+            element={<LesPrivateSMPKabupaten />}></Route>
+          <Route
+            exact
+            path="/bimbel-les-privat-smp-terbaik/kecamatan/:slug"
+            element={<LesPrivateSMPKecamatan />}></Route>
+          <Route
+            exact
+            path="/bimbel-les-privat-smp-terbaik/kelurahan/:slug"
+            element={<LesPrivateSMPKelurahan />}></Route>
 
-        {/* LES PRIVATE SMA */}
-        <Route
-          exact
-          path="/bimbel-les-privat-sma-terbaik"
-          element={<LesPrivateSMA />}></Route>
-        <Route
-          exact
-          path="/bimbel-les-privat-sma-terbaik/kota/:slug"
-          element={<LesPrivateSMAKota />}></Route>
-        <Route
-          exact
-          path="/bimbel-les-privat-sma-terbaik/kabupaten/:slug"
-          element={<LesPrivateSMAKabupaten />}></Route>
-        <Route
-          exact
-          path="/bimbel-les-privat-sma-terbaik/kecamatan/:slug"
-          element={<LesPrivateSMAKecamatan />}></Route>
-        <Route
-          exact
-          path="/bimbel-les-privat-sma-terbaik/kelurahan/:slug"
-          element={<LesPrivateSMAKelurahan />}></Route>
+          {/* LES PRIVATE SMA */}
+          <Route
+            exact
+            path="/bimbel-les-privat-sma-terbaik"
+            element={<LesPrivateSMA />}></Route>
+          <Route
+            exact
+            path="/bimbel-les-privat-sma-terbaik/kota/:slug"
+            element={<LesPrivateSMAKota />}></Route>
+          <Route
+            exact
+            path="/bimbel-les-privat-sma-terbaik/kabupaten/:slug"
+            element={<LesPrivateSMAKabupaten />}></Route>
+          <Route
+            exact
+            path="/bimbel-les-privat-sma-terbaik/kecamatan/:slug"
+            element={<LesPrivateSMAKecamatan />}></Route>
+          <Route
+            exact
+            path="/bimbel-les-privat-sma-terbaik/kelurahan/:slug"
+            element={<LesPrivateSMAKelurahan />}></Route>
 
-        {/* LES PRIVIATE TKA */}
-        <Route
-          exact
-          path="/bimbel-tka-tes-kemampuan-akademik"
-          element={<LesPrivateTKA />}></Route>
-        <Route
-          exact
-          path="/bimbel-tka-tes-kemampuan-akademik/kota/:slug"
-          element={<LesPrivateTKAKota />}></Route>
-        <Route
-          exact
-          path="/bimbel-tka-tes-kemampuan-akademik/kabupaten/:slug"
-          element={<LesPrivateTKAKabupaten />}></Route>
-        <Route
-          exact
-          path="/bimbel-tka-tes-kemampuan-akademik/kecamatan/:slug"
-          element={<LesPrivateTKAKecamatan />}></Route>
-        <Route
-          exact
-          path="/bimbel-tka-tes-kemampuan-akademik/kelurahan/:slug"
-          element={<LesPrivateTKAKelurahan />}></Route>
+          {/* LES PRIVIATE TKA */}
+          <Route
+            exact
+            path="/bimbel-tka-tes-kemampuan-akademik"
+            element={<LesPrivateTKA />}></Route>
+          <Route
+            exact
+            path="/bimbel-tka-tes-kemampuan-akademik/kota/:slug"
+            element={<LesPrivateTKAKota />}></Route>
+          <Route
+            exact
+            path="/bimbel-tka-tes-kemampuan-akademik/kabupaten/:slug"
+            element={<LesPrivateTKAKabupaten />}></Route>
+          <Route
+            exact
+            path="/bimbel-tka-tes-kemampuan-akademik/kecamatan/:slug"
+            element={<LesPrivateTKAKecamatan />}></Route>
+          <Route
+            exact
+            path="/bimbel-tka-tes-kemampuan-akademik/kelurahan/:slug"
+            element={<LesPrivateTKAKelurahan />}></Route>
 
-        {/* LES PRIVATE MAHASISWA */}
-        <Route
-          exact
-          path="/bimbel-les-privat-mahasiswa-terbaik"
-          element={<LesPrivateMahasiswa />}></Route>
-        <Route
-          exact
-          path="/bimbel-les-privat-mahasiswa-terbaik/kota/:slug"
-          element={<LesPrivateMahasiswaKota />}></Route>
-        <Route
-          exact
-          path="/bimbel-les-privat-mahasiswa-terbaik/kabupaten/:slug"
-          element={<LesPrivateMahasiswaKabupaten />}></Route>
-        <Route
-          exact
-          path="/bimbel-les-privat-mahasiswa-terbaik/kecamatan/:slug"
-          element={<LesPrivateMahasiswaKecamatan />}></Route>
-        <Route
-          exact
-          path="/bimbel-les-privat-mahasiswa-terbaik/kelurahan/:slug"
-          element={<LesPrivateMahasiswaKelurahan />}></Route>
+          {/* LES PRIVATE MAHASISWA */}
+          <Route
+            exact
+            path="/bimbel-les-privat-mahasiswa-terbaik"
+            element={<LesPrivateMahasiswa />}></Route>
+          <Route
+            exact
+            path="/bimbel-les-privat-mahasiswa-terbaik/kota/:slug"
+            element={<LesPrivateMahasiswaKota />}></Route>
+          <Route
+            exact
+            path="/bimbel-les-privat-mahasiswa-terbaik/kabupaten/:slug"
+            element={<LesPrivateMahasiswaKabupaten />}></Route>
+          <Route
+            exact
+            path="/bimbel-les-privat-mahasiswa-terbaik/kecamatan/:slug"
+            element={<LesPrivateMahasiswaKecamatan />}></Route>
+          <Route
+            exact
+            path="/bimbel-les-privat-mahasiswa-terbaik/kelurahan/:slug"
+            element={<LesPrivateMahasiswaKelurahan />}></Route>
 
-        {/* LES PRIVATE BAHASA */}
-        <Route
-          exact
-          path="/kursus-bahasa-asing-terbaik"
-          element={<LesPrivateBahasa />}></Route>
-        <Route
-          exact
-          path="/kursus-bahasa-asing-terbaik/kota/:slug"
-          element={<LesPrivateBahasaKota />}></Route>
-        <Route
-          exact
-          path="/kursus-bahasa-asing-terbaik/kabupaten/:slug"
-          element={<LesPrivateBahasaKabupaten />}></Route>
-        <Route
-          exact
-          path="/kursus-bahasa-asing-terbaik/kecamatan/:slug"
-          element={<LesPrivateBahasaKecamatan />}></Route>
-        <Route
-          exact
-          path="/kursus-bahasa-asing-terbaik/kelurahan/:slug"
-          element={<LesPrivateBahasaKelurahan />}></Route>
+          {/* LES PRIVATE BAHASA */}
+          <Route
+            exact
+            path="/kursus-bahasa-asing-terbaik"
+            element={<LesPrivateBahasa />}></Route>
+          <Route
+            exact
+            path="/kursus-bahasa-asing-terbaik/kota/:slug"
+            element={<LesPrivateBahasaKota />}></Route>
+          <Route
+            exact
+            path="/kursus-bahasa-asing-terbaik/kabupaten/:slug"
+            element={<LesPrivateBahasaKabupaten />}></Route>
+          <Route
+            exact
+            path="/kursus-bahasa-asing-terbaik/kecamatan/:slug"
+            element={<LesPrivateBahasaKecamatan />}></Route>
+          <Route
+            exact
+            path="/kursus-bahasa-asing-terbaik/kelurahan/:slug"
+            element={<LesPrivateBahasaKelurahan />}></Route>
 
-        {/* LES PRIVATE SIMAK UI */}
-        <Route
-          exact
-          path="/bimbingan-simak-ui-terbaik"
-          element={<LesPrivateSimakUI />}></Route>
-        <Route
-          exact
-          path="/bimbingan-simak-ui-terbaik/kota/:slug"
-          element={<LesPrivateSimakUIKota />}></Route>
-        <Route
-          exact
-          path="/bimbingan-simak-ui-terbaik/kabupaten/:slug"
-          element={<LesPrivateSimakUIKabupaten />}></Route>
-        <Route
-          exact
-          path="/bimbingan-simak-ui-terbaik/kecamatan/:slug"
-          element={<LesPrivateSimakUIKecamatan />}></Route>
-        <Route
-          exact
-          path="/bimbingan-simak-ui-terbaik/kelurahan/:slug"
-          element={<LesPrivateSMAKelurahan />}></Route>
+          {/* LES PRIVATE SIMAK UI */}
+          <Route
+            exact
+            path="/bimbingan-simak-ui-terbaik"
+            element={<LesPrivateSimakUI />}></Route>
+          <Route
+            exact
+            path="/bimbingan-simak-ui-terbaik/kota/:slug"
+            element={<LesPrivateSimakUIKota />}></Route>
+          <Route
+            exact
+            path="/bimbingan-simak-ui-terbaik/kabupaten/:slug"
+            element={<LesPrivateSimakUIKabupaten />}></Route>
+          <Route
+            exact
+            path="/bimbingan-simak-ui-terbaik/kecamatan/:slug"
+            element={<LesPrivateSimakUIKecamatan />}></Route>
+          <Route
+            exact
+            path="/bimbingan-simak-ui-terbaik/kelurahan/:slug"
+            element={<LesPrivateSMAKelurahan />}></Route>
 
-        {/* LES PRIVATE SBMPTN */}
-        <Route
-          exact
-          path="/bimbingan-snbt-utbk-terbaik"
-          element={<LesPrivateSBMPTN />}></Route>
-        <Route
-          exact
-          path="/bimbingan-snbt-utbk-terbaik/kota/:slug"
-          element={<LesPrivateSBMPTNKkota />}></Route>
-        <Route
-          exact
-          path="/bimbingan-snbt-utbk-terbaik/kabupaten/:slug"
-          element={<LesPrivateSBMPTNKabupaten />}></Route>
-        <Route
-          exact
-          path="/bimbingan-snbt-utbk-terbaik/kecamatan/:slug"
-          element={<LesPrivateSBMPTNKecamatan />}></Route>
-        <Route
-          exact
-          path="/bimbingan-snbt-utbk-terbaik/kelurahan/:slug"
-          element={<LesPrivateSBMPTNKelurahan />}></Route>
-        <Route exact path="/tutor" element={<Tutor />}></Route>
-        <Route exact path="/testimoni" element={<Testimoni />}></Route>
-        <Route exact path="/promo" element={<Promo />}></Route>
-        <Route exact path="/term" element={<Term />}></Route>
-        <Route exact path="/contact-us" element={<ContactUsPage />}></Route>
-      </Routes>
+          {/* LES PRIVATE SBMPTN */}
+          <Route
+            exact
+            path="/bimbingan-snbt-utbk-terbaik"
+            element={<LesPrivateSBMPTN />}></Route>
+          <Route
+            exact
+            path="/bimbingan-snbt-utbk-terbaik/kota/:slug"
+            element={<LesPrivateSBMPTNKkota />}></Route>
+          <Route
+            exact
+            path="/bimbingan-snbt-utbk-terbaik/kabupaten/:slug"
+            element={<LesPrivateSBMPTNKabupaten />}></Route>
+          <Route
+            exact
+            path="/bimbingan-snbt-utbk-terbaik/kecamatan/:slug"
+            element={<LesPrivateSBMPTNKecamatan />}></Route>
+          <Route
+            exact
+            path="/bimbingan-snbt-utbk-terbaik/kelurahan/:slug"
+            element={<LesPrivateSBMPTNKelurahan />}></Route>
+          <Route exact path="/tutor" element={<Tutor />}></Route>
+          <Route exact path="/testimoni" element={<Testimoni />}></Route>
+          <Route exact path="/promo" element={<Promo />}></Route>
+          <Route exact path="/term" element={<Term />}></Route>
+          <Route exact path="/contact-us" element={<ContactUsPage />}></Route>
+        </Routes>
+      </main>
       {/* <MediaMassaMarquee /> */}
       <BottomNavigationBar
         onProgramClick={handleOpenProgramModal}
