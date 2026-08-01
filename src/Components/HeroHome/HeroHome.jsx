@@ -1,11 +1,11 @@
 /* eslint-disable react-hooks/exhaustive-deps */
+import { ArrowRightCircleIcon } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
+import ReusableButton from "../../helper/Button/ReusableButton/ReusableButton";
 import ImageModal from "../../helper/ImageModal/ImageModal";
 import { getAllRandomSlogans } from "../../helper/request/getAllSloganSRequest";
 import "./HeroHome.css";
-import { ArrowRightCircleIcon, MoveRight } from "lucide-react";
-import ReusableButton from "../../helper/Button/ReusableButton/ReusableButton";
 
 const HeroHome = ({ contactData }) => {
   const [dataSlogan, setDataSlogan] = useState(null);
@@ -150,7 +150,7 @@ const HeroHome = ({ contactData }) => {
         <span key={interval}>
           {String(timeLeft[interval]).padStart(2, "0")}
           {interval === "hours" ? ":" : interval === "minutes" ? ":" : ""}
-        </span>
+        </span>,
       );
     });
   }
@@ -328,14 +328,13 @@ const HeroHome = ({ contactData }) => {
                 bgColor="#ffffff"
                 borderColor="#007bff"
                 textColor="#007bff"
-                // onClick={handleConsultationClick}
                 icon={<ArrowRightCircleIcon />}
+                ariaLabel="Ambil promo les privat sekarang via WhatsApp"
               />
             </Link>
 
             <button className="button-how-to-order">
               {timerVisible && timerComponents.length ? (
-                // Jika timer terlihat dan berjalan, tampilkan timer
                 <span className="hero-timer-display">{timerComponents}</span>
               ) : (
                 // Jika tidak, tampilkan teks awal dengan ikon

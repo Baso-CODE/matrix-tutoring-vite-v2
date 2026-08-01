@@ -1,31 +1,33 @@
-import React from "react";
-import "./Floatingcta.css";
 import { selectContactCsData } from "../../lib/features/contactCsSlice";
 import { useAppSelector } from "../../lib/hooks";
+import "./Floatingcta.css";
 
 const Floatingcta = () => {
   const contactData = useAppSelector(selectContactCsData);
   return (
     <div className="box-float-main">
       <div className="main-parent-wa">
-        <label className="label-cta" htmlFor="">
+        <span className="label-cta" aria-hidden="true">
           Chat With Us
-        </label>
+        </span>
+
         <a
           className="parent-btn-wa"
           href={contactData?.link_cta}
           target="_blank"
-          rel="noopener noreferrer">
-          <button className="btn-float-wa">
+          rel="noopener noreferrer"
+          aria-label="Chat dengan kami via WhatsApp">
+          <span className="btn-float-wa" role="presentation">
             <span className="parent-icon-wa">
               <img
                 src="/images/icon-wa.svg"
                 alt=""
+                aria-hidden="true"
                 className="icon-wa"
                 loading="lazy"
               />
             </span>
-          </button>
+          </span>
         </a>
       </div>
     </div>
