@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
-import useEmblaCarousel from "embla-carousel-react";
-import Autoplay from "embla-carousel-autoplay";
-import "./TestimoniOrtuSiswa.css";
+import { useEffect, useState } from "react";
+import "swiper/css";
+import { Autoplay } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
 import { getAllTestimoniSiswaOrangTua } from "../../helper/request/getAllTestimoniSiswaOrangTua";
 import TestimoniCardOrtuSiswa from "./TestimoniCardOrtuSiswa";
+import "./TestimoniOrtuSiswa.css";
 
 const TestimoniOrtuSiswa = ({ location }) => {
   const [dataTestimoniOrangTua, setDataTestimoniOrtu] = useState([]);
@@ -20,21 +21,6 @@ const TestimoniOrtuSiswa = ({ location }) => {
     fetchDataOrangTua();
   }, []);
 
-  // Embla carousel instance
-  const [emblaRef] = useEmblaCarousel(
-    {
-      loop: true,
-      align: "start",
-      breakpoints: {
-        "(min-width: 768px)": { slidesToScroll: 2, slidesToShow: 2 },
-        "(min-width: 1024px)": { slidesToScroll: 3, slidesToShow: 3 },
-      },
-      slidesToScroll: 1,
-      slidesToShow: 1,
-    },
-    [Autoplay({ delay: 2800, stopOnInteraction: false })]
-  );
-
   return (
     <section className="container-all">
       <div className="testimonial-slider-ortu-siswa-container">
@@ -48,15 +34,22 @@ const TestimoniOrtuSiswa = ({ location }) => {
           membantu anak mereka mencapai potensi terbaiknya.
         </p>
 
-        <div className="embla" ref={emblaRef}>
-          <div className="embla__container">
-            {dataTestimoniOrangTua.map((data, index) => (
-              <div className="embla__slide-tesimoni-ortu" key={index}>
-                <TestimoniCardOrtuSiswa data={data} location={location} />
-              </div>
-            ))}
-          </div>
-        </div>
+        <Swiper
+          modules={[Autoplay]}
+          loop={true}
+          autoplay={{ delay: 2800, disableOnInteraction: false }}
+          slidesPerView={1}
+          spaceBetween={15}
+          breakpoints={{
+            768: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 },
+          }}>
+          {dataTestimoniOrangTua.map((data, index) => (
+            <SwiperSlide key={index}>
+              <TestimoniCardOrtuSiswa data={data} location={location} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
     </section>
   );

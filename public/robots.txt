@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://lesprivat.bimbelmatrix.com/sitemap.xml

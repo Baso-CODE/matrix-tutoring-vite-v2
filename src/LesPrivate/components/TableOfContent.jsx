@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import { Maximize2, Minimize2 } from "lucide-react";
+import { useState } from "react";
 import "./TableOfContents.css";
-import { MdOutlineCloseFullscreen } from "react-icons/md";
-import { MdOpenInFull } from "react-icons/md";
 
 const TableOfContents = ({ title = "Table of Contents", items }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -20,7 +19,7 @@ const TableOfContents = ({ title = "Table of Contents", items }) => {
               {title}
             </h2>
             <button className="toc-toggle" onClick={toggleOpen}>
-              {isOpen ? <MdOutlineCloseFullscreen /> : <MdOpenInFull />}
+              {isOpen ? <Minimize2 /> : <Maximize2 />}
             </button>
           </div>
           {isOpen && (

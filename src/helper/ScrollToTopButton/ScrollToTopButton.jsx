@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
-import { LuArrowUpToLine } from "react-icons/lu";
-import { motion } from "framer-motion"; // Impor dari framer-motion
+import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import { ArrowUpToLine } from "lucide-react";
+
 import "./ScrollToTopButton.css";
 
 const ScrollToTopButton = () => {
@@ -38,7 +39,7 @@ const ScrollToTopButton = () => {
           animate={{ y: [0, -20, 0] }} // Animasi naik dan turun
           transition={{ duration: 0.5, repeat: Infinity }} // Durasi dan pengulangan animasi
         >
-          <LuArrowUpToLine />
+          <ArrowUpToLine />
         </motion.button>
       )}
     </div>

@@ -1,6 +1,5 @@
 // LesPrivateBahasaList.js
-import React from "react";
-import { FaCheckCircle } from "react-icons/fa";
+import { CheckCircle } from "lucide-react";
 import "./LesPrivateBahasaList.css";
 
 const LesPrivateBahasaList = () => {
@@ -28,7 +27,7 @@ const LesPrivateBahasaList = () => {
       <ul className="subject-list-les-private-bahasa">
         {subjects.map((subject, index) => (
           <li key={index} className="subject-list-les-private-bahasa-item">
-            <FaCheckCircle className="subject-list-les-private-bahasa-icon" />
+            <CheckCircle className="subject-list-les-private-bahasa-icon" />
             <span className="subject-text">{subject} </span>
           </li>
         ))}

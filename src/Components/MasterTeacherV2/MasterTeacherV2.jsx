@@ -5,10 +5,10 @@ import "./MasterTeacherV2.css";
 import "swiper/css";
 import "swiper/css/pagination";
 
+import { Star } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { Autoplay, Pagination } from "swiper/modules";
 import { getAllMasterTeacherAlfa } from "../../helper/request/getAllMasterTeacherAlfa";
-import { FaStar } from "react-icons/fa";
 
 const MasterTeacherV2 = ({ location }) => {
   const [dataTutor, setDataTutor] = useState([]);
@@ -42,7 +42,7 @@ const MasterTeacherV2 = ({ location }) => {
     return (
       <div className="rating-stars">
         {[...Array(count)].map((_, i) => (
-          <FaStar key={i} className="star-icon-master-teacher" />
+          <Star key={i} className="star-icon-master-teacher" />
         ))}
       </div>
     );

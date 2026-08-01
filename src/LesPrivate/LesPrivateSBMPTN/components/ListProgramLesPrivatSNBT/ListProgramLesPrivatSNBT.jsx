@@ -1,4 +1,4 @@
-import { FaCheckCircle } from "react-icons/fa";
+import { CheckCircle } from "lucide-react";
 import { listProgramSNBT_UTBK } from "../../../../helper/DummyData/ListProgramSNBT";
 import "./ListProgramLesPrivatSNBT.css";
 
@@ -16,7 +16,7 @@ const ListProgramLesPrivatSNBT = () => {
         <ul className="subject-list_program_SNBT">
           {listProgramSNBT_UTBK.map((subject, index) => (
             <li key={index} className="subject-list_program_SNBT-item">
-              <FaCheckCircle className="subject-list_program_SNBT-icon" />
+              <CheckCircle className="subject-list_program_SNBT-icon" />
               {subject}
             </li>
           ))}

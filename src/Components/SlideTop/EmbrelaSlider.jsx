@@ -1,26 +1,17 @@
-/* eslint-disable no-unused-vars */
+import "lazysizes";
 import React, { useEffect, useState } from "react";
+import "swiper/css";
+import { Autoplay } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
 import { getAllSliderHeader2 } from "../../helper/request/getAllSliderHeader2Request";
 import { getAllSliderHeader } from "../../helper/request/getAllSliderHeaderRequest";
-import useEmblaCarousel from "embla-carousel-react";
-import Autoplay from "embla-carousel-autoplay";
-import "lazysizes";
-import "./Slidertop.css";
-import "./EmbrelaSlider.css";
-import { useAppSelector } from "../../lib/hooks";
 import { selectContactCsData } from "../../lib/features/contactCsSlice";
+import { useAppSelector } from "../../lib/hooks";
+import "./EmbrelaSlider.css";
 
 const EmbrelaSlider = ({ location }) => {
   const [sliderHeader, setSliderHeader] = useState([]);
   const [sliderHeader2, setSliderHeader2] = useState([]);
-
-  // Embla hook with Autoplay plugin
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [
-    Autoplay({ delay: 1800, stopOnInteraction: true }),
-  ]);
-  const [emblaRef2, emblaApi2] = useEmblaCarousel({ loop: true }, [
-    Autoplay({ delay: 1800, stopOnInteraction: true }),
-  ]);
 
   useEffect(() => {
     fetchSliderHeader();
@@ -45,64 +36,68 @@ const EmbrelaSlider = ({ location }) => {
     }
   };
 
-  const lazyLoadImage = (src) => (
-    <img
-      loading="eager"
-      data-src={src}
-      alt={`Program Bimbel - les privat Online & Guru ke Rumah (TK, SD, SMP, SMA, TKA, Mahasiswa, Bahasa Asing, Simak UI, SBMPTN) di ${
-        location ? `${location}` : "Indonesia"
-      } - Matrix Tutoring`}
-      className="lazyload"
-      width="1298"
-      height="319"
-    />
-  );
-
   const contactData = useAppSelector(selectContactCsData);
-
   const finalUrl = contactData?.link_cta;
+
+  const altText = `Program Bimbel - les privat Online & Guru ke Rumah (TK, SD, SMP, SMA, TKA, Mahasiswa, Bahasa Asing, Simak UI, SBMPTN) di ${
+    location ? location : "Indonesia"
+  } - Matrix Tutoring`;
+
+  const swiperConfig = {
+    modules: [Autoplay],
+    loop: true,
+    autoplay: { delay: 1800, disableOnInteraction: true },
+    slidesPerView: 1,
+  };
 
   return (
     <React.Fragment>
-      {/* Slider for desktop */}
       <div className="container-slider">
+        {/* Slider Desktop */}
         <div className="slider-top desktop-only">
-          <div className="embla" ref={emblaRef}>
-            <div className="embla__container">
-              {sliderHeader.map((item, index) => (
-                <div className="embla__slide top-slider" key={index}>
-                  <div className="slider">
-                    <a
-                      href={finalUrl}
-                      target="_blank"
-                      rel="noopener noreferrer">
-                      {lazyLoadImage(item.url)}
-                    </a>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+          <Swiper {...swiperConfig}>
+            {sliderHeader.map((item, index) => (
+              <SwiperSlide key={index}>
+                <a href={finalUrl} target="_blank" rel="noopener noreferrer">
+                  <img
+                    data-src={item.url}
+                    alt={altText}
+                    className="lazyload"
+                    loading="eager"
+                    width="1000"
+                    height="319"
+                    style={{
+                      width: "100%",
+                      height: "auto",
+                      display: "block",
+                      borderRadius: "12px",
+                    }}
+                  />
+                </a>
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
 
-        {/* Slider for mobile */}
+        {/* Slider Mobile */}
         <div className="slider-top-2 mobile-only">
-          <div className="embla" ref={emblaRef2}>
-            <div className="embla__container">
-              {sliderHeader2.map((item, index) => (
-                <div className="embla__slide top-slider" key={index}>
-                  <div className="slider">
-                    <a
-                      href={finalUrl}
-                      target="_blank"
-                      rel="noopener noreferrer">
-                      {lazyLoadImage(item.url)}
-                    </a>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+          <Swiper {...swiperConfig}>
+            {sliderHeader2.map((item, index) => (
+              <SwiperSlide key={index}>
+                <a href={finalUrl} target="_blank" rel="noopener noreferrer">
+                  <img
+                    data-src={item.url}
+                    alt={altText}
+                    className="lazyload"
+                    loading="eager"
+                    width="1298"
+                    height="319"
+                    style={{ width: "100%", height: "auto", display: "block" }}
+                  />
+                </a>
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
       </div>
     </React.Fragment>

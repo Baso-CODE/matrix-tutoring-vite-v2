@@ -2,15 +2,14 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { selectContactCsData } from "../../../lib/features/contactCsSlice";
 import { useAppSelector } from "../../../lib/hooks";
-import ReusableButton from "../../Button/ReusableButton/ReusableButton";
 import { Menus } from "../../utils";
 import NavDescktop from "../NavDescktop/NavDescktop";
 import "./Nav.css";
-import { PhoneCall } from "lucide-react";
 
 const Nav = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const contactData = useAppSelector(selectContactCsData);
+  console.log("ini adalah data contact data", contactData);
 
   const handleConsultationClick = () => {
     window.location.href = contactData.link_cta;

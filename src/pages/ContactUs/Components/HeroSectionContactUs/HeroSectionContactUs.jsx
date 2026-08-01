@@ -39,6 +39,12 @@ const HeroSectionContactUs = () => {
                   0857 4728 1466
                 </a>
               </li>
+              <li>
+                <span className="contact-name">Ms. Syifa:</span>
+                <a href="tel:08131971916" className="contact-link">
+                  0813 1971 916
+                </a>
+              </li>
             </ul>
           </div>
 

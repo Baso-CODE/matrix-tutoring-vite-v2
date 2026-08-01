@@ -1,6 +1,5 @@
 // LesPrivateMahasiswaList.js
-import React from "react";
-import { FaCheckCircle } from "react-icons/fa";
+import { CheckCircle } from "lucide-react";
 import "./LesPrivateMahasiswaList.css";
 
 const LesPrivateMahasiswaList = () => {
@@ -56,7 +55,7 @@ const LesPrivateMahasiswaList = () => {
       <ul className="subject-list-les-private-mahasiswa">
         {subjects.map((subject, index) => (
           <li key={index} className="subject-list-les-private-mahasiswa-item">
-            <FaCheckCircle className="subject-list-les-private-mahasiswa-icon" />
+            <CheckCircle className="subject-list-les-private-mahasiswa-icon" />
             {subject}
           </li>
         ))}

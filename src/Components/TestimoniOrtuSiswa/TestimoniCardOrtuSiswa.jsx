@@ -1,5 +1,5 @@
+import { Star } from "lucide-react";
 import "./TestimoniCardOrtuSiswa.css";
-import { FaStar } from "react-icons/fa";
 
 const TestimoniCardOrtuSiswa = ({ data, location }) => {
   const { name, hubungan_dengan_siswa, testimoni, link_image } = data;
@@ -7,7 +7,7 @@ const TestimoniCardOrtuSiswa = ({ data, location }) => {
   const solidStars = Array(5)
     .fill(null)
     .map((_, index) => (
-      <FaStar
+      <Star
         key={index}
         color="#FFD700" // Warna Kuning
         size={20}

@@ -7,19 +7,24 @@ const MatrixFooterV2 = () => {
 
   const consultationContacts = [
     {
-      name: "Ms. Dita (Nasional)",
+      name: "Ms. Dita",
       phone: "085817279118",
       link: "https://api.whatsapp.com/send?phone=6285817279118&text=Halo%20Ms.%20Dita,%20saya%20tertarik%20dengan%20program%20Matrix%20Tutoring.",
     },
     {
-      name: "Ms. Eka (Nasional)",
+      name: "Ms. Eka",
       phone: "087783999349",
       link: "https://api.whatsapp.com/send?phone=6287783999349&text=Halo%20Ms.%20Eka,%20saya%20tertarik%20dengan%20program%20Matrix%20Tutoring.",
     },
     {
-      name: "Ms. Linda (Internasional)",
+      name: "Ms. Linda",
       phone: "085747281466",
       link: "https://api.whatsapp.com/send?phone=6285747281466&text=Halo%20Ms.%20Linda,%20saya%20tertarik%20dengan%20program%20Matrix%20Tutoring.",
+    },
+    {
+      name: "Ms. Syifa",
+      phone: "08131971916",
+      link: "https://api.whatsapp.com/send?phone=628131971916&text=Halo%20Ms.%20Syifa,%20saya%20tertarik%20dengan%20program%20Matrix%20Tutoring.",
     },
   ];
 

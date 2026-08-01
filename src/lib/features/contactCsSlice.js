@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { getSingleLoopContactCS } from "../../helper/request/getSingleLoopContactCs";
 
 // Initial state
@@ -17,10 +17,10 @@ export const fetchContactCs = createAsyncThunk(
       return response.data;
     } catch (error) {
       return rejectWithValue(
-        error.response?.data || "Failed to fetch contact CS data"
+        error.message || "Failed to fetch contact CS data",
       );
     }
-  }
+  },
 );
 
 const contactCsSlice = createSlice({

@@ -1,4 +1,4 @@
-import { FaCheckCircle } from "react-icons/fa";
+import { CheckCircle } from "lucide-react";
 import "./LesPrivateSBMPTNList.css";
 
 const LesPrivateSBMPTNList = () => {
@@ -21,7 +21,7 @@ const LesPrivateSBMPTNList = () => {
       <ul className="subject-list-les-private-SBMPTN">
         {subjects.map((subject, index) => (
           <li key={index} className="subject-list-les-private-SBMPTN-item">
-            <FaCheckCircle className="subject-list-les-private-SBMPTN-icon" />
+            <CheckCircle className="subject-list-les-private-SBMPTN-icon" />
             <span className="subject-text">{subject}</span>
           </li>
         ))}

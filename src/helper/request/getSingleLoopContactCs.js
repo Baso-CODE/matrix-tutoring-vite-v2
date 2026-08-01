@@ -1,22 +1,48 @@
-// src/services/kotaService.js
-
-import { baseUrlClient } from "../config";
-
 export async function getSingleLoopContactCS() {
-  try {
-    const response = await fetch(`${baseUrlClient}/get/single-loop/`, {
-      method: "GET",
-    });
+  const consultationContacts = [
+    {
+      name: "Ms. Dita",
+      phone: "085817279118",
+      link_cta:
+        "https://api.whatsapp.com/send?phone=6285817279118&text=Halo%20Ms.%20Dita,%20saya%20tertarik%20dengan%20program%20Matrix%20Tutoring.",
+    },
+    {
+      name: "Ms. Eka",
+      phone: "087783999349",
+      link_cta:
+        "https://api.whatsapp.com/send?phone=6287783999349&text=Halo%20Ms.%20Eka,%20saya%20tertarik%20dengan%20program%20Matrix%20Tutoring.",
+    },
+    {
+      name: "Ms. Linda",
+      phone: "085747281466",
+      link_cta:
+        "https://api.whatsapp.com/send?phone=6285747281466&text=Halo%20Ms.%20Linda,%20saya%20tertarik%20dengan%20program%20Matrix%20Tutoring.",
+    },
+    {
+      name: "Ms. Syifa",
+      phone: "08131971916",
+      link_cta:
+        "https://api.whatsapp.com/send?phone=628131971916&text=Halo%20Ms.%20Syifa,%20saya%20tertarik%20dengan%20program%20Matrix%20Tutoring.",
+    },
+  ];
 
-    const result = await response.json();
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      // 1. Ambil index terakhir dari localStorage (default 0 jika belum ada)
+      const currentIndex =
+        parseInt(localStorage.getItem("cs_contact_index")) || 0;
 
-    if (!response.ok) {
-      throw new Error(result.message || "Gagal get faq");
-    }
+      // 2. Pilih 1 CS berdasarkan index saat ini
+      const selectedCS = consultationContacts[currentIndex];
 
-    return result;
-  } catch (error) {
-    console.error("Error get faq", error);
-    throw error;
-  }
+      // 3. Hitung index berikutnya (jika sudah di akhir array, kembali ke 0)
+      const nextIndex = (currentIndex + 1) % consultationContacts.length;
+
+      // 4. Simpan index berikutnya ke localStorage
+      localStorage.setItem("cs_contact_index", nextIndex);
+
+      // 5. Kembalikan 1 data CS saja ke Redux
+      resolve({ data: selectedCS });
+    }, 500);
+  });
 }

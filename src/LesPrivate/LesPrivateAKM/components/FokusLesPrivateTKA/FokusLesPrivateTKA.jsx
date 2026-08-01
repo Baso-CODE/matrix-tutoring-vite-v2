@@ -1,4 +1,4 @@
-import { FaCheckCircle } from "react-icons/fa";
+import { CheckCircle } from "lucide-react";
 import "./FokusLesPrivateTKA.css";
 
 const FokusLesPrivateTKA = () => {
@@ -48,7 +48,7 @@ const FokusLesPrivateTKA = () => {
         <ul className="subject-list-les-private-mahasiswa">
           {subjects.map((subject, index) => (
             <li key={index} className="subject-list-les-private-mahasiswa-item">
-              <FaCheckCircle className="subject-list-les-private-mahasiswa-icon" />
+              <CheckCircle className="subject-list-les-private-mahasiswa-icon" />
               {subject}
             </li>
           ))}
