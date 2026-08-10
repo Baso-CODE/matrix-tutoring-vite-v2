@@ -1,14 +1,13 @@
-.university-flow-section {
+.simak-flow-section {
   text-align: center;
   background-color: #007bff;
-
   overflow: hidden;
   position: relative;
   font-family: "Poppins", sans-serif;
 }
 
-.university-flow-section::before,
-.university-flow-section::after {
+.simak-flow-section::before,
+.simak-flow-section::after {
   content: "";
   position: absolute;
   border-radius: 50%;
@@ -18,24 +17,24 @@
   pointer-events: none;
 }
 
-.university-flow-section::before {
+.simak-flow-section::before {
   width: 300px;
   height: 300px;
   top: -100px;
   left: -100px;
-  animation: floatEffect 12s infinite ease-in-out;
+  animation: simakFloatEffect 12s infinite ease-in-out;
 }
 
-.university-flow-section::after {
+.simak-flow-section::after {
   width: 350px;
   height: 350px;
   bottom: -120px;
   right: -120px;
   background: rgba(59, 130, 246, 0.03);
-  animation: floatEffect 14s infinite ease-in-out reverse;
+  animation: simakFloatEffect 14s infinite ease-in-out reverse;
 }
 
-@keyframes floatEffect {
+@keyframes simakFloatEffect {
   0% {
     transform: translate(0, 0) scale(1);
   }
@@ -47,7 +46,7 @@
   }
 }
 
-.university-flow-container {
+.simak-flow-container {
   padding-left: 10%;
   padding-right: 10%;
   position: relative;
@@ -56,7 +55,7 @@
   padding-bottom: 5%;
 }
 
-.university-flow-title {
+.simak-flow-title {
   font-size: 1.5rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -67,7 +66,7 @@
   text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.08);
 }
 
-.university-flow-subtitle {
+.simak-flow-subtitle {
   font-size: 0.9rem;
   color: #f2f2f2;
   margin-bottom: 70px;
@@ -78,7 +77,7 @@
   font-family: "Poppins", sans-serif;
 }
 
-.flow-steps-wrapper {
+.simak-steps-wrapper {
   display: grid;
   grid-template-columns: 1fr;
   gap: 60px;
@@ -87,7 +86,7 @@
 }
 
 /* Garis konektor vertikal (mobile) */
-.flow-steps-wrapper::before {
+.simak-steps-wrapper::before {
   content: "";
   position: absolute;
   top: 0;
@@ -100,7 +99,7 @@
   border-radius: 5px;
 }
 
-.flow-step-item {
+.simak-step-item {
   display: flex;
   align-items: flex-start;
   text-align: left;
@@ -116,59 +115,60 @@
   border: 1px solid #e6f0ff;
 }
 
-.flow-step-item:hover {
+.simak-step-item:hover {
   transform: translateY(-8px);
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
 }
 
 @media (max-width: 1024px) {
-  .university-flow-container {
+  .simak-flow-container {
     padding-left: 4%;
     padding-right: 4%;
   }
-  .flow-step-item:nth-child(odd) .flow-step-content {
+  .simak-step-item:nth-child(odd) .simak-step-content {
     padding-left: 0;
     padding-right: 0px;
   }
-  .flow-step-item:nth-child(even) .flow-step-content {
+  .simak-step-item:nth-child(even) .simak-step-content {
     padding-right: 0;
     padding-left: 0px;
   }
 }
+
 @media (min-width: 820px) {
-  .flow-steps-wrapper {
+  .simak-steps-wrapper {
     grid-template-columns: repeat(2, 1fr);
     gap: 40px 80px;
     padding: 0;
   }
 
-  .flow-steps-wrapper::before {
+  .simak-steps-wrapper::before {
     left: 50%;
     transform: translateX(-50%);
   }
 
-  .flow-step-item:nth-child(odd) {
+  .simak-step-item:nth-child(odd) {
     justify-self: end;
     text-align: right;
     padding-right: 60px;
   }
 
-  .flow-step-item:nth-child(even) {
+  .simak-step-item:nth-child(even) {
     justify-self: start;
     text-align: left;
     padding-left: 60px;
   }
 
-  .flow-step-item:nth-child(odd) .flow-step-content {
+  .simak-step-item:nth-child(odd) .simak-step-content {
     order: 1;
   }
 
-  .flow-step-item:nth-child(even) .flow-step-content {
+  .simak-step-item:nth-child(even) .simak-step-content {
     order: 2;
   }
 }
 
-.flow-step-icon-box {
+.simak-step-icon-box {
   background: linear-gradient(45deg, #007bff, #3b82f6);
   width: 60px;
   height: 60px;
@@ -186,19 +186,19 @@
 }
 
 @media (min-width: 768px) {
-  .flow-step-item:nth-child(odd) .flow-step-icon-box {
+  .simak-step-item:nth-child(odd) .simak-step-icon-box {
     left: unset;
-    right: -30px; /* Posisikan di garis tengah */
+    right: -30px;
     transform: translateY(-50%);
   }
-  .flow-step-item:nth-child(even) .flow-step-icon-box {
-    left: -30px; /* Posisikan di garis tengah */
+  .simak-step-item:nth-child(even) .simak-step-icon-box {
+    left: -30px;
     right: unset;
     transform: translateY(-50%);
   }
 }
 
-.flow-step-number {
+.simak-step-number {
   font-size: 0.9rem;
   font-weight: bold;
   color: #ffffff;
@@ -216,35 +216,35 @@
   z-index: 3;
 }
 
-.flow-step-icon {
+.simak-step-icon {
   width: 5rem;
   height: auto;
 }
 
-.flow-step-content {
+.simak-step-content {
   flex: 1;
   padding-left: 70px;
 }
 
 @media (min-width: 1200px) {
-  .flow-step-item:nth-child(odd) .flow-step-content {
+  .simak-step-item:nth-child(odd) .simak-step-content {
     padding-left: 0;
     padding-right: 0px;
   }
-  .flow-step-item:nth-child(even) .flow-step-content {
+  .simak-step-item:nth-child(even) .simak-step-content {
     padding-right: 0;
     padding-left: 0px;
   }
 }
 
 @media (max-width: 900px) {
-  .flow-step-content {
+  .simak-step-content {
     padding-left: 0;
     padding-right: 0;
   }
 }
 
-.flow-step-title {
+.simak-step-title {
   font-size: 1rem;
   font-weight: 700;
   color: #333333;
@@ -252,54 +252,53 @@
   font-family: "Poppins", sans-serif;
 }
 
-.flow-step-description {
+.simak-step-description {
   font-size: 0.9rem;
   color: #64748b;
   line-height: 1.6;
   font-family: "Poppins", sans-serif;
 }
 
-/* Responsivitas */
+/* Responsivitas Mobile */
 @media (max-width: 767px) {
-  /* Untuk mobile */
-  .university-flow-title {
+  .simak-flow-title {
     font-size: 1.2rem;
   }
-  .university-flow-subtitle {
+  .simak-flow-subtitle {
     font-size: 0.9rem;
     margin-bottom: 30px;
   }
-  .flow-steps-wrapper {
+  .simak-steps-wrapper {
     padding: 0;
   }
-  .flow-steps-wrapper::before {
+  .simak-steps-wrapper::before {
     left: 20px;
   }
-  .flow-step-item {
+  .simak-step-item {
     flex-direction: row;
     align-items: center;
     padding: 20px;
     margin-left: 34px;
     text-align: left;
   }
-  .flow-step-icon-box {
+  .simak-step-icon-box {
     position: absolute;
     left: -30px;
     top: 50%;
     transform: translateY(-50%);
   }
-  .flow-step-content {
+  .simak-step-content {
     padding-left: 0;
   }
-  .flow-step-title {
+  .simak-step-title {
     font-size: 1.1rem;
     padding-left: 19px;
   }
-  .flow-step-description {
+  .simak-step-description {
     font-size: 0.9rem;
     padding-left: 19px;
   }
-  .university-flow-container {
+  .simak-flow-container {
     padding-left: 4%;
     padding-right: 4%;
   }

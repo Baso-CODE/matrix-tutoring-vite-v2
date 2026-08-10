@@ -1,61 +1,77 @@
-.centered-content__preparationToPTN {
-  width: 100%;
-  margin-top: 20px;
-  margin-bottom: 20px;
+/* Layout Flexbox: Teks Kiri, Gambar Kanan */
+.prep-ptn-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
 }
 
-.centered-content__preparationToPTN h2 {
+.prep-ptn-text-content {
+  flex: 1;
+  text-align: left;
+}
+
+.prep-ptn-image-box {
+  flex: 1;
+  text-align: center;
+}
+
+/* Gambar */
+.prep-ptn-image-box img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* Heading */
+.prep-ptn-text-content h2 {
   font-size: 1.2rem;
   color: #333333;
-  font-family: "Poppins", sans-serif;
   font-weight: 700;
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.8rem;
   line-height: 1.4;
   border-left: 4px solid #0077ff;
   padding-left: 0.6rem;
 }
 
-.centered-content__preparationToPTN p {
+/* Paragraf */
+.prep-ptn-text-content p {
   font-size: 0.9rem;
   color: #4f4f4f;
   line-height: 1.6;
   font-weight: 400;
-  font-family: "Poppins", sans-serif;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.8rem;
 }
 
-.centered-content__preparationToPTN ul {
+/* List Umum & Checklist */
+.prep-ptn-container-all ul {
   margin-left: 1.2rem;
   margin-bottom: 1rem;
   list-style-type: disc;
 }
 
-.centered-content__preparationToPTN li {
+.prep-ptn-container-all li {
   margin-bottom: 0.3rem;
   color: #555555;
   font-size: 0.9rem;
   line-height: 1.5;
-  font-family: "Poppins", sans-serif;
 }
 
-/* --- Checklist style --- */
-.centered-content__preparationToPTN .checklist {
+.prep-ptn-container-all .checklist {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-.centered-content__preparationToPTN .checklist li {
+.prep-ptn-container-all .checklist li {
   position: relative;
   padding-left: 1.6rem;
   margin-bottom: 0.4rem;
-  font-size: 0.9rem;
   color: #444;
-  line-height: 1.5;
-  font-family: "Poppins", sans-serif;
 }
 
-.centered-content__preparationToPTN .checklist li::before {
+.prep-ptn-container-all .checklist li::before {
   content: "📌";
   position: absolute;
   left: 0;
@@ -64,14 +80,26 @@
   font-weight: bold;
 }
 
-/* Responsiveness */
+/* Responsiveness untuk Tablet & Mobile */
+@media (max-width: 1024px) {
+  .prep-ptn-wrapper {
+    flex-direction: column; /* Mengubah posisi gambar ke bawah teks di layar kecil */
+    gap: 25px;
+  }
+}
+
 @media (max-width: 768px) {
-  .centered-content__preparationToPTN h2 {
-    font-size: 1.2rem;
+  .prep-ptn-container-all {
+    padding-left: 4%;
+    padding-right: 4%;
   }
 
-  .centered-content__preparationToPTN p,
-  .centered-content__preparationToPTN li {
+  .prep-ptn-text-content h2 {
+    font-size: 1.1rem;
+  }
+
+  .prep-ptn-text-content p,
+  .prep-ptn-container-all li {
     font-size: 0.9rem;
   }
 }

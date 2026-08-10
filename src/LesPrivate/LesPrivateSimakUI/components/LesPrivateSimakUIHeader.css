@@ -1,13 +1,43 @@
-.centered-content-lesPrivate-simakUI {
+/* Container Utama */
+.simak-header-container-all {
   margin-top: 20px;
   margin-bottom: 20px;
+  font-family: "Poppins", sans-serif;
+  padding-left: 6%;
+  padding-right: 6%;
+}
+
+/* Layout Flexbox: Teks Kiri, Gambar Kanan */
+.simak-header-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.simak-header-text-content {
+  flex: 1;
+  text-align: left;
+}
+
+.simak-header-image-box {
+  flex: 1;
+  text-align: center;
+}
+
+/* Gambar */
+.simak-header-image-box img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
 
 /* Heading Utama */
-.centered-content-lesPrivate-simakUI h1 {
+.simak-header-container-all h1 {
   font-size: 1.4rem;
   color: #333333;
-  font-family: "Poppins", sans-serif;
   font-weight: 700;
   text-align: center;
   margin-bottom: 1.5rem;
@@ -15,67 +45,52 @@
 }
 
 /* Sub Heading */
-.centered-content-lesPrivate-simakUI h2 {
+.simak-header-container-all h2 {
   font-size: 1.2rem;
   color: #333333;
-  font-family: "Poppins", sans-serif;
   font-weight: 700;
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.8rem;
   line-height: 1.4;
   border-left: 4px solid #0077ff;
   padding-left: 0.6rem;
 }
 
 /* Sub-sub heading (h3) */
-.centered-content-lesPrivate-simakUI h3 {
+.simak-header-container-all h3 {
   font-size: 1.1rem;
   color: #343434;
   font-weight: 700;
-
   margin-bottom: 0.5rem;
 }
 
 /* Paragraf */
-.centered-content-lesPrivate-simakUI p {
+.simak-header-container-all p {
   font-size: 0.9rem;
   color: #4f4f4f;
-
   font-weight: 400;
-  font-family: "Poppins", sans-serif;
+  line-height: 1.6;
 }
 
 /* List */
-.centered-content-lesPrivate-simakUI ul {
+.simak-header-container-all ul {
   margin: 0.5rem 0 0.5rem 1.2rem;
   padding-left: 0.5rem;
   list-style: disc;
 }
 
-.centered-content-lesPrivate-simakUI ul li {
+.simak-header-container-all ul li {
   font-size: 0.9rem;
   color: #444;
   line-height: 1.6;
   position: relative;
 }
 
-.centered-content-lesPrivate-simakUI ul li::marker {
+.simak-header-container-all ul li::marker {
   color: #333333;
   font-size: 0.9rem;
 }
 
-/* Gambar */
-.image-lesPrivate {
-  margin: 2rem 0;
-  text-align: center;
-}
-
-.image-lesPrivate img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 10px;
-}
-
-.image-caption {
+.simak-header-image-caption {
   margin-top: 0.5rem;
   font-size: 0.9rem;
   color: #777777;
@@ -83,36 +98,38 @@
   text-align: center;
 }
 
-/* Responsiveness */
+/* Responsiveness untuk Tablet & Mobile */
 @media (max-width: 1024px) {
-  .centered-content-lesPrivate-simakUI h1 {
-    font-size: 1.5rem;
+  .simak-header-wrapper {
+    flex-direction: column; /* Mengubah layout menjadi ke bawah (stack) pada layar kecil */
+    gap: 20px;
   }
 
-  .centered-content-lesPrivate-simakUI h2 {
-    font-size: 1.2rem;
+  .simak-header-text-content {
+    text-align: left;
   }
 
-  .centered-content-lesPrivate-simakUI h3 {
+  .simak-header-container-all h1 {
+    font-size: 1.3rem;
+  }
+
+  .simak-header-container-all h2 {
     font-size: 1.1rem;
+  }
+
+  .simak-header-container-all h3 {
+    font-size: 1rem;
   }
 }
 
 @media (max-width: 768px) {
-  .centered-content-lesPrivate-simakUI h1 {
-    font-size: 1.3rem;
+  .simak-header-container-all {
+    padding-left: 4%;
+    padding-right: 4%;
   }
 
-  .centered-content-lesPrivate-simakUI h2 {
-    font-size: 1.1rem;
-  }
-
-  .centered-content-lesPrivate-simakUI h3 {
-    font-size: 1rem;
-  }
-
-  .centered-content-lesPrivate-simakUI p,
-  .centered-content-lesPrivate-simakUI ul li {
+  .simak-header-container-all p,
+  .simak-header-container-all ul li {
     font-size: 0.9rem;
   }
 }

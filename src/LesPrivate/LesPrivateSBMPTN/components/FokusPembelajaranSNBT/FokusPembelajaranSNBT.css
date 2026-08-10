@@ -1,23 +1,26 @@
-.container_learning_focus {
+/* Container Utama */
+.fokus-snbt-section {
   padding-left: 10%;
   padding-right: 10%;
   padding-bottom: 3%;
+  font-family: "Poppins", sans-serif;
 }
 
 @media (max-width: 768px) {
-  .container_learning_focus {
+  .fokus-snbt-section {
     padding-left: 4%;
     padding-right: 4%;
   }
 }
-.centered-content__learnhing_focus {
+
+.fokus-snbt-container {
   width: 100%;
 }
 
-.centered-content__learnhing_focus h2 {
+/* Heading */
+.fokus-snbt-container h2 {
   font-size: 1.2rem;
   color: #333333;
-  font-family: "Poppins", sans-serif;
   font-weight: 700;
   margin-bottom: 0.6rem;
   line-height: 1.5;
@@ -25,74 +28,92 @@
   padding-left: 0.6rem;
 }
 
-.centered-content__learnhing_focus h3 {
+.fokus-snbt-container h3 {
   font-size: 1.1rem;
   color: #333333;
-  font-family: "Poppins", sans-serif;
   font-weight: 600;
   margin-top: 1.2rem;
   margin-bottom: 0.5rem;
 }
 
-.learnhing_focus_description-h4 {
-  font-size: 1rem;
-  color: #4f4f4f;
-  line-height: 1.6;
-  font-weight: 400;
-  font-family: "Poppins", sans-serif;
-}
-.centered-content__learnhing_focus p {
+/* Paragraf */
+.fokus-snbt-container p {
   font-size: 0.9rem;
   color: #4f4f4f;
   line-height: 1.6;
   font-weight: 400;
-  font-family: "Poppins", sans-serif;
   margin-bottom: 0.7rem;
 }
 
-.centered-content__learnhing_focus ul {
+/* Layout Row & Kolom */
+.fokus-snbt-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-top: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.fokus-snbt-col {
+  flex: 1;
+  min-width: 280px;
+}
+
+/* Perbaikan Khusus Gambar */
+.fokus-snbt-img-box {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e2e8f0;
+  background-color: #f8fafc;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.fokus-snbt-img-box:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+.fokus-snbt-img-box img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+/* List Style */
+.fokus-snbt-container ul {
   margin-left: 1.2rem;
   margin-bottom: 1rem;
   list-style-type: disc;
 }
 
-.centered-content__learnhing_focus .numbered-list__learnhing-focus {
+.fokus-snbt-container .fokus-numbered-list {
   margin-left: 1.5rem;
-
   list-style-type: decimal;
 }
 
-.centered-content__learnhing_focus .numbered-list__learnhing-focus li {
+.fokus-snbt-container .fokus-numbered-list li {
   color: #555;
   font-size: 1rem;
   line-height: 1.5;
-  font-family: "Poppins", sans-serif;
-}
-
-.learnhing_focus_row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 30px; /* jarak antar kolom */
-  margin-bottom: 2rem;
-}
-
-.learnhing_focus_col {
-  flex: 1;
-  min-width: 300px; /* biar responsif */
 }
 
 /* Responsiveness */
 @media (max-width: 768px) {
-  .centered-content__learnhing_focus h2 {
+  .fokus-snbt-container h2 {
     font-size: 1.15rem;
   }
 
-  .centered-content__learnhing_focus h3 {
+  .fokus-snbt-container h3 {
     font-size: 1rem;
   }
 
-  .centered-content__learnhing_focus p,
-  .centered-content__learnhing_focus li {
+  .fokus-snbt-container p,
+  .fokus-snbt-container li {
     font-size: 0.9rem;
   }
 }

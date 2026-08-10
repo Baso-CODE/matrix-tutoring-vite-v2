@@ -1,6 +1,8 @@
+/* src/Components/FokusLesPrivateTKA/FokusLesPrivateTKA.css */
+
 .container-fokus_lesprivat_tka {
-  padding-left: 10%;
-  padding-right: 10%;
+  padding: 60px 10%;
+  background-color: #ffffff;
 }
 
 @media (max-width: 1024px) {
@@ -16,112 +18,104 @@
 }
 
 .centered-content__fokus_lesprivat_tka h2 {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   color: #333333;
   font-family: "Poppins", sans-serif;
   font-weight: 700;
-  margin-bottom: 0.3rem;
+  margin-bottom: 15px;
   line-height: 1.4;
   border-left: 4px solid #0077ff;
   padding-left: 0.6rem;
 }
 
-.centered-content__fokus_lesprivat_tka h3 {
-  font-size: 1.1rem;
-  color: #333333;
-  font-family: "Poppins", sans-serif;
-  font-weight: 700;
-  margin-top: 1.5rem;
-  margin-bottom: 0.5rem;
-}
-
-.centered-content__fokus_lesprivat_tka h4 {
-  font-size: 1.02rem;
-  color: #444444;
-  font-family: "Poppins", sans-serif;
-  font-weight: 600;
-  margin-bottom: 0.3rem;
-}
-
 .centered-content__fokus_lesprivat_tka p {
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   color: #4f4f4f;
   line-height: 1.6;
   font-weight: 400;
   font-family: "Poppins", sans-serif;
-  margin-bottom: 0.5rem;
-}
-
-.centered-content__fokus_lesprivat_tka ul {
   margin-bottom: 1rem;
-  list-style-type: disc;
 }
 
-.centered-content__fokus_lesprivat_tka li {
-  margin-bottom: 0.3rem;
+/* --- Numbered list style --- */
+.centered-content__fokus_lesprivat_tka .numbered-list {
+  margin-left: 1.5rem;
+  margin-bottom: 1.5rem;
+  list-style-type: decimal;
+}
+
+.centered-content__fokus_lesprivat_tka .numbered-list li {
+  margin-bottom: 0.5rem;
   color: #555555;
   font-size: 0.9rem;
   line-height: 1.5;
   font-family: "Poppins", sans-serif;
 }
 
-/* --- Checklist style --- */
-.centered-content__fokus_lesprivat_tka .checklist {
-  list-style: none; /* hilangkan bullet bawaan */
-  margin: 0;
+/* --- Subject List Grid Style (TKA) --- */
+.subject-list-les-private-mahasiswa {
+  list-style-type: none;
   padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px 20px;
+  margin-top: 15px;
 }
 
-.centered-content__fokus_lesprivat_tka .checklist li {
-  position: relative;
-  padding-left: 1.6rem; /* kasih ruang buat icon ceklis */
-  margin-bottom: 0.4rem;
-  font-size: 0.9rem;
-  color: #444;
-  line-height: 1.5;
+.subject-list-les-private-mahasiswa-item {
+  display: flex;
+  align-items: center;
   font-family: "Poppins", sans-serif;
-}
-
-.centered-content__fokus_lesprivat_tka .checklist li::before {
-  content: "✔"; /* ceklis manual */
-  position: absolute;
-  left: 0;
-  top: 0;
-  color: #0077ff; /* biru biar standout */
-  font-weight: bold;
-}
-
-/* --- Numbered list style --- */
-.centered-content__fokus_lesprivat_tka .numbered-list {
-  margin-left: 1.5rem;
-  margin-bottom: 1rem;
-  list-style-type: decimal;
-}
-
-.centered-content__fokus_lesprivat_tka .numbered-list li {
-  margin-bottom: 0.4rem;
-  color: #555;
+  color: #333333;
   font-size: 0.9rem;
-  line-height: 1.5;
-  font-family: "Poppins", sans-serif;
+  background-color: #f7faff;
+  border: 1px solid #e6f0ff;
+  padding: 10px 14px;
+  border-radius: 8px;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.subject-list-les-private-mahasiswa-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.subject-list-les-private-mahasiswa-icon {
+  width: 18px;
+  height: 18px;
+  min-width: 18px;
+  margin-right: 10px;
+  color: #007bff;
 }
 
 /* Responsiveness */
+@media (max-width: 1024px) {
+  .subject-list-les-private-mahasiswa {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media (max-width: 768px) {
   .centered-content__fokus_lesprivat_tka h2 {
     font-size: 1.2rem;
   }
 
-  .centered-content__fokus_lesprivat_tka h3 {
-    font-size: 1rem;
-  }
-
-  .centered-content__fokus_lesprivat_tka h4 {
-    font-size: 0.95rem;
-  }
-
   .centered-content__fokus_lesprivat_tka p,
   .centered-content__fokus_lesprivat_tka li {
     font-size: 0.9rem;
+  }
+
+  .subject-list-les-private-mahasiswa {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .subject-list-les-private-mahasiswa {
+    grid-template-columns: 1fr;
   }
 }

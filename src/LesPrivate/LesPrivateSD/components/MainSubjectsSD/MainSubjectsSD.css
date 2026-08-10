@@ -2,10 +2,9 @@
 
 .main-subjects-section {
   padding: 60px 20px;
-  background-color: #f9fafb; /* Latar belakang abu-abu sangat terang */
+  background-color: #007bff;
   text-align: center;
   padding-left: 10%;
-  background-color: #007bff;
   padding-right: 10%;
 }
 
@@ -42,33 +41,32 @@
   padding-top: 15px;
   z-index: 1;
   display: block;
-  padding-bottom: 50px; /* Ruang untuk pagination dots */
+  padding-bottom: 50px;
 }
-/* .swiper {
-  margin-left: auto;
-  margin-right: auto;
-  position: relative;
-  overflow: hidden;
-  list-style: none;
-  padding: 15 0px;
-  z-index: 1;
-  display: block;
-} */
+
+/* Wajib agar tinggi SwiperSlide di dalamnya meregang sama rata */
+.main-subjects-swiper .swiper-slide {
+  height: auto;
+  display: flex;
+}
 
 /* Styles for individual subject items (cards) */
 .subject-item {
-  background-color: #ffffff; /* Latar belakang putih untuk setiap item */
-  padding: 30px;
+  background-color: #ffffff;
+  padding: 25px;
   border-radius: 12px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   border: 1px solid #e5e7eb;
-  min-height: 43vh;
-  height: 100%;
+  width: 100%;
+  height: 100%; /* Memastikan card meregang mengisi tinggi swiper-slide */
   justify-content: flex-start;
 }
 
@@ -79,75 +77,74 @@
 }
 
 .subject-icon-wrapper {
-  width: 70px;
-  height: 70px;
-  background-color: #3b82f6; /* Biru sekunder/aksen */
-  border-radius: 50%;
+  width: 100%;
+  height: 140px;
+  background-color: #f7faff;
+  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 20px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  flex-shrink: 0;
+  margin-bottom: 15px;
+  overflow: hidden;
+  flex-shrink: 0; /* Mencegah wrapper ikut menyusut */
 }
 
 .subject-icon {
-  width: 10rem;
-  height: 10rem;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
+  padding: 10px;
 }
 
 .subject-item-title {
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   font-weight: 700;
-  color: #007bff; /* Biru utama */
+  color: #007bff;
   margin-bottom: 10px;
   font-family: "Poppins", sans-serif;
-  flex-shrink: 0;
+  flex-shrink: 0; /* Mencegah judul ikut menyusut */
 }
 
 .subject-item-text {
-  font-size: 1rem;
-  color: #4f4f4f; /* Teks sedang */
-  line-height: 1.6;
+  font-size: 0.9rem;
+  color: #4f4f4f;
+  line-height: 1.5;
   font-family: "Poppins", sans-serif;
-  flex-grow: 1;
+  flex-grow: 1; /* Membuat area teks mengisi sisa ruang secara fleksibel */
   display: -webkit-box;
-  -webkit-line-clamp: 4; /* Batasi hingga 4 baris */
-  line-clamp: 4; /* Standard property for compatibility */
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
+  margin: 0;
 }
 
-/* Swiper Navigation Arrows (Panah Kiri/Kanan) */
+/* Swiper Navigation Arrows */
 .swiper-button-next,
 .swiper-button-prev {
-  color: #007bff !important; /* Warna panah biru utama */
-  --swiper-navigation-size: 30px; /* Ukuran panah */
+  color: #ffffff !important;
+  --swiper-navigation-size: 25px;
 }
 
 .swiper-button-next:hover,
 .swiper-button-prev:hover {
-  color: #3b82f6 !important; /* Warna panah biru sekunder saat hover */
+  color: #fec200 !important;
 }
 
 /* Swiper Pagination Dots */
 .swiper-pagination-bullet {
-  background: #a0aec0 !important; /* Warna abu-abu default untuk dot */
-  opacity: 0.8;
+  background: #ffffff !important;
+  opacity: 0.6;
 }
 
 .swiper-pagination-bullet-active {
-  background: #007bff !important; /* Warna biru utama untuk dot aktif */
+  background: #fec200 !important;
   opacity: 1;
 }
 
 /* Responsivitas */
 @media (max-width: 1024px) {
-  .subject-item {
-    min-height: 28vh;
-  }
   .main-subjects-section {
     padding-right: 4%;
     padding-left: 4%;
@@ -167,22 +164,15 @@
     margin-bottom: 30px;
   }
   .subject-item {
-    padding: 20px 28px;
-    min-height: 33vh;
+    padding: 20px;
   }
   .subject-icon-wrapper {
-    width: 60px;
-    height: 60px;
+    height: 120px;
   }
-
   .subject-item-title {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
   .subject-item-text {
-    font-size: 0.9rem;
-  }
-  .main-subjects-section {
-    padding-right: 4%;
-    padding-left: 4%;
+    font-size: 0.88rem;
   }
 }

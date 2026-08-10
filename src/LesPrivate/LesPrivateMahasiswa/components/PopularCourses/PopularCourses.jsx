@@ -1,11 +1,10 @@
-import React from "react";
 import {
   BookText,
+  Code,
+  FlaskConical,
+  Stethoscope,
   TrendingUp,
   Users,
-  FlaskConical,
-  Code,
-  Stethoscope,
 } from "lucide-react";
 import Marquee from "react-fast-marquee"; // Import Marquee component
 import "./PopularCourses.css";
@@ -99,9 +98,7 @@ const PopularCourses = () => {
             speed={30} // Kecepatan gulir (sesuaikan sesuai keinginan)
             gradient={false} // Atur true jika ingin efek gradasi di ujung
             pauseOnHover={true} // Jeda saat mouse di atas marquee
-            // direction="left" // Default ke kiri, bisa diubah ke "right"
           >
-            {/* Hanya satu set konten, Marquee akan menduplikasinya secara internal */}
             {courseCategories.map((cat, index) => {
               const IconComponent = cat.icon;
               return (

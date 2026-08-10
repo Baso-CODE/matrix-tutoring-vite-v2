@@ -4,58 +4,59 @@
   margin-bottom: 20px;
 }
 
+/* Judul tetap full di atas */
 .centered-content__why-mtx-important h2 {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   color: #333333;
   font-family: "Poppins", sans-serif;
   font-weight: 700;
-  margin-bottom: 0.3rem;
+  margin-bottom: 25px;
   line-height: 1.4;
   border-left: 4px solid #0077ff;
   padding-left: 0.6rem;
 }
 
-.centered-content__why-mtx-important p {
+/* Layout Grid: Kiri Teks, Kanan Gambar */
+.why-mtx-grid-layout {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.why-mtx-text-content p {
   font-size: 0.9rem;
   color: #4f4f4f;
   line-height: 1.6;
   font-weight: 400;
   font-family: "Poppins", sans-serif;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.8rem;
 }
 
-.centered-content__why-mtx-important ul {
+.why-mtx-text-content ul {
   margin-left: 1.2rem;
   margin-bottom: 1rem;
   list-style-type: disc;
 }
 
-.centered-content__why-mtx-important li {
-  margin-bottom: 0.3rem;
-  color: #555555;
-  font-size: 0.9rem;
-  line-height: 1.5;
-  font-family: "Poppins", sans-serif;
-}
-
 /* --- Checklist style --- */
-.centered-content__why-mtx-important .checklist {
+.why-mtx-text-content .checklist {
   list-style: none;
-  margin: 0;
+  margin: 0 0 1rem 0;
   padding: 0;
 }
 
-.centered-content__why-mtx-important .checklist li {
+.why-mtx-text-content .checklist li {
   position: relative;
   padding-left: 1.6rem;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.5rem;
   font-size: 0.9rem;
   color: #444;
   line-height: 1.5;
   font-family: "Poppins", sans-serif;
 }
 
-.centered-content__why-mtx-important .checklist li::before {
+.why-mtx-text-content .checklist li::before {
   content: "📌";
   position: absolute;
   left: 0;
@@ -64,14 +65,35 @@
   font-weight: bold;
 }
 
-/* Responsiveness */
-@media (max-width: 768px) {
+/* --- Styling Responsif untuk Gambar di Kanan --- */
+.why-mtx-image-wrapper {
+  width: 100%;
+}
+
+.centered-content__why-mtx-important .les-privat-sma-image {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: 450px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  display: block;
+}
+
+/* Responsiveness untuk Tablet & Mobile */
+@media (max-width: 900px) {
+  .why-mtx-grid-layout {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
   .centered-content__why-mtx-important h2 {
     font-size: 1.2rem;
   }
 
-  .centered-content__why-mtx-important p,
-  .centered-content__why-mtx-important li {
+  .why-mtx-text-content p,
+  .why-mtx-text-content li {
     font-size: 0.9rem;
   }
 }

@@ -38,129 +38,69 @@
 .adaptive-features-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 30px; /* Jarak antar kartu */
+  gap: 30px;
   margin-bottom: 60px;
 }
 
 .adaptive-feature-card {
   background-color: #ffffff;
-  padding: 30px;
+  padding: 25px;
   border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Bayangan yang lebih menonjol */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  border: 1px solid #e0efff; /* Border lembut */
-  position: relative; /* Untuk efek hover */
-  overflow: hidden; /* Untuk efek glow */
-}
-
-.adaptive-feature-card::before {
-  content: "";
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(
-    circle,
-    rgba(13, 16, 185, 0.1),
-    transparent 70%
-  ); /* Efek cahaya di hover */
-  transition: all 0.5s ease-out;
-  opacity: 0;
-  z-index: 0;
+  border: 1px solid #e0efff;
+  position: relative;
+  overflow: hidden;
 }
 
 .adaptive-feature-card:hover {
-  transform: translateY(-15px) scale(1.02); /* Sedikit naik dan membesar */
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.15); /* Bayangan lebih kuat */
+  transform: translateY(-8px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.15);
 }
 
-.adaptive-feature-card:hover::before {
-  opacity: 1;
-  transform: rotate(30deg); /* Rotasi efek cahaya */
-}
-
+/* Wrapper Gambar Ilustrasi di atas Card */
 .adaptive-feature-icon-wrapper {
-  background-color: #007bff; /* Biru utama */
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
+  width: 100%;
+  height: 160px; /* Batasi tinggi area gambar */
+  margin-bottom: 20px;
+  border-radius: 10px;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 25px;
-  box-shadow: 0 5px 15px rgba(13, 16, 185, 0.3); /* Bayangan ikon */
-  position: relative; /* Pastikan ikon di atas efek glow */
-  z-index: 1;
+  background-color: #f7faff;
 }
 
-.adaptive-feature-icon {
-  color: #ffffff; /* Ikon putih */
+/* Perbaikan ukuran gambar agar pas dan rapi */
+.strategy-feature-icon {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
 }
 
 .adaptive-feature-title {
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   font-weight: 700;
-  color: #007bff; /* Biru gelap untuk judul fitur */
+  color: #007bff;
   margin-bottom: 10px;
   font-family: "Poppins", sans-serif;
-  position: relative;
-  z-index: 1;
 }
 
 .adaptive-feature-description {
   font-size: 0.9rem;
-  color: #4f4f4f; /* Abu-abu teks */
+  color: #4f4f4f;
   line-height: 1.6;
   font-family: "Poppins", sans-serif;
-  position: relative;
-  z-index: 1;
 }
 
-.adaptive-cta-wrapper {
-  background: #007bff; /* Background CTA biru kuat */
-  padding: 40px;
-  border-radius: 16px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 25px;
-  margin-top: 40px;
-  box-shadow: 0 15px 30px rgba(13, 16, 185, 0.4);
-}
-
-.adaptive-cta-text {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: #ffffff;
-  font-family: "Poppins", sans-serif;
-  max-width: 800px;
-}
-
-.adaptive-cta-button {
-  background-color: #fec200; /* Tombol oranye (aksen) */
-  color: #ffffff;
-  padding: 15px 35px;
-  border-radius: 10px;
-  font-size: 1.2rem;
-  font-weight: 700;
-  text-decoration: none;
-  transition: background-color 0.3s ease, transform 0.2s ease,
-    box-shadow 0.3s ease;
-  box-shadow: 0 8px 15px rgba(255, 221, 0, 0.3);
-}
-
-.adaptive-cta-button:hover {
-  background-color: #fec200; /* Oranye lebih gelap saat hover */
-  transform: translateY(-3px);
-  box-shadow: 0 12px 20px rgba(255, 213, 0, 0.4);
-}
-
+/* Responsivitas */
 @media (max-width: 1024px) {
   .adaptive-learning-section {
     padding-left: 4%;
@@ -168,13 +108,12 @@
   }
 }
 
-/* Responsivitas */
 @media (max-width: 768px) {
   .adaptive-learning-title {
     font-size: 1.3rem;
   }
   .adaptive-learning-subtitle {
-    font-size: 1.1rem;
+    font-size: 1rem;
     margin-bottom: 40px;
   }
   .adaptive-features-grid {
@@ -182,39 +121,15 @@
     gap: 25px;
   }
   .adaptive-feature-card {
-    padding: 25px;
+    padding: 20px;
   }
   .adaptive-feature-icon-wrapper {
-    width: 60px;
-    height: 60px;
-    margin-bottom: 20px;
-  }
-  .adaptive-feature-icon {
-    font-size: 1.8rem;
+    height: 150px;
   }
   .adaptive-feature-title {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
   .adaptive-feature-description {
-    font-size: 0.9rem;
-  }
-  .adaptive-cta-wrapper {
-    padding: 30px 20px;
-  }
-  .adaptive-cta-text {
-    font-size: 1.4rem;
-  }
-  .adaptive-cta-button {
-    font-size: 1rem;
-    padding: 12px 25px;
-  }
-}
-
-@media (max-width: 480px) {
-  .adaptive-learning-title {
-    font-size: 1.3rem;
-  }
-  .adaptive-learning-subtitle {
-    font-size: 1rem;
+    font-size: 0.88rem;
   }
 }

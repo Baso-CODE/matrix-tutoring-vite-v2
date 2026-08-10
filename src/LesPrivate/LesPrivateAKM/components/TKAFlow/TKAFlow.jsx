@@ -1,3 +1,5 @@
+import "./TKAFlow.css"; // Pastikan baris ini ada agar CSS-nya terbaca
+
 const tkaFlowSteps = [
   {
     icon: "/images/les-private/ksm/flow-tka/book-open.webp",
@@ -24,13 +26,13 @@ const tkaFlowSteps = [
       "Hasil latihan dan simulasi dievaluasi secara mendalam untuk melihat progress. Guru memberikan feedback personal dan rekomendasi belajar spesifik.",
   },
   {
-    icon: "/images/les-private/ksm/flow-tka/timer.webp", // Contoh ikon baru
+    icon: "/images/les-private/ksm/flow-tka/timer.webp",
     title: "Strategi Manajemen Waktu & Ujian",
     description:
       "Kami melatih siswa dengan strategi pengerjaan soal yang efektif, tips manajemen waktu, serta teknik mengatasi tekanan saat ujian TKA berlangsung.",
   },
   {
-    icon: "/images/les-private/ksm/flow-tka/trophy.webp", // Contoh ikon baru
+    icon: "/images/les-private/ksm/flow-tka/trophy.webp",
     title: "Bimbingan Final & Persiapan Mental",
     description:
       "Sebagai langkah akhir, kami memastikan kesiapan mental siswa, memberikan motivasi, serta sesi tanya jawab terakhir untuk menghadapi TKA dengan percaya diri.",

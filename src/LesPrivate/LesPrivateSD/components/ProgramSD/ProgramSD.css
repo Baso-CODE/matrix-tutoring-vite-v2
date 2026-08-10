@@ -1,3 +1,17 @@
+.container-all {
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+@media (max-width: 1024px) {
+  .container-all {
+    padding-left: 4%;
+    padding-right: 4%;
+  }
+}
+
 .les-privat-sd-section {
   width: 100%;
   margin-top: 20px;
@@ -9,10 +23,18 @@
   color: #333333;
   font-family: "Poppins", sans-serif;
   font-weight: 700;
-  margin-bottom: 0.8rem;
+  margin-bottom: 25px;
   line-height: 1.4;
   border-left: 4px solid #0077ff;
   padding-left: 0.6rem;
+}
+
+/* Layout Grid: Kiri Teks, Kanan Gambar */
+.program-sd-grid-layout {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 40px;
+  align-items: center;
 }
 
 .les-privat-sd-section h3 {
@@ -28,7 +50,6 @@
   font-size: 0.9rem;
   color: #4f4f4f;
   line-height: 1.6;
-
   font-family: "Poppins", sans-serif;
   margin-bottom: 0.8rem;
 }
@@ -48,16 +69,28 @@
 }
 
 /* Image styling */
+.program-sd-image-wrapper {
+  width: 100%;
+}
+
 .les-privat-sd-image {
   object-fit: cover;
   width: 100%;
-  margin-bottom: 1rem;
+  max-width: 100%;
   height: auto;
+  max-height: 450px;
   border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  display: block;
 }
 
-/* Responsiveness */
-@media (max-width: 768px) {
+/* Responsiveness untuk Tablet & Mobile */
+@media (max-width: 900px) {
+  .program-sd-grid-layout {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
   .les-privat-sd-section h2 {
     font-size: 1.1rem;
   }

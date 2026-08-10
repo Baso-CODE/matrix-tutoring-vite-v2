@@ -1,3 +1,5 @@
+import "./FlowBelajarSimakUI.css";
+
 const flowData = [
   {
     icon: "/images/les-private/simak-ui/flow-simak-ui/clipboard.webp",
@@ -39,34 +41,33 @@ const flowData = [
 
 const FlowBelajarSimakUI = ({ location }) => {
   return (
-    // Menggunakan kelas CSS yang sudah Anda berikan
-    <section id="simak-ui-success-flow" className="university-flow-section">
-      <div className="university-flow-container">
-        <h2 className="university-flow-title">
+    <section id="simak-ui-success-flow" className="simak-flow-section">
+      <div className="simak-flow-container">
+        <h2 className="simak-flow-title">
           Alur Belajar Les Privat SIMAK UI Matrix Tutoring Indonesia
         </h2>
-        <p className="university-flow-subtitle">
+        <p className="simak-flow-subtitle">
           Kami hadir membimbing Anda meraih kursi di Universitas Indonesia
           dengan strategi belajar yang teruji dan personal, sesuai target
           jurusan impian Anda.
         </p>
 
-        <div className="flow-steps-wrapper">
+        <div className="simak-steps-wrapper">
           {flowData.map((step, index) => (
-            <div className="flow-step-item" key={index}>
-              <div className="flow-step-icon-box">
-                <span className="flow-step-number">{index + 1}</span>
+            <div className="simak-step-item" key={index}>
+              <div className="simak-step-icon-box">
+                <span className="simak-step-number">{index + 1}</span>
                 <img
                   src={step.icon}
                   alt={`${step.title} di ${
                     location ? `${location}` : "Indonesia"
                   } - Matrix Tutoring`}
-                  className="flow-step-icon"
+                  className="simak-step-icon"
                 />
               </div>
-              <div className="flow-step-content">
-                <h3 className="flow-step-title">{step.title}</h3>
-                <p className="flow-step-description">{step.description}</p>
+              <div className="simak-step-content">
+                <h3 className="simak-step-title">{step.title}</h3>
+                <p className="simak-step-description">{step.description}</p>
               </div>
             </div>
           ))}

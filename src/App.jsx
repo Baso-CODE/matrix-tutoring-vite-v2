@@ -201,6 +201,10 @@ const LesPrivateSimakUIKecamatan = lazy(
   () =>
     import("./LesPrivate/LesPrivateSimakUI/LesPrivateSimakUIKecamatan/LesPrivateSimakUIKecamatan"),
 );
+const LesPrivateSimakUIKelurahan = lazy(
+  () =>
+    import("./LesPrivate/LesPrivateSimakUI/LesPrivateSimakUIKelurahan/LesPrivateSimakUIKelurahan"),
+);
 
 // SBMPTN / SNBT
 const LesPrivateSBMPTN = lazy(
@@ -445,7 +449,7 @@ function App() {
             />
             <Route
               path="/bimbingan-simak-ui-terbaik/kelurahan/:slug"
-              element={<LesPrivateSMAKelurahan />}
+              element={<LesPrivateSimakUIKelurahan />}
             />
 
             {/* SBMPTN / SNBT */}

@@ -1,8 +1,9 @@
 import "./FokusPembelajaranSNBT.css";
+
 const FokusPembelajaranSNBT = ({ location }) => {
   return (
-    <section className="container_learning_focus" id="Learnhing_Focus_SNBT">
-      <div className="centered-content__learnhing_focus">
+    <section className="fokus-snbt-section" id="Learnhing_Focus_SNBT">
+      <div className="fokus-snbt-container">
         <h2>Fokus Pembelajaran UTBK SNBT</h2>
         <p>
           Pada Seleksi Nasional Berbasis Tes (SNBT) ada 7 materi ujian atau
@@ -10,55 +11,39 @@ const FokusPembelajaranSNBT = ({ location }) => {
           Potensi Skolastik dan Tes Literasi.
         </p>
 
-        <div className="learnhing_focus_row">
-          {/* Kiri */}
-          <div className="learnhing_focus_col">
-            <img
-              src="/images/les-private/sbmptn/test-skolistik.png"
-              alt={`Les Privat UTBK SNBT Tes Potensi Skolastik ${
-                location ? `${location}` : "Indonesia"
-              } - Matrix Tutoring`}
-              className="les-privat-sd-image"
-              loading="lazy"
-              onError={(e) => {
-                e.currentTarget.src =
-                  "https://placehold.co/800x350/007bff/ffffff?text=Tes+Potensi+Skolastik+UTBK+SNBT";
-              }}
-            />
-            {/* <h4 className="learnhing_focus_description-h4">
-              <b>Tes Potensi Skolastik (TPS) terdiri dari 4 subtest:</b>
-            </h4>
-            <ul className="numbered-list__learnhing-focus">
-              <li>Penalaran Umum</li>
-              <li>Pengetahuan dan Pemahaman Umum</li>
-              <li>Pemahaman Bacaan dan Menulis</li>
-              <li>Pengetahuan Kuantitatif</li>
-            </ul> */}
+        <div className="fokus-snbt-row">
+          {/* Kolom Kiri: Tes Skolastik */}
+          <div className="fokus-snbt-col">
+            <div className="fokus-snbt-img-box">
+              <img
+                src="/images/les-private/sbmptn/test-skolistik.png"
+                alt={`Les Privat UTBK SNBT Tes Potensi Skolastik ${
+                  location ? `${location}` : "Indonesia"
+                } - Matrix Tutoring`}
+                loading="lazy"
+                onError={(e) => {
+                  e.currentTarget.src =
+                    "https://placehold.co/800x350/007bff/ffffff?text=Tes+Potensi+Skolastik+UTBK+SNBT";
+                }}
+              />
+            </div>
           </div>
 
-          {/* Kanan */}
-          <div className="learnhing_focus_col">
-            <img
-              src="/images/les-private/sbmptn/test-literasi.png"
-              alt={`Les Privat UTBK SNBT Tes Potensi Literasi ${
-                location ? `${location}` : "Indonesia"
-              } - Matrix Tutoring`}
-              className="les-privat-sd-image"
-              loading="lazy"
-              onError={(e) => {
-                e.currentTarget.src =
-                  "https://placehold.co/800x350/007bff/ffffff?text=Tes+Literasi+UTBK+SNBT";
-              }}
-            />
-            {/* <h4 className="learnhing_focus_description-h4">
-              <b>Tes Literasi terdiri dari:</b>
-            </h4>
-            <ul className="numbered-list__learnhing-focus">
-              <li>Membaca</li>
-              <li>Menulis</li>
-              <li>Memahami teks</li>
-              <li>Analisis bacaan</li>
-            </ul> */}
+          {/* Kolom Kanan: Tes Literasi */}
+          <div className="fokus-snbt-col">
+            <div className="fokus-snbt-img-box">
+              <img
+                src="/images/les-private/sbmptn/test-literasi.png"
+                alt={`Les Privat UTBK SNBT Tes Potensi Literasi ${
+                  location ? `${location}` : "Indonesia"
+                } - Matrix Tutoring`}
+                loading="lazy"
+                onError={(e) => {
+                  e.currentTarget.src =
+                    "https://placehold.co/800x350/007bff/ffffff?text=Tes+Literasi+UTBK+SNBT";
+                }}
+              />
+            </div>
           </div>
         </div>
 
