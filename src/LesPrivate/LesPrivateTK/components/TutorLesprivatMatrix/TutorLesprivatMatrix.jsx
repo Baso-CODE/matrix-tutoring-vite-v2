@@ -1,4 +1,12 @@
+import { Autoplay, Pagination } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+
 import "./TutorLesprivatMatrix.css";
+
 const TutorLesprivatMatrix = () => {
   const universities = [
     {
@@ -62,6 +70,7 @@ const TutorLesprivatMatrix = () => {
       logo: "/images/logo-univ/al-azhar-cairo.webp",
     },
   ];
+
   return (
     <div className="tutor__section">
       <h2 className="tutor__title">
@@ -76,16 +85,33 @@ const TutorLesprivatMatrix = () => {
           spesialisasi dalam bidang ilmu yang dikuasai.
         </p>
       </div>
-      <div className="tutor__grid">
-        {universities.map((univ, idx) => (
-          <div className="tutor__card" key={idx}>
-            <img src={univ.logo} alt={univ.name} className="tutor__logo" />
-            <p className="tutor__card-title">{univ.name}</p>
-            <div className="tutor__go-corner">
-              <div className="tutor__go-arrow">→</div>
-            </div>
-          </div>
-        ))}
+
+      <div className="tutor__slider-wrapper">
+        <Swiper
+          modules={[Autoplay, Pagination]}
+          spaceBetween={16}
+          slidesPerView={2}
+          pagination={{ clickable: true }}
+          autoplay={{ delay: 3000, disableOnInteraction: false }}
+          breakpoints={{
+            480: { slidesPerView: 2, spaceBetween: 16 },
+            768: { slidesPerView: 3, spaceBetween: 20 },
+            1024: { slidesPerView: 4, spaceBetween: 20 },
+            1280: { slidesPerView: 5, spaceBetween: 20 },
+          }}
+          className="tutor__swiper">
+          {universities.map((univ, idx) => (
+            <SwiperSlide key={idx}>
+              <div className="tutor__card">
+                <img src={univ.logo} alt={univ.name} className="tutor__logo" />
+                <p className="tutor__card-title">{univ.name}</p>
+                <div className="tutor__go-corner">
+                  <div className="tutor__go-arrow">→</div>
+                </div>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
     </div>
   );

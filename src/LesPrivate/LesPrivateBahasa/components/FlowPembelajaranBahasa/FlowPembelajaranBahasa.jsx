@@ -1,3 +1,5 @@
+import "./FlowPembelajaranBahasa.css"; // Import file CSS khusus
+
 const languageLearningSteps = [
   {
     icon: "/images/les-private/bahasa-asing/flow-pembelajaran/user-check.webp",
@@ -39,32 +41,32 @@ const languageLearningSteps = [
 
 const FlowPembelajaranBahasa = () => {
   return (
-    <section id="university-success-flow" className="university-flow-section">
-      <div className="university-flow-container">
-        <h2 className="university-flow-title">
+    <section id="language-success-flow" className="lang-flow-section">
+      <div className="lang-flow-container">
+        <h2 className="lang-flow-title">
           Alur Belajar Les Privat Bahasa Matrix Tutoring
         </h2>
-        <p className="university-flow-subtitle">
+        <p className="lang-flow-subtitle">
           Kami hadir untuk membimbing Anda menguasai bahasa baru dengan metode
           yang efektif dan personal, sesuai dengan tujuan dan kecepatan belajar
           Anda.
         </p>
 
-        <div className="flow-steps-wrapper">
+        <div className="lang-steps-wrapper">
           {languageLearningSteps.map((step, index) => (
-            <div className="flow-step-item" key={index}>
-              <div className="flow-step-icon-box">
-                <span className="flow-step-number">{index + 1}</span>
+            <div className="lang-step-item" key={index}>
+              <div className="lang-step-icon-box">
+                <span className="lang-step-number">{index + 1}</span>
                 <img
                   src={step.icon}
                   alt={step.title}
-                  className="flow-step-icon"
+                  className="lang-step-icon"
                   loading="lazy"
                 />
               </div>
-              <div className="flow-step-content">
-                <h3 className="flow-step-title">{step.title}</h3>
-                <p className="flow-step-description">{step.description}</p>
+              <div className="lang-step-content">
+                <h3 className="lang-step-title">{step.title}</h3>
+                <p className="lang-step-description">{step.description}</p>
               </div>
             </div>
           ))}

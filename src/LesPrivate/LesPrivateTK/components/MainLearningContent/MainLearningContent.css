@@ -25,7 +25,7 @@
   font-size: 0.9rem;
   color: #f2f2f2;
   margin-bottom: 30px;
-
+  max-width: 900px;
   margin-left: auto;
   margin-right: auto;
   line-height: 1.6;
@@ -38,22 +38,28 @@
   padding-top: 20px;
 }
 
-/* Styles for individual learning items (cards) */
+/* KUNCI: overflow: hidden mencegah gambar keluar dari card */
 .learning-item {
   background-color: #ffffff;
   padding: 30px;
   border-radius: 12px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease,
-    filter 0.3s ease, opacity 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease,
+    filter 0.3s ease,
+    opacity 0.3s ease;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   border: 1px solid #e5e7eb;
-  min-height: 43vh;
+  min-height: 400px;
   height: 100%;
   justify-content: flex-start;
+  overflow: hidden;
+  position: relative;
 }
 
 /* Class untuk kartu yang akan diburamkan */
@@ -74,7 +80,6 @@
   opacity: 1;
 }
 
-/* Override efek hover pada kartu yang buram jika ada */
 .learning-item.blurred:hover {
   transform: translateY(0);
   box-shadow: none;
@@ -82,37 +87,34 @@
 }
 
 .learning-icon-wrapper {
-  width: 70px;
-  height: 70px;
-  background-color: #3b82f6; /* Biru sekunder/aksen */
+  width: 10rem;
+  height: 10rem;
+  background-color: #3b82f6;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 20px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  flex-shrink: 0; /* Pastikan ikon tidak menyusut */
+  flex-shrink: 0;
+  overflow: hidden;
 }
 
-.subject-icon-learnhing-features-tk {
-  width: 13rem;
-  height: 1rem;
+/* KUNCI: Membatasi ukuran gambar agar pas di dalam lingkaran icon */
+.learning-card-image {
+  width: 9rem;
+  height: 9rem;
   object-fit: contain;
-}
-
-.learning-icon {
-  font-size: 2.5rem;
-  color: #ffffff; /* Warna ikon putih */
 }
 
 .learning-item-title {
   font-size: 1.1rem;
   font-weight: 700;
-  color: #007bff; /* Biru utama */
-  margin-top: 2.5rem;
-  margin-bottom: 5px;
+  color: #007bff;
+  margin-top: 10px;
+  margin-bottom: 10px;
   font-family: "Poppins", sans-serif;
-  flex-shrink: 0; /* Pastikan judul tidak menyusut */
+  flex-shrink: 0;
 }
 
 .learning-item-text {
@@ -127,63 +129,65 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
+  margin: 0;
 }
 
 .swiper-button-next,
 .swiper-button-prev {
-  color: #007bff !important;
-  --swiper-navigation-size: 30px;
+  color: #ffffff !important;
+  --swiper-navigation-size: 25px;
 }
 
 .swiper-button-next:hover,
 .swiper-button-prev:hover {
-  color: #3b82f6 !important;
+  color: #e2e8f0 !important;
 }
 
 /* Swiper Pagination Dots */
 .swiper-pagination-bullet {
-  background: #a0aec0 !important;
-  opacity: 0.8;
+  background: rgba(255, 255, 255, 0.5) !important;
+  opacity: 1;
 }
 
 .swiper-pagination-bullet-active {
-  background: #007bff !important;
-  opacity: 1;
+  background: #ffffff !important;
 }
 
 /* Responsivitas */
 @media (max-width: 1024px) {
   .learning-item {
-    min-height: 28vh;
+    min-height: 380px;
   }
   .main-learning-section {
     padding-left: 4%;
     padding-right: 4%;
   }
 }
+
 @media (max-width: 768px) {
   .main-learning-title {
     font-size: 1.2rem;
   }
   .main-learning-description {
-    font-size: 1rem;
+    font-size: 0.9rem;
     margin-bottom: 30px;
   }
   .learning-item {
     padding: 20px;
-    min-height: 33vh;
+    min-height: 350px;
   }
   .learning-icon-wrapper {
-    width: 60px;
-    height: 60px;
+    width: 6rem;
+    height: 6rem;
   }
-  .learning-icon {
-    font-size: 2rem;
+  .learning-card-image {
+    width: 5rem;
+    height: 5rem;
   }
   .learning-item-title {
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
   .learning-item-text {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
   }
 }

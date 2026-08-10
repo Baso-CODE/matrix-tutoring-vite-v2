@@ -20,18 +20,16 @@ import TestimoniOrtuSiswa from "../../Components/TestimoniOrtuSiswa/TestimoniOrt
 import CTABottomHome from "../../Home/CTABottomHome/CTABottomHome";
 import PromoHomepage from "../../Home/PromoHomepage/PromoHomepage";
 import TableOfContents from "../components/TableOfContent";
-import FlowPembelajaranBahasa from "./components/FlowPembelajaranBahasa/FlowPembelajaranBahasa";
-import LanguageOptions from "./components/LanguageOptions/LanguageOptions";
-import StatistikImageBahasa from "./components/StatistikImageBahasa";
-import TestimonialBahasa from "./components/TestimonialBahasa/TestimonialBahasa";
-import ContentLesPrivatBahasa from "./components/ContentLesPrivatBahasa/ContentLesPrivatBahasa";
-import ProgaramLesPrivatBahasa from "./components/ProgaramLesPrivatBahasa/ProgaramLesPrivatBahasa";
-import ProgaramInsenstifBahasa from "./components/ProgaramInsenstifBahasa/ProgaramInsenstifBahasa";
+import ImpactStatistics from "../LesPrivateMahasiswa/components/ImpactStatistics/ImpactStatistics";
+import LesprivatKota from "../LesPrivateTK/components/LesprivatKota/LesprivatKota";
 import ProfileMatrixTutoring from "../LesPrivateTK/components/ProfileMatrixTutoring/ProfileMatrixTutoring";
 import TutorLesprivatMatrix from "../LesPrivateTK/components/TutorLesprivatMatrix/TutorLesprivatMatrix";
-import LesprivatKota from "../LesPrivateTK/components/LesprivatKota/LesprivatKota";
-import ImpactStatistics from "../LesPrivateMahasiswa/components/ImpactStatistics/ImpactStatistics";
+import ContentLesPrivatBahasa from "./components/ContentLesPrivatBahasa/ContentLesPrivatBahasa";
+import FlowPembelajaranBahasa from "./components/FlowPembelajaranBahasa/FlowPembelajaranBahasa";
 import HeroBahasa from "./components/HeroBahasa/HeroBahasa";
+import LanguageOptions from "./components/LanguageOptions/LanguageOptions";
+import ProgaramInsenstifBahasa from "./components/ProgaramInsenstifBahasa/ProgaramInsenstifBahasa";
+import ProgaramLesPrivatBahasa from "./components/ProgaramLesPrivatBahasa/ProgaramLesPrivatBahasa";
 
 const items = [
   {
@@ -198,6 +196,7 @@ const LesPrivateBahasa = () => {
           `}
         </script>
       </Helmet>
+      <div></div>
       <HeroBahasa />
       <EmbrelaSlider />
       <ImpactStatistics />

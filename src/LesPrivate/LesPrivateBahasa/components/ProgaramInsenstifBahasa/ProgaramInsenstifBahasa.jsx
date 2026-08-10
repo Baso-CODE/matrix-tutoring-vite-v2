@@ -4,9 +4,10 @@ const ProgaramInsenstifBahasa = ({ location }) => {
   return (
     <section className="container-all">
       <div className="centered__program-insentif-bahasa">
-        <div className="container-calistung-left-right">
-          {/* TEXT */}
-          <div className="program-calistung-text">
+        {/* Wrapper Flexbox: Teks Kiri, Gambar Kanan */}
+        <div className="program-intensif-bahasa-wrapper">
+          {/* TEXT (Kiri) */}
+          <div className="program-intensif-bahasa-text">
             <h2>Program Les Privat Bahasa - Matrix Tutoring</h2>
             <p>
               Belajar bahasa kini semakin mudah bersama Matrix Tutoring. Kami
@@ -31,20 +32,23 @@ const ProgaramInsenstifBahasa = ({ location }) => {
               <li>Les Privat BIPA (Bahasa Indonesia untuk Penutur Asing)</li>
             </ul>
           </div>
-          {/* IMAGE */}
-          <div className="program-calistung-image">
+
+          {/* IMAGE (Kanan) */}
+          <div className="program-intensif-bahasa-image-box">
             <img
               src="/images/les-private/bahasa-asing/BAHASA-ASING-5x4.webp"
               alt={`Les Privat Program Intensif Bahasa ${
                 location ? "di " + location : "indonesia"
               } - Matrix Tutoring`}
-              className="les-privat-sd-image"
+              className="program-intensif-bahasa-image"
               loading="lazy"
+              width="600"
+              height="400"
               onError={(e) => {
                 e.currentTarget.src =
-                  "https://placehold.co/800x360/007bff/ffffff?text=Program+Intensif+Program+Bahasa";
+                  "https://placehold.co/800x360/007bff/ffffff?text=Program+Intensif+Bahasa";
               }}
-            />{" "}
+            />
           </div>
         </div>
       </div>

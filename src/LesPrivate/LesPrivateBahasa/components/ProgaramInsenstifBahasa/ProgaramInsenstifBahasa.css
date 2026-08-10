@@ -4,12 +4,40 @@
   margin-bottom: 20px;
 }
 
+/* --- Layout Flexbox: Teks di Kiri, Gambar di Kanan --- */
+.program-intensif-bahasa-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 40px; /* Jarak antara teks dan gambar */
+}
+
+.program-intensif-bahasa-text {
+  flex: 1; /* Teks akan mengisi ruang sisi kiri */
+}
+
+.program-intensif-bahasa-image-box {
+  flex: 1; /* Gambar akan mengisi ruang sisi kanan */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* --- Styling Gambar agar Responsif dan Rapi --- */
+.program-intensif-bahasa-image {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
 .centered__program-insentif-bahasa h2 {
   font-size: 1.15rem;
   color: #333333;
   font-family: "Poppins", sans-serif;
   font-weight: 700;
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.8rem;
   line-height: 1.4;
   border-left: 4px solid #0077ff;
   padding-left: 0.6rem;
@@ -20,7 +48,6 @@
   color: #333333;
   font-family: "Poppins", sans-serif;
   font-weight: 700;
-
   margin-bottom: 0.5rem;
 }
 
@@ -38,7 +65,7 @@
   line-height: 1.6;
   font-weight: 400;
   font-family: "Poppins", sans-serif;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.8rem;
 }
 
 .centered__program-insentif-bahasa ul {
@@ -57,14 +84,14 @@
 
 /* --- Checklist style --- */
 .centered__program-insentif-bahasa .checklist {
-  list-style: none; /* hilangkan bullet bawaan */
+  list-style: none;
   margin: 0;
   padding: 0;
 }
 
 .centered__program-insentif-bahasa .checklist li {
   position: relative;
-  padding-left: 1.6rem; /* kasih ruang buat icon ceklis */
+  padding-left: 1.6rem;
   margin-bottom: 0.4rem;
   font-size: 0.9rem;
   color: #444;
@@ -73,11 +100,11 @@
 }
 
 .centered__program-insentif-bahasa .checklist li::before {
-  content: "✔"; /* ceklis manual */
+  content: "✔";
   position: absolute;
   left: 0;
   top: 0;
-  color: #0077ff; /* biru biar standout */
+  color: #0077ff;
   font-weight: bold;
 }
 
@@ -96,7 +123,14 @@
   font-family: "Poppins", sans-serif;
 }
 
-/* Responsiveness */
+/* Responsiveness: Ubah ke susunan vertikal (stack) di layar mobile/tablet kecil */
+@media (max-width: 900px) {
+  .program-intensif-bahasa-wrapper {
+    flex-direction: column-reverse; /* Gambar di atas, teks di bawah (atau ubah ke column jika ingin teks dulu baru gambar) */
+    gap: 20px;
+  }
+}
+
 @media (max-width: 768px) {
   .centered__program-insentif-bahasa h2 {
     font-size: 1.1rem;

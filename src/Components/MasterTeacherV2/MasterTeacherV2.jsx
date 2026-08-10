@@ -42,18 +42,17 @@ const MasterTeacherV2 = ({ location }) => {
     return (
       <div className="rating-stars">
         {[...Array(count)].map((_, i) => (
-          <Star key={i} className="star-icon-master-teacher" />
+          <Star
+            key={i}
+            className="star-icon-master-teacher"
+            fill="#FFC107" // Membuat bagian dalam bintang terisi warna kuning
+            color="#FFC107" // Mengubah warna garis pinggir bintang menjadi kuning
+            size={18} // Opsional: mengatur ukuran bintang jika diperlukan
+          />
         ))}
       </div>
     );
   };
-  // const generateRandomRating = () => {
-  //   const min = 4.8;
-
-  //   const max = 5.0;
-
-  //   return (Math.random() * (max - min) + min).toFixed(1);
-  // };
 
   return (
     <div className="container-full-master-teacher-v2">
@@ -124,12 +123,8 @@ const MasterTeacherV2 = ({ location }) => {
                           ))
                         : "Tidak ada data program"}
                     </p>
-                    <div className="rating-container-v2">{renderStars(5)}</div>{" "}
+                    <div className="rating-container-v2">{renderStars(5)}</div>
                     <p className="univ-jurusan-text">
-                      {/* <p className="ratting-master-teacher-v2">
-                        <strong>{generateRandomRating()}</strong>
-                        <br /> Rating{" "}
-                      </p> */}
                       {tutor?.jurusan} - {tutor?.universitas}
                     </p>
                   </div>
@@ -138,7 +133,7 @@ const MasterTeacherV2 = ({ location }) => {
             </Swiper>
           </div>
         </div>
-      </div>{" "}
+      </div>
     </div>
   );
 };
