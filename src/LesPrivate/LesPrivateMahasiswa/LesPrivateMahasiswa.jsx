@@ -17,6 +17,7 @@ import EmbrelaSlider from "../../Components/SlideTop/EmbrelaSlider";
 import SuccessStoryLesPrivate from "../../Components/SuccesStoryLesPrivate/SuccesStoryLesPrivate";
 import TestimonialSiswa from "../../Components/TestimonialSiswa/TestimonialSiswa";
 import TestimoniOrtuSiswa from "../../Components/TestimoniOrtuSiswa/TestimoniOrtuSiswa";
+import TestimoniOrtuSiswaV2 from "../../Components/TestimoniOrtuSiswa/TestimoniOrtuSiswaV2";
 import CTABottomHome from "../../Home/CTABottomHome/CTABottomHome";
 import PromoHomepage from "../../Home/PromoHomepage/PromoHomepage";
 import TableOfContents from "../components/TableOfContent";
@@ -24,12 +25,12 @@ import TestimoniWaSNBT from "../LesPrivateSBMPTN/components/TestimoniWaSNBT/Test
 import LesprivatKota from "../LesPrivateTK/components/LesprivatKota/LesprivatKota";
 import ProfileMatrixTutoring from "../LesPrivateTK/components/ProfileMatrixTutoring/ProfileMatrixTutoring";
 import TutorLesprivatMatrix from "../LesPrivateTK/components/TutorLesprivatMatrix/TutorLesprivatMatrix";
+import HeroMahasiswa from "./components/HeroMahasiswa/HeroMahasiswa";
 import ImpactStatistics from "./components/ImpactStatistics/ImpactStatistics";
 import LesPrivateMahasiswaHeader from "./components/LesPrivateMahasiswaHeader";
 import PopularCourses from "./components/PopularCourses/PopularCourses";
 import ProgamLesPrivatMahasiswa from "./components/ProgamLesPrivatMahasiswa/ProgamLesPrivatMahasiswa";
 import UniversitySuccessFlow from "./components/UniversitySuccessFlow/UniversitySuccessFlow";
-import HeroMahasiswa from "./components/HeroMahasiswa/HeroMahasiswa";
 
 const items = [
   {
@@ -235,6 +236,7 @@ const LesPrivateMahasiswa = () => {
       <WhyMatrixFeatures />
       <MatrixSubjects />
       <SuccessStoryLesPrivate />
+      <TestimoniOrtuSiswaV2 />
       <TestimonialSiswa />
       <TestimoniOrtuSiswa />
       <section id="asal-sekolah-siswa-matrix-tutoring-private">

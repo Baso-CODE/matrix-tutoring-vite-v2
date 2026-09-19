@@ -21,6 +21,7 @@ import ProgramLesPrivatV2 from "../../../Components/ProgramLesPrivatNew/ProgramL
 import SuccessStoryLesPrivate from "../../../Components/SuccesStoryLesPrivate/SuccesStoryLesPrivate";
 import TestimonialSiswa from "../../../Components/TestimonialSiswa/TestimonialSiswa";
 import TestimoniOrtuSiswa from "../../../Components/TestimoniOrtuSiswa/TestimoniOrtuSiswa";
+import TestimoniOrtuSiswaV2 from "../../../Components/TestimoniOrtuSiswa/TestimoniOrtuSiswaV2";
 import { getKelurahanBySlug } from "../../../helper/request/getAllKelurahanBySlug";
 import CTABottomHome from "../../../Home/CTABottomHome/CTABottomHome";
 import PromoHomepage from "../../../Home/PromoHomepage/PromoHomepage";
@@ -397,6 +398,7 @@ const LesPrivateSMPKelurahan = () => {
       <WhyMatrixFeatures />
       <MatrixSubjects />
       <SuccessStoryLesPrivate location={nameCountry} />
+      <TestimoniOrtuSiswaV2 />
       <TestimonialSiswa location={nameCountry} />
       <TestimoniOrtuSiswa location={nameCountry} />
       <section id="asal-sekolah-siswa-matrix-tutoring-private">

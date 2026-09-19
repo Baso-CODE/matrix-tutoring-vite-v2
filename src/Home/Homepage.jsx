@@ -7,6 +7,7 @@ import "./Homepage.css";
 // ✅ Critical (above the fold) — load langsung
 import HeroHome from "../Components/HeroHome/HeroHome";
 import EmbrelaSlider from "../Components/SlideTop/EmbrelaSlider";
+import TestimoniOrtuSiswaV2 from "../Components/TestimoniOrtuSiswa/TestimoniOrtuSiswaV2";
 
 // ✅ Non-critical (below the fold) — lazy load
 const ProgramLesPrivatV2 = React.lazy(
@@ -123,6 +124,7 @@ const Homepage = () => {
           <WhyMatrixFeatures />
           <MatrixSubjects />
           <SuccessStoryLesPrivate />
+          <TestimoniOrtuSiswaV2 />
           <TestimoniOrtuSiswa />
           <AsalSekolahSiswaEdumatrix />
           <HowToOrder />

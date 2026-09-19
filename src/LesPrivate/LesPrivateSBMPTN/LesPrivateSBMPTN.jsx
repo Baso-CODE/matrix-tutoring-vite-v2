@@ -17,6 +17,7 @@ import EmbrelaSlider from "../../Components/SlideTop/EmbrelaSlider";
 import SuccessStoryLesPrivate from "../../Components/SuccesStoryLesPrivate/SuccesStoryLesPrivate";
 import TestimonialSiswa from "../../Components/TestimonialSiswa/TestimonialSiswa";
 import TestimoniOrtuSiswa from "../../Components/TestimoniOrtuSiswa/TestimoniOrtuSiswa";
+import TestimoniOrtuSiswaV2 from "../../Components/TestimoniOrtuSiswa/TestimoniOrtuSiswaV2";
 import CTABottomHome from "../../Home/CTABottomHome/CTABottomHome";
 import PromoHomepage from "../../Home/PromoHomepage/PromoHomepage";
 import LogoPengajarMTX from "../components/LogoAlumniTutor/LogoPengajarMTX";
@@ -26,6 +27,7 @@ import KurikulumLesPrivate from "../LesPrivateTK/components/KurikulumLesPrivate/
 import LesprivatKota from "../LesPrivateTK/components/LesprivatKota/LesprivatKota";
 import ProfileMatrixTutoring from "../LesPrivateTK/components/ProfileMatrixTutoring/ProfileMatrixTutoring";
 import FokusPembelajaranSNBT from "./components/FokusPembelajaranSNBT/FokusPembelajaranSNBT";
+import HeroSNBT from "./components/HeroSNBT/HeroSNBT";
 import ListProgramLesPrivatSNBT from "./components/ListProgramLesPrivatSNBT/ListProgramLesPrivatSNBT";
 import PreparationToPTN from "./components/PreparationToPTN/PreparationToPTN";
 import ProgramSpesialisSNBT from "./components/ProgramSpesialisSNBT/ProgramSpesialisSNBT";
@@ -33,7 +35,6 @@ import SBMPTNFlow from "./components/SBMPTNFlow";
 import SistemBelajarSNBT from "./components/SistemBelajarSNBT/SistemBelajarSNBT";
 import TestimoniWaSNBT from "./components/TestimoniWaSNBT/TestimoniWaSNBT";
 import WhyChooseSBMPTN from "./components/WhyChooseSBMPTN/WhyChooseSBMPTN";
-import HeroSNBT from "./components/HeroSNBT/HeroSNBT";
 
 const items = [
   {
@@ -208,6 +209,7 @@ const LesPrivateSBMPTN = () => {
       <WhyMatrixFeatures />
       <MatrixSubjects />
       <SuccessStoryLesPrivate />
+      <TestimoniOrtuSiswaV2 />
       <TestimonialSiswa />
       <TestimoniOrtuSiswa />
       <section id="asal-sekolah-siswa-matrix-tutoring-private">

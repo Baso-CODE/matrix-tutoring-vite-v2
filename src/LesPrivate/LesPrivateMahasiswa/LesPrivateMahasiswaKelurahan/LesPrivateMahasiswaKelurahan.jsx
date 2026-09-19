@@ -13,26 +13,26 @@ import OnlineLesOptions from "../../../Components/OnlineLesOption/OnlineLesOptio
 import ProgramBelajarLesPrivat from "../../../Components/ProgramBelajarLesPrivate/ProgramBelajarLesPrivate";
 import ProgramLesPrivatV2 from "../../../Components/ProgramLesPrivatNew/ProgramLesPrivatV2 ";
 import PilihanProgram from "../../../Components/ProgramOptions/PilihanProgram";
-import AsalSekolahSiswaMarque from "../../../Components/SekolahSiswaMarque/SekolahSiswaMarque";
 import EmbrelaSlider from "../../../Components/SlideTop/EmbrelaSlider";
 import SuccessStoryLesPrivate from "../../../Components/SuccesStoryLesPrivate/SuccesStoryLesPrivate";
 import TestimonialSiswa from "../../../Components/TestimonialSiswa/TestimonialSiswa";
 import TestimoniOrtuSiswa from "../../../Components/TestimoniOrtuSiswa/TestimoniOrtuSiswa";
+import TestimoniOrtuSiswaV2 from "../../../Components/TestimoniOrtuSiswa/TestimoniOrtuSiswaV2";
 import { getKelurahanBySlug } from "../../../helper/request/getAllKelurahanBySlug";
 import CTABottomHome from "../../../Home/CTABottomHome/CTABottomHome";
 import PromoHomepage from "../../../Home/PromoHomepage/PromoHomepage";
 import { getHeroData } from "../../../utils/getHeroData";
 import HeroLesPrivate from "../../components/HeroLesPrrivate/HeroLesPrivate";
 import TableOfContents from "../../components/TableOfContent";
+import TestimoniWaSNBT from "../../LesPrivateSBMPTN/components/TestimoniWaSNBT/TestimoniWaSNBT";
+import LesprivatKota from "../../LesPrivateTK/components/LesprivatKota/LesprivatKota";
+import ProfileMatrixTutoring from "../../LesPrivateTK/components/ProfileMatrixTutoring/ProfileMatrixTutoring";
+import TutorLesprivatMatrix from "../../LesPrivateTK/components/TutorLesprivatMatrix/TutorLesprivatMatrix";
 import ImpactStatistics from "../components/ImpactStatistics/ImpactStatistics";
 import LesPrivateMahasiswaHeader from "../components/LesPrivateMahasiswaHeader";
 import PopularCourses from "../components/PopularCourses/PopularCourses";
-import UniversitySuccessFlow from "../components/UniversitySuccessFlow/UniversitySuccessFlow";
 import ProgamLesPrivatMahasiswa from "../components/ProgamLesPrivatMahasiswa/ProgamLesPrivatMahasiswa";
-import TestimoniWaSNBT from "../../LesPrivateSBMPTN/components/TestimoniWaSNBT/TestimoniWaSNBT";
-import ProfileMatrixTutoring from "../../LesPrivateTK/components/ProfileMatrixTutoring/ProfileMatrixTutoring";
-import TutorLesprivatMatrix from "../../LesPrivateTK/components/TutorLesprivatMatrix/TutorLesprivatMatrix";
-import LesprivatKota from "../../LesPrivateTK/components/LesprivatKota/LesprivatKota";
+import UniversitySuccessFlow from "../components/UniversitySuccessFlow/UniversitySuccessFlow";
 
 const items = [
   {
@@ -330,6 +330,7 @@ const LesPrivateMahasiswaKelurahan = () => {
       <WhyMatrixFeatures />
       <MatrixSubjects />
       <SuccessStoryLesPrivate location={nameCountry} />
+      <TestimoniOrtuSiswaV2 />
       <TestimonialSiswa location={nameCountry} />
       <TestimoniOrtuSiswa location={nameCountry} />
       <section id="asal-sekolah-siswa-matrix-tutoring-private">

@@ -16,6 +16,7 @@ import EmbrelaSlider from "../../Components/SlideTop/EmbrelaSlider";
 import SuccessStoryLesPrivate from "../../Components/SuccesStoryLesPrivate/SuccesStoryLesPrivate";
 import TestimonialSiswa from "../../Components/TestimonialSiswa/TestimonialSiswa";
 import TestimoniOrtuSiswa from "../../Components/TestimoniOrtuSiswa/TestimoniOrtuSiswa";
+import TestimoniOrtuSiswaV2 from "../../Components/TestimoniOrtuSiswa/TestimoniOrtuSiswaV2";
 import CTABottomHome from "../../Home/CTABottomHome/CTABottomHome";
 import PromoHomepage from "../../Home/PromoHomepage/PromoHomepage";
 import TableOfContents from "../components/TableOfContent";
@@ -26,6 +27,7 @@ import TutorLesprivatMatrix from "../LesPrivateTK/components/TutorLesprivatMatri
 import BenefitOfTKA from "./components/BenefitOfTKA/BenefitOfTKA";
 import FokusLesPrivateTKA from "./components/FokusLesPrivateTKA/FokusLesPrivateTKA";
 import FokusPersiapanTKA from "./components/FokusPersiapanTKA/FokusPersiapanTKA";
+import HeroTKA from "./components/HeroTKA/HeroTKA";
 import InformasiSeputarTKA from "./components/InformasiSeputarTKA/InformasiSeputarTKA";
 import KegunaanTestTKA from "./components/KegunaanTestTKA/KegunaanTestTKA";
 import LesPrivateTKAHeader from "./components/LesPrivateTKAHeader";
@@ -34,7 +36,6 @@ import ProgramLesPrivatTKA from "./components/ProgramLesPrivatTKA/ProgramLesPriv
 import SistemBelajarTKA from "./components/SistemBelajarTKA/SistemBelajarTKA";
 import TKAFlow from "./components/TKAFlow/TKAFlow";
 import TKAPillarsShowcase from "./components/TKAPillarsShowcase/TKAPillarsShowcase";
-import HeroTKA from "./components/HeroTKA/HeroTKA";
 
 const items = [
   {
@@ -240,6 +241,7 @@ const LesPrivateTKA = () => {
       <WhyMatrixFeatures />
       <MatrixSubjects />
       <SuccessStoryLesPrivate />
+      <TestimoniOrtuSiswaV2 />
       <TestimonialSiswa />
       <TestimoniOrtuSiswa />
       <section id="asal-sekolah-siswa-matrix-private">

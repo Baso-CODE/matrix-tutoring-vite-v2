@@ -18,6 +18,7 @@ import ProgramLesPrivatV2 from "../../Components/ProgramLesPrivatNew/ProgramLesP
 import SuccessStoryLesPrivate from "../../Components/SuccesStoryLesPrivate/SuccesStoryLesPrivate";
 import TestimonialSiswa from "../../Components/TestimonialSiswa/TestimonialSiswa";
 import TestimoniOrtuSiswa from "../../Components/TestimoniOrtuSiswa/TestimoniOrtuSiswa";
+import TestimoniOrtuSiswaV2 from "../../Components/TestimoniOrtuSiswa/TestimoniOrtuSiswaV2";
 import CTABottomHome from "../../Home/CTABottomHome/CTABottomHome";
 import PromoHomepage from "../../Home/PromoHomepage/PromoHomepage";
 import TableOfContents from "../components/TableOfContent";
@@ -27,11 +28,11 @@ import LesprivatKota from "../LesPrivateTK/components/LesprivatKota/LesprivatKot
 import ProfileMatrixTutoring from "../LesPrivateTK/components/ProfileMatrixTutoring/ProfileMatrixTutoring";
 import TutorLesprivatMatrix from "../LesPrivateTK/components/TutorLesprivatMatrix/TutorLesprivatMatrix";
 import AdaptiveLearningSMP from "./components/AdaptiveLearningSMP/AdaptiveLearningSMP";
+import HeroSMP from "./components/HeroSMP/HeroSMP";
 import LesPrivateSMPHeader from "./components/LesPrivateSMPHeader";
 import ProgramBelajarSMP from "./components/ProgramBelajarSMP/ProgramBelajarSMP";
 import SolusiBelajarSMP from "./components/SolusiBelajarSMP/SolusiBelajarSMP";
 import TargetBelajarSMP from "./components/TargetBelajarSMP/TargetBelajarSMP";
-import HeroSMP from "./components/HeroSMP/HeroSMP";
 
 const items = [
   {
@@ -239,6 +240,7 @@ const LesPrivateSMP = () => {
       <WhyMatrixFeatures />
       <MatrixSubjects />
       <SuccessStoryLesPrivate />
+      <TestimoniOrtuSiswaV2 />
       <TestimonialSiswa />
       <TestimoniOrtuSiswa />
       <section id="asal-sekolah-siswa-matrix-tutoring-private">

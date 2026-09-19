@@ -17,21 +17,22 @@ import EmbrelaSlider from "../../../Components/SlideTop/EmbrelaSlider";
 import SuccessStoryLesPrivate from "../../../Components/SuccesStoryLesPrivate/SuccesStoryLesPrivate";
 import TestimonialSiswa from "../../../Components/TestimonialSiswa/TestimonialSiswa";
 import TestimoniOrtuSiswa from "../../../Components/TestimoniOrtuSiswa/TestimoniOrtuSiswa";
+import TestimoniOrtuSiswaV2 from "../../../Components/TestimoniOrtuSiswa/TestimoniOrtuSiswaV2";
 import { getAllKotaKabupatenBySlug } from "../../../helper/request/getAllKotaKabupatenBySlug";
 import CTABottomHome from "../../../Home/CTABottomHome/CTABottomHome";
 import PromoHomepage from "../../../Home/PromoHomepage/PromoHomepage";
 import { getHeroData } from "../../../utils/getHeroData";
 import HeroLesPrivate from "../../components/HeroLesPrrivate/HeroLesPrivate";
 import TableOfContents from "../../components/TableOfContent";
+import TestimoniWaSNBT from "../../LesPrivateSBMPTN/components/TestimoniWaSNBT/TestimoniWaSNBT";
+import LesprivatKota from "../../LesPrivateTK/components/LesprivatKota/LesprivatKota";
+import ProfileMatrixTutoring from "../../LesPrivateTK/components/ProfileMatrixTutoring/ProfileMatrixTutoring";
+import TutorLesprivatMatrix from "../../LesPrivateTK/components/TutorLesprivatMatrix/TutorLesprivatMatrix";
 import ImpactStatistics from "../components/ImpactStatistics/ImpactStatistics";
 import LesPrivateMahasiswaHeader from "../components/LesPrivateMahasiswaHeader";
 import PopularCourses from "../components/PopularCourses/PopularCourses";
 import ProgamLesPrivatMahasiswa from "../components/ProgamLesPrivatMahasiswa/ProgamLesPrivatMahasiswa";
 import UniversitySuccessFlow from "../components/UniversitySuccessFlow/UniversitySuccessFlow";
-import TestimoniWaSNBT from "../../LesPrivateSBMPTN/components/TestimoniWaSNBT/TestimoniWaSNBT";
-import ProfileMatrixTutoring from "../../LesPrivateTK/components/ProfileMatrixTutoring/ProfileMatrixTutoring";
-import TutorLesprivatMatrix from "../../LesPrivateTK/components/TutorLesprivatMatrix/TutorLesprivatMatrix";
-import LesprivatKota from "../../LesPrivateTK/components/LesprivatKota/LesprivatKota";
 
 const items = [
   {
@@ -110,9 +111,8 @@ const LesPrivateMahasiswaKabupaten = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const responseKabupaten = await getAllKotaKabupatenBySlug(
-          kabupatenSlug
-        ); // Pastikan fungsi ini ada dan benar
+        const responseKabupaten =
+          await getAllKotaKabupatenBySlug(kabupatenSlug); // Pastikan fungsi ini ada dan benar
         setKabupaten(responseKabupaten.data);
 
         const getHero = await getHeroData("MAHASISWA", "kabupaten");
@@ -332,6 +332,7 @@ const LesPrivateMahasiswaKabupaten = () => {
       <WhyMatrixFeatures />
       <MatrixSubjects />
       <SuccessStoryLesPrivate location={nameCountry} />
+      <TestimoniOrtuSiswaV2 />
       <TestimonialSiswa location={nameCountry} />
       <TestimoniOrtuSiswa location={nameCountry} />
       <section id="asal-sekolah-siswa-matrix-tutoring-private">

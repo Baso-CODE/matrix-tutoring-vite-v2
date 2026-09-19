@@ -6,7 +6,8 @@ import FiturProgramNew from "../../Components/FiturProgramNew/FiturProgramNew";
 import GaleriKegiatanBelajar from "../../Components/GaleriKegiatanBelajar/GaleriKegiatanBelajar";
 import HowToOrder from "../../Components/HowToOrder/HowToOrder";
 import MasterTeacherV2 from "../../Components/MasterTeacherV2/MasterTeacherV2";
-import MatrixFeatures from "../../Components/MatrixFeatures/MatrixFeatures";
+import MatrixSubjects from "../../Components/MatrixFeatures/MatrixSubjects";
+import WhyMatrixFeatures from "../../Components/MatrixFeatures/WhyMatrixFeatures";
 import OnlineLesOptions from "../../Components/OnlineLesOption/OnlineLesOption";
 import ProgramBelajarLesPrivat from "../../Components/ProgramBelajarLesPrivate/ProgramBelajarLesPrivate";
 import ProgramLesPrivatV2 from "../../Components/ProgramLesPrivatNew/ProgramLesPrivatV2 ";
@@ -16,26 +17,23 @@ import EmbrelaSlider from "../../Components/SlideTop/EmbrelaSlider";
 import SuccessStoryLesPrivate from "../../Components/SuccesStoryLesPrivate/SuccesStoryLesPrivate";
 import TestimonialSiswa from "../../Components/TestimonialSiswa/TestimonialSiswa";
 import TestimoniOrtuSiswa from "../../Components/TestimoniOrtuSiswa/TestimoniOrtuSiswa";
+import TestimoniOrtuSiswaV2 from "../../Components/TestimoniOrtuSiswa/TestimoniOrtuSiswaV2";
 import CTABottomHome from "../../Home/CTABottomHome/CTABottomHome";
 import PromoHomepage from "../../Home/PromoHomepage/PromoHomepage";
 import TableOfContents from "../components/TableOfContent";
-import LesPrivateSMAHeader from "./components/LesPrivateSMAHeader";
-import MatrixDifferentiationSMA from "./components/MatrixDifferentiationSMA/MatrixDifferentiationSMA";
-import PTNSuccessStrategy from "./components/PTNSuccessStrategy/PTNSuccessStrategy";
-import StatistikImageSMA from "./components/StatistikImageSMA";
-import WhyMatrixFeatures from "../../Components/MatrixFeatures/WhyMatrixFeatures";
-import MatrixSubjects from "../../Components/MatrixFeatures/MatrixSubjects";
-import LesPrivatSMAMetode from "./components/LesPrivatSMAMetode/LesPrivatSMAMetode";
-import WhyMTXImportant from "./components/WhyMTXImportant/WhyMTXImportant";
-import ProgaramLesPrivatSMA from "./components/ProgaramLesPrivatSMA/ProgaramLesPrivatSMA";
-import SolusiLesPrivateSMA from "./components/SolusiLesPrivateSMA/SolusiLesPrivateSMA";
-import KeunggulanLesPrivateSMA from "./components/KeunggulanLesPrivatSMA/KeunggulanLesPrivatSMA";
-import ProfileMatrixTutoring from "../LesPrivateTK/components/ProfileMatrixTutoring/ProfileMatrixTutoring";
-import TutorLesprivatMatrix from "../LesPrivateTK/components/TutorLesprivatMatrix/TutorLesprivatMatrix";
+import ImpactStatistics from "../LesPrivateMahasiswa/components/ImpactStatistics/ImpactStatistics";
 import KurikulumLesPrivate from "../LesPrivateTK/components/KurikulumLesPrivate/KurikulumLesPrivate";
 import LesprivatKota from "../LesPrivateTK/components/LesprivatKota/LesprivatKota";
-import ImpactStatistics from "../LesPrivateMahasiswa/components/ImpactStatistics/ImpactStatistics";
+import ProfileMatrixTutoring from "../LesPrivateTK/components/ProfileMatrixTutoring/ProfileMatrixTutoring";
+import TutorLesprivatMatrix from "../LesPrivateTK/components/TutorLesprivatMatrix/TutorLesprivatMatrix";
 import HeroSMA from "./components/HeroSMA/HeroSMA";
+import KeunggulanLesPrivateSMA from "./components/KeunggulanLesPrivatSMA/KeunggulanLesPrivatSMA";
+import LesPrivateSMAHeader from "./components/LesPrivateSMAHeader";
+import LesPrivatSMAMetode from "./components/LesPrivatSMAMetode/LesPrivatSMAMetode";
+import ProgaramLesPrivatSMA from "./components/ProgaramLesPrivatSMA/ProgaramLesPrivatSMA";
+import PTNSuccessStrategy from "./components/PTNSuccessStrategy/PTNSuccessStrategy";
+import SolusiLesPrivateSMA from "./components/SolusiLesPrivateSMA/SolusiLesPrivateSMA";
+import WhyMTXImportant from "./components/WhyMTXImportant/WhyMTXImportant";
 
 const items = [
   {
@@ -256,6 +254,7 @@ const LesPrivateSMA = () => {
       <WhyMatrixFeatures />
       <MatrixSubjects />
       <SuccessStoryLesPrivate />
+      <TestimoniOrtuSiswaV2 />
       <TestimonialSiswa />
       <TestimoniOrtuSiswa />
       <section id="asal-sekolah-siswa-matrix-tutoring-private">

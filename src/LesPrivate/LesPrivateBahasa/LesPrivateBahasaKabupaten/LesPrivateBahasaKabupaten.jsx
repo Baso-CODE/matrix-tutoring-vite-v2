@@ -17,6 +17,7 @@ import EmbrelaSlider from "../../../Components/SlideTop/EmbrelaSlider";
 import SuccessStoryLesPrivate from "../../../Components/SuccesStoryLesPrivate/SuccesStoryLesPrivate";
 import TestimonialSiswa from "../../../Components/TestimonialSiswa/TestimonialSiswa";
 import TestimoniOrtuSiswa from "../../../Components/TestimoniOrtuSiswa/TestimoniOrtuSiswa";
+import TestimoniOrtuSiswaV2 from "../../../Components/TestimoniOrtuSiswa/TestimoniOrtuSiswaV2";
 import { getAllKotaKabupatenBySlug } from "../../../helper/request/getAllKotaKabupatenBySlug";
 import CTABottomHome from "../../../Home/CTABottomHome/CTABottomHome";
 import PromoHomepage from "../../../Home/PromoHomepage/PromoHomepage";
@@ -27,11 +28,11 @@ import ImpactStatistics from "../../LesPrivateMahasiswa/components/ImpactStatist
 import LesprivatKota from "../../LesPrivateTK/components/LesprivatKota/LesprivatKota";
 import ProfileMatrixTutoring from "../../LesPrivateTK/components/ProfileMatrixTutoring/ProfileMatrixTutoring";
 import TutorLesprivatMatrix from "../../LesPrivateTK/components/TutorLesprivatMatrix/TutorLesprivatMatrix";
+import ContentLesPrivatBahasa from "../components/ContentLesPrivatBahasa/ContentLesPrivatBahasa";
 import FlowPembelajaranBahasa from "../components/FlowPembelajaranBahasa/FlowPembelajaranBahasa";
 import LanguageOptions from "../components/LanguageOptions/LanguageOptions";
 import ProgaramInsenstifBahasa from "../components/ProgaramInsenstifBahasa/ProgaramInsenstifBahasa";
 import ProgaramLesPrivatBahasa from "../components/ProgaramLesPrivatBahasa/ProgaramLesPrivatBahasa";
-import ContentLesPrivatBahasa from "../components/ContentLesPrivatBahasa/ContentLesPrivatBahasa";
 
 const items = [
   {
@@ -106,9 +107,8 @@ const LesPrivateBahasaKabupaten = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const responseKabupaten = await getAllKotaKabupatenBySlug(
-          kabupatenSlug
-        );
+        const responseKabupaten =
+          await getAllKotaKabupatenBySlug(kabupatenSlug);
         setKabupaten(responseKabupaten.data);
         const getHero = await getHeroData("BAHASA", "kabupaten");
         setHeroData(getHero);
@@ -379,6 +379,7 @@ const LesPrivateBahasaKabupaten = () => {
       <WhyMatrixFeatures />
       <MatrixSubjects />
       <SuccessStoryLesPrivate location={nameCountry} />
+      <TestimoniOrtuSiswaV2 />
       <TestimonialSiswa location={nameCountry} />
       <TestimoniOrtuSiswa location={nameCountry} />
       <section id="asal-sekolah-siswa-matrix-tutoring-private">

@@ -16,22 +16,22 @@ import AsalSekolahSiswaMarque from "../../Components/SekolahSiswaMarque/SekolahS
 import EmbrelaSlider from "../../Components/SlideTop/EmbrelaSlider";
 import SuccessStoryLesPrivate from "../../Components/SuccesStoryLesPrivate/SuccesStoryLesPrivate";
 import TestimoniOrtuSiswa from "../../Components/TestimoniOrtuSiswa/TestimoniOrtuSiswa";
+import TestimoniOrtuSiswaV2 from "../../Components/TestimoniOrtuSiswa/TestimoniOrtuSiswaV2";
 import CTABottomHome from "../../Home/CTABottomHome/CTABottomHome";
 import PromoHomepage from "../../Home/PromoHomepage/PromoHomepage";
 import TableOfContents from "../components/TableOfContent";
+import ImpactStatistics from "../LesPrivateMahasiswa/components/ImpactStatistics/ImpactStatistics";
+import HeroTK from "./components/HeroTK/HeroTK";
+import KeunggulanCalistungMatrix from "./components/KeunggulanCalistungMatrix/KeunggulanCalistungMatrix";
+import KurikulumLesPrivate from "./components/KurikulumLesPrivate/KurikulumLesPrivate";
 import LearningFeaturesLesPrivateTk from "./components/LearningFeaturesLesPrivateTk";
 import LesPrivateTKHeader from "./components/LesPrivateTKHeader";
-import MainLearningContent from "./components/MainLearningContent/MainLearningContent";
-import StatistikImage from "./components/StatistikImage/StatistikImage";
-import ImpactStatistics from "../LesPrivateMahasiswa/components/ImpactStatistics/ImpactStatistics";
-import ProgramLesPrivatCalistungLanjutan from "./components/ProgramLesPrivatCalistungLanjutan/ProgramLesPrivatCalistungLanjutan";
-import PelajaranCalistungMatrix from "./components/PelajaranCalistungMatrix/PelajaranCalistungMatrix";
-import KeunggulanCalistungMatrix from "./components/KeunggulanCalistungMatrix/KeunggulanCalistungMatrix";
-import ProfileMatrixTutoring from "./components/ProfileMatrixTutoring/ProfileMatrixTutoring";
-import KurikulumLesPrivate from "./components/KurikulumLesPrivate/KurikulumLesPrivate";
-import TutorLesprivatMatrix from "./components/TutorLesprivatMatrix/TutorLesprivatMatrix";
 import LesprivatKota from "./components/LesprivatKota/LesprivatKota";
-import HeroTK from "./components/HeroTK/HeroTK";
+import MainLearningContent from "./components/MainLearningContent/MainLearningContent";
+import PelajaranCalistungMatrix from "./components/PelajaranCalistungMatrix/PelajaranCalistungMatrix";
+import ProfileMatrixTutoring from "./components/ProfileMatrixTutoring/ProfileMatrixTutoring";
+import ProgramLesPrivatCalistungLanjutan from "./components/ProgramLesPrivatCalistungLanjutan/ProgramLesPrivatCalistungLanjutan";
+import TutorLesprivatMatrix from "./components/TutorLesprivatMatrix/TutorLesprivatMatrix";
 
 const items = [
   {
@@ -229,6 +229,7 @@ const LesPrivateTK = () => {
       <WhyMatrixFeatures />
       <MatrixSubjects />
       <SuccessStoryLesPrivate />
+      <TestimoniOrtuSiswaV2 />
       <TestimoniOrtuSiswa />
       <section id="asal-sekolah-siswa-matrix-tutoring-private">
         <AsalSekolahSiswaEdumatrix />

@@ -13,11 +13,11 @@ import OnlineLesOptions from "../../../Components/OnlineLesOption/OnlineLesOptio
 import ProgramBelajarLesPrivat from "../../../Components/ProgramBelajarLesPrivate/ProgramBelajarLesPrivate";
 import ProgramLesPrivatV2 from "../../../Components/ProgramLesPrivatNew/ProgramLesPrivatV2 ";
 import PilihanProgram from "../../../Components/ProgramOptions/PilihanProgram";
-import AsalSekolahSiswaMarque from "../../../Components/SekolahSiswaMarque/SekolahSiswaMarque";
 import EmbrelaSlider from "../../../Components/SlideTop/EmbrelaSlider";
 import SuccessStoryLesPrivate from "../../../Components/SuccesStoryLesPrivate/SuccesStoryLesPrivate";
 import TestimonialSiswa from "../../../Components/TestimonialSiswa/TestimonialSiswa";
 import TestimoniOrtuSiswa from "../../../Components/TestimoniOrtuSiswa/TestimoniOrtuSiswa";
+import TestimoniOrtuSiswaV2 from "../../../Components/TestimoniOrtuSiswa/TestimoniOrtuSiswaV2";
 import { getAllKotaKabupatenBySlug } from "../../../helper/request/getAllKotaKabupatenBySlug";
 import CTABottomHome from "../../../Home/CTABottomHome/CTABottomHome";
 import PromoHomepage from "../../../Home/PromoHomepage/PromoHomepage";
@@ -25,17 +25,17 @@ import { getHeroData } from "../../../utils/getHeroData";
 import HeroLesPrivate from "../../components/HeroLesPrrivate/HeroLesPrivate";
 import TableOfContents from "../../components/TableOfContent";
 import ImpactStatistics from "../../LesPrivateMahasiswa/components/ImpactStatistics/ImpactStatistics";
+import KurikulumLesPrivate from "../../LesPrivateTK/components/KurikulumLesPrivate/KurikulumLesPrivate";
+import LesprivatKota from "../../LesPrivateTK/components/LesprivatKota/LesprivatKota";
+import ProfileMatrixTutoring from "../../LesPrivateTK/components/ProfileMatrixTutoring/ProfileMatrixTutoring";
+import TutorLesprivatMatrix from "../../LesPrivateTK/components/TutorLesprivatMatrix/TutorLesprivatMatrix";
+import KeunggulanLesPrivateSMA from "../components/KeunggulanLesPrivatSMA/KeunggulanLesPrivatSMA";
 import LesPrivateSMAHeader from "../components/LesPrivateSMAHeader";
 import LesPrivatSMAMetode from "../components/LesPrivatSMAMetode/LesPrivatSMAMetode";
 import ProgaramLesPrivatSMA from "../components/ProgaramLesPrivatSMA/ProgaramLesPrivatSMA";
 import PTNSuccessStrategy from "../components/PTNSuccessStrategy/PTNSuccessStrategy";
-import WhyMTXImportant from "../components/WhyMTXImportant/WhyMTXImportant";
 import SolusiLesPrivateSMA from "../components/SolusiLesPrivateSMA/SolusiLesPrivateSMA";
-import KeunggulanLesPrivateSMA from "../components/KeunggulanLesPrivatSMA/KeunggulanLesPrivatSMA";
-import ProfileMatrixTutoring from "../../LesPrivateTK/components/ProfileMatrixTutoring/ProfileMatrixTutoring";
-import TutorLesprivatMatrix from "../../LesPrivateTK/components/TutorLesprivatMatrix/TutorLesprivatMatrix";
-import KurikulumLesPrivate from "../../LesPrivateTK/components/KurikulumLesPrivate/KurikulumLesPrivate";
-import LesprivatKota from "../../LesPrivateTK/components/LesprivatKota/LesprivatKota";
+import WhyMTXImportant from "../components/WhyMTXImportant/WhyMTXImportant";
 
 const items = [
   {
@@ -108,9 +108,8 @@ const LesPrivateSMAKabupaten = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const responseKabupaten = await getAllKotaKabupatenBySlug(
-          kabupatenSlug
-        );
+        const responseKabupaten =
+          await getAllKotaKabupatenBySlug(kabupatenSlug);
         setKabupaten(responseKabupaten.data);
 
         const getHero = await getHeroData("SMA", "kabupaten");
@@ -414,6 +413,7 @@ const LesPrivateSMAKabupaten = () => {
       <WhyMatrixFeatures />
       <MatrixSubjects />
       <SuccessStoryLesPrivate location={nameCountry} />
+      <TestimoniOrtuSiswaV2 />
       <TestimonialSiswa location={nameCountry} />
       <TestimoniOrtuSiswa location={nameCountry} />
       <section id="asal-sekolah-siswa-matrix-tutoring-private">

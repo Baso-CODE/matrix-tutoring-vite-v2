@@ -5,7 +5,6 @@ import AsalSekolahSiswaEdumatrix from "../../../Components/AsalSekolahSiswa/Asal
 import OnlineLesOptions from "../../../Components/OnlineLesOption/OnlineLesOption";
 import ProgramBelajarLesPrivat from "../../../Components/ProgramBelajarLesPrivate/ProgramBelajarLesPrivate";
 import PilihanProgram from "../../../Components/ProgramOptions/PilihanProgram";
-import AsalSekolahSiswaMarque from "../../../Components/SekolahSiswaMarque/SekolahSiswaMarque";
 import EmbrelaSlider from "../../../Components/SlideTop/EmbrelaSlider";
 import { getAllKotaKabupatenBySlug } from "../../../helper/request/getAllKotaKabupatenBySlug";
 
@@ -19,23 +18,23 @@ import WhyMatrixFeatures from "../../../Components/MatrixFeatures/WhyMatrixFeatu
 import ProgramLesPrivatV2 from "../../../Components/ProgramLesPrivatNew/ProgramLesPrivatV2 ";
 import SuccessStoryLesPrivate from "../../../Components/SuccesStoryLesPrivate/SuccesStoryLesPrivate";
 import TestimoniOrtuSiswa from "../../../Components/TestimoniOrtuSiswa/TestimoniOrtuSiswa";
+import TestimoniOrtuSiswaV2 from "../../../Components/TestimoniOrtuSiswa/TestimoniOrtuSiswaV2";
 import TestimonialSiswa from "../../../Components/TestimonialSiswa/TestimonialSiswa";
 import CTABottomHome from "../../../Home/CTABottomHome/CTABottomHome";
 import PromoHomepage from "../../../Home/PromoHomepage/PromoHomepage";
 import { getHeroData } from "../../../utils/getHeroData";
 import HeroLesPrivate from "../../components/HeroLesPrrivate/HeroLesPrivate";
 import TableOfContents from "../../components/TableOfContent";
+import KeunggulanCalistungMatrix from "../components/KeunggulanCalistungMatrix/KeunggulanCalistungMatrix";
+import KurikulumLesPrivate from "../components/KurikulumLesPrivate/KurikulumLesPrivate";
 import LearningFeaturesLesPrivateTk from "../components/LearningFeaturesLesPrivateTk";
 import LesPrivateTKHeader from "../components/LesPrivateTKHeader";
-import MainLearningContent from "../components/MainLearningContent/MainLearningContent";
-import StatistikImage from "../components/StatistikImage/StatistikImage";
-import ProgramLesPrivatCalistungLanjutan from "../components/ProgramLesPrivatCalistungLanjutan/ProgramLesPrivatCalistungLanjutan";
-import PelajaranCalistungMatrix from "../components/PelajaranCalistungMatrix/PelajaranCalistungMatrix";
-import KeunggulanCalistungMatrix from "../components/KeunggulanCalistungMatrix/KeunggulanCalistungMatrix";
-import ProfileMatrixTutoring from "../components/ProfileMatrixTutoring/ProfileMatrixTutoring";
-import KurikulumLesPrivate from "../components/KurikulumLesPrivate/KurikulumLesPrivate";
-import TutorLesprivatMatrix from "../components/TutorLesprivatMatrix/TutorLesprivatMatrix";
 import LesprivatKota from "../components/LesprivatKota/LesprivatKota";
+import MainLearningContent from "../components/MainLearningContent/MainLearningContent";
+import PelajaranCalistungMatrix from "../components/PelajaranCalistungMatrix/PelajaranCalistungMatrix";
+import ProfileMatrixTutoring from "../components/ProfileMatrixTutoring/ProfileMatrixTutoring";
+import ProgramLesPrivatCalistungLanjutan from "../components/ProgramLesPrivatCalistungLanjutan/ProgramLesPrivatCalistungLanjutan";
+import TutorLesprivatMatrix from "../components/TutorLesprivatMatrix/TutorLesprivatMatrix";
 
 const items = [
   {
@@ -101,9 +100,8 @@ const LesPrivateTKKabupaten = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const responseKabupaten = await getAllKotaKabupatenBySlug(
-          kabupatenSlug
-        );
+        const responseKabupaten =
+          await getAllKotaKabupatenBySlug(kabupatenSlug);
         setKabupaten(responseKabupaten.data);
 
         const getHero = await getHeroData("TK", "kabupaten");
@@ -324,6 +322,7 @@ const LesPrivateTKKabupaten = () => {
         <WhyMatrixFeatures />
         <MatrixSubjects />
         <SuccessStoryLesPrivate location={nameCountry} />
+        <TestimoniOrtuSiswaV2 />
         <TestimonialSiswa location={nameCountry} />
         <TestimoniOrtuSiswa location={nameCountry} />
         <section id="asal-sekolah-siswa-matrix-tutoring-private">

@@ -16,21 +16,21 @@ import AsalSekolahSiswaMarque from "../../Components/SekolahSiswaMarque/SekolahS
 import EmbrelaSlider from "../../Components/SlideTop/EmbrelaSlider";
 import SuccessStoryLesPrivate from "../../Components/SuccesStoryLesPrivate/SuccesStoryLesPrivate";
 import TestimoniOrtuSiswa from "../../Components/TestimoniOrtuSiswa/TestimoniOrtuSiswa";
+import TestimoniOrtuSiswaV2 from "../../Components/TestimoniOrtuSiswa/TestimoniOrtuSiswaV2";
 import TestimonialSiswa from "../../Components/TestimonialSiswa/TestimonialSiswa";
 import CTABottomHome from "../../Home/CTABottomHome/CTABottomHome";
 import PromoHomepage from "../../Home/PromoHomepage/PromoHomepage";
+import KurikulumLesPrivate from "../LesPrivateTK/components/KurikulumLesPrivate/KurikulumLesPrivate";
+import LesprivatKota from "../LesPrivateTK/components/LesprivatKota/LesprivatKota";
+import ProfileMatrixTutoring from "../LesPrivateTK/components/ProfileMatrixTutoring/ProfileMatrixTutoring";
+import TutorLesprivatMatrix from "../LesPrivateTK/components/TutorLesprivatMatrix/TutorLesprivatMatrix";
 import TableOfContents from "../components/TableOfContent";
+import HeroSD from "./components/HeroSD/HeroSD";
 import LesPrivateSDHeader from "./components/LesPrivateSDHeader";
 import MainSubjectsSD from "./components/MainSubjectsSD/MainSubjectsSD";
-import StatistikImageSD from "./components/StatistikImage";
 import ProgramLesPrivatSD from "./components/ProgramLesPrivatSD/ProgramLesPrivatSD";
 import ProgramSD from "./components/ProgramSD/ProgramSD";
 import WhyChooseProgramSD from "./components/WhyChooseProgramSD/WhyChooseProgramSD";
-import ProfileMatrixTutoring from "../LesPrivateTK/components/ProfileMatrixTutoring/ProfileMatrixTutoring";
-import TutorLesprivatMatrix from "../LesPrivateTK/components/TutorLesprivatMatrix/TutorLesprivatMatrix";
-import KurikulumLesPrivate from "../LesPrivateTK/components/KurikulumLesPrivate/KurikulumLesPrivate";
-import LesprivatKota from "../LesPrivateTK/components/LesprivatKota/LesprivatKota";
-import HeroSD from "./components/HeroSD/HeroSD";
 
 const items = [
   {
@@ -238,6 +238,7 @@ const LesPrivateSD = () => {
       <WhyMatrixFeatures />
       <MatrixSubjects />
       <SuccessStoryLesPrivate />
+      <TestimoniOrtuSiswaV2 />
       <TestimonialSiswa />
       <TestimoniOrtuSiswa />
       <section id="asal-sekolah-siswa-matrix-tutoring-private">
