@@ -1,7 +1,6 @@
-import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import { ArrowUpToLine } from "lucide-react";
-
+import { useEffect, useState } from "react";
 import "./ScrollToTopButton.css";
 
 const ScrollToTopButton = () => {
@@ -14,35 +13,54 @@ const ScrollToTopButton = () => {
     });
   };
 
-  const toggleVisibility = () => {
-    if (window.pageYOffset > 300) {
-      setIsVisible(true);
-    } else {
-      setIsVisible(false);
-    }
-  };
-
   useEffect(() => {
-    window.addEventListener("scroll", toggleVisibility);
+    const toggleVisibility = () => {
+      setIsVisible(window.scrollY > 300);
+    };
+
+    toggleVisibility();
+    window.addEventListener("scroll", toggleVisibility, { passive: true });
+
     return () => {
       window.removeEventListener("scroll", toggleVisibility);
     };
   }, []);
 
   return (
-    <div>
+    <AnimatePresence>
       {isVisible && (
         <motion.button
+          type="button"
           onClick={scrollToTop}
           className="scroll-to-top"
-          initial={{ y: 0 }} // Posisi awal
-          animate={{ y: [0, -20, 0] }} // Animasi naik dan turun
-          transition={{ duration: 0.5, repeat: Infinity }} // Durasi dan pengulangan animasi
-        >
+          aria-label="Kembali ke atas"
+          initial={{
+            opacity: 0,
+            scale: 0.8,
+            y: 18,
+          }}
+          animate={{
+            opacity: 1,
+            scale: 1,
+            y: 0,
+          }}
+          exit={{
+            opacity: 0,
+            scale: 0.8,
+            y: 18,
+          }}
+          transition={{
+            duration: 0.25,
+            ease: "easeOut",
+          }}
+          whileTap={{
+            scale: 0.92,
+          }}>
+          <span className="scroll-to-top__shine"></span>
           <ArrowUpToLine />
         </motion.button>
       )}
-    </div>
+    </AnimatePresence>
   );
 };
 

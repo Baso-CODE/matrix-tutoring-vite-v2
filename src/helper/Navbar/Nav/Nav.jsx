@@ -9,35 +9,37 @@ import "./Nav.css";
 const Nav = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const contactData = useAppSelector(selectContactCsData);
-  console.log("ini adalah data contact data", contactData);
 
   const handleConsultationClick = () => {
-    window.location.href = contactData.link_cta;
-  };
+    if (!contactData?.link_cta) return;
 
-  const handleScroll = () => {
-    const scrollTop = window.scrollY;
-
-    setIsScrolled(scrollTop > 0);
+    window.open(contactData.link_cta, "_blank", "noopener,noreferrer");
   };
 
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 24);
+    };
+
+    handleScroll();
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
   return (
-    <nav>
+    <nav className="main-navbar">
       <div className={`header-container ${isScrolled ? "scrolled" : ""}`}>
         <div className="nav-container">
           <div className="logo-container">
-            <Link to={"/"}>
+            <Link to="/" aria-label="Matrix Tutoring Home">
               <img
                 loading="eager"
-                src={"/images/logo-matrix-tutoring-putih.png"}
-                alt="Logo"
+                src="/images/logo-matrix-tutoring-putih.png"
+                alt="Matrix Tutoring"
                 className="logo-nav"
               />
             </Link>
@@ -52,21 +54,24 @@ const Nav = () => {
           <div className="auth-menu">
             <div className="button-container">
               <button
+                type="button"
                 className="button-with-icon"
-                onClick={handleConsultationClick}>
+                onClick={handleConsultationClick}
+                aria-label="Chat dengan Matrix Tutoring">
+                <span className="button-with-icon__shine" />
+
                 <svg
                   className="icon"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
-                  fill="white">
+                  fill="currentColor"
+                  aria-hidden="true">
                   <path d="M20 2H4C2.9 2 2.01 2.9 2.01 4L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z" />
                 </svg>
-                <span className="text">Chat Us</span>
+
+                <span className="button-with-icon__text">Chat Us</span>
               </button>
             </div>
-            {/* <div className="mobile-menu">
-              <NavMobile Menus={Menus} />
-            </div> */}
           </div>
         </div>
       </div>

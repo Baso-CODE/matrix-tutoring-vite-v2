@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { ArrowRightCircleIcon } from "lucide-react";
+import { ArrowRightCircleIcon, Check, Clock3 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import ReusableButton from "../../helper/Button/ReusableButton/ReusableButton";
@@ -7,130 +7,108 @@ import ImageModal from "../../helper/ImageModal/ImageModal";
 import { getAllRandomSlogans } from "../../helper/request/getAllSloganSRequest";
 import "./HeroHome.css";
 
+const features = [
+  "Guru Profesional & Berpengalaman",
+  "Bebas pilih guru sesuai kriteria",
+  "Pembayaran langsung ke rekening lembaga",
+  "Program TK, SD, SMP, SMA, TKA, UTBK, OSN, Mahasiswa & lainnya",
+  "Privat Online, Guru Datang ke Rumah, atau kombinasi keduanya",
+  "Jadwal belajar fleksibel mengikuti waktu siswa",
+  "Free Biaya Pendaftaran",
+];
+
 const HeroHome = ({ contactData }) => {
   const [dataSlogan, setDataSlogan] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalImageUrl, setModalImageUrl] = useState("");
 
+  const PROMO_DURATION_MINUTES = 120;
+  const END_TIME_STORAGE_KEY = "promoEndTime";
+  const timerIntervalRef = useRef(null);
+
   const splitSlogan = (slogan) => {
-    if (!slogan) {
-      return { mainText: "", highlightWord: "" };
-    }
+    if (!slogan) return { mainText: "", highlightWord: "" };
+
     const words = slogan.split(" ");
+
     if (words.length <= 1) {
       return {
         mainText: "",
         highlightWord: slogan,
       };
     }
-    const lastWord = words.pop();
-    const mainText = words.join(" ");
-    return { mainText, highlightWord: lastWord };
+
+    const highlightWord = words.pop();
+
+    return {
+      mainText: words.join(" "),
+      highlightWord,
+    };
   };
 
   useEffect(() => {
     const fetchDataSlogan = async () => {
       try {
         const response = await getAllRandomSlogans();
-
         setDataSlogan(response.data || null);
       } catch (error) {
         console.error("Error fetching slogan data:", error);
-
         setDataSlogan({
           content: "Bimbel Les Privat Terbaik untuk Semua Jenjang",
         });
       }
     };
+
     fetchDataSlogan();
   }, []);
 
   const currentSloganText =
     dataSlogan?.content || "Bimbel Les Privat Terbaik untuk Semua Jenjang";
 
-  // Pisahkan slogan untuk menyorot kata terakhir
   const { mainText, highlightWord } = splitSlogan(currentSloganText);
 
-  const PROMO_DURATION_MINUTES = 120;
-  const END_TIME_STORAGE_KEY = "promoEndTime";
-
   const calculateTimeLeft = () => {
-    const now = new Date().getTime();
+    const now = Date.now();
     let endTime = localStorage.getItem(END_TIME_STORAGE_KEY);
 
     if (!endTime) {
-      const newEndTime = now + PROMO_DURATION_MINUTES * 60 * 1000;
-      localStorage.setItem(END_TIME_STORAGE_KEY, newEndTime);
-      endTime = newEndTime;
+      endTime = now + PROMO_DURATION_MINUTES * 60 * 1000;
+      localStorage.setItem(END_TIME_STORAGE_KEY, String(endTime));
     } else {
       endTime = parseInt(endTime, 10);
     }
 
     const difference = endTime - now;
 
-    let timeLeft = {};
-
-    if (difference > 0) {
-      timeLeft = {
-        hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-        minutes: Math.floor((difference / 1000 / 60) % 60),
-        seconds: Math.floor((difference / 1000) % 60),
-      };
-    } else {
+    if (difference <= 0) {
       localStorage.removeItem(END_TIME_STORAGE_KEY);
+      return {};
     }
 
-    return timeLeft;
+    return {
+      hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+      minutes: Math.floor((difference / 1000 / 60) % 60),
+      seconds: Math.floor((difference / 1000) % 60),
+    };
   };
 
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
-  const [timerVisible, setTimerVisible] = useState(false);
-  const timerIntervalRef = useRef(null);
 
-  // Fungsi untuk memulai timer
-  const startTimer = () => {
-    // Pastikan hanya satu interval yang berjalan
-    if (timerIntervalRef.current) {
-      clearInterval(timerIntervalRef.current);
-    }
-
-    // Reset endTime di localStorage jika sudah habis atau belum ada
-    if (
-      !localStorage.getItem(END_TIME_STORAGE_KEY) ||
-      Object.keys(calculateTimeLeft()).length === 0
-    ) {
-      const now = new Date().getTime();
-      const newEndTime = now + PROMO_DURATION_MINUTES * 60 * 1000;
-      localStorage.setItem(END_TIME_STORAGE_KEY, newEndTime);
-    }
-
-    setTimerVisible(true);
-    setTimeLeft(calculateTimeLeft()); // Update waktu segera setelah memulai
-
-    timerIntervalRef.current = setInterval(() => {
-      const newTimeLeft = calculateTimeLeft();
-      if (Object.keys(newTimeLeft).length === 0) {
-        clearInterval(timerIntervalRef.current); // Hentikan timer jika waktu habis
-        setTimerVisible(false); // Sembunyikan timer setelah habis
-        localStorage.removeItem(END_TIME_STORAGE_KEY); // Pastikan dibersihkan
-      }
-      setTimeLeft(newTimeLeft);
-    }, 1000);
-  };
-
-  // Efek samping untuk membersihkan interval saat komponen di-unmount
   useEffect(() => {
-    // Inisialisasi timer jika ada waktu tersisa dari sesi sebelumnya
-    if (localStorage.getItem(END_TIME_STORAGE_KEY)) {
-      const initialTimeLeft = calculateTimeLeft();
-      if (Object.keys(initialTimeLeft).length > 0) {
-        // Hanya mulai jika waktu tersisa
-        startTimer();
-      } else {
-        localStorage.removeItem(END_TIME_STORAGE_KEY); // Hapus jika sudah habis saat dimuat
-        setTimerVisible(false);
+    timerIntervalRef.current = setInterval(() => {
+      const nextTime = calculateTimeLeft();
+
+      if (Object.keys(nextTime).length === 0) {
+        const newEndTime = Date.now() + PROMO_DURATION_MINUTES * 60 * 1000;
+
+        localStorage.setItem(END_TIME_STORAGE_KEY, String(newEndTime));
+        setTimeLeft(calculateTimeLeft());
+        return;
       }
-    }
+
+      setTimeLeft(nextTime);
+    }, 1000);
+
     return () => {
       if (timerIntervalRef.current) {
         clearInterval(timerIntervalRef.current);
@@ -138,320 +116,223 @@ const HeroHome = ({ contactData }) => {
     };
   }, []);
 
-  const timerComponents = [];
-  if (timerVisible) {
-    // Hanya tampilkan komponen timer jika timerVisible true
-    Object.keys(timeLeft).forEach((interval) => {
-      // Pastikan untuk menampilkan 0 jika nilainya 0 (misal: 00:05:30)
-      if (timeLeft[interval] === undefined && interval !== "seconds") {
-        return;
-      }
-      timerComponents.push(
-        <span key={interval}>
-          {String(timeLeft[interval]).padStart(2, "0")}
-          {interval === "hours" ? ":" : interval === "minutes" ? ":" : ""}
-        </span>,
-      );
-    });
-  }
+  const formatTime = (value) => String(value ?? 0).padStart(2, "0");
 
-  // Fungsi handler untuk membuka modal
   const handleImageClick = (imageUrl) => {
     setModalImageUrl(imageUrl);
     setIsModalOpen(true);
   };
 
-  // Fungsi handler untuk menutup modal
   const handleCloseModal = () => {
     setIsModalOpen(false);
     setModalImageUrl("");
   };
 
   return (
-    <div className="hero-section-container">
-      <div className="hero-content-wrapper">
-        <div className="hero-left-section">
-          <h1 className="hero-title">
-            {mainText}
-            <span className="hero-highlight-bimbel">{highlightWord}</span>
-          </h1>
-          <p className="hero-subtitle">
-            Dapatkan bimbingan intensif online & offline dengan{" "}
-            <span className="hero-highlight-discount">
-              Diskon Spesial hingga 20%
+    <>
+      <section className="hero-home">
+        <div className="hero-home__ambient hero-home__ambient--one"></div>
+        <div className="hero-home__ambient hero-home__ambient--two"></div>
+
+        <div className="hero-home__container">
+          <div className="hero-home__content">
+            <span className="hero-home__eyebrow">
+              Matrix Tutoring • Online & Offline
             </span>
-            !
-          </p>
 
-          <ul className="hero-feature-list">
-            <li>
-              <svg
-                className="check-icon"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M4.5 12.75L9 17.25L19.5 6.75"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-              Guru Profesional & Berpengalaman
-            </li>
-            <li>
-              <svg
-                className="check-icon"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg">
-                w
-                <path
-                  d="M4.5 12.75L9 17.25L19.5 6.75"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-              Bebas pilih guru sesuai kriteria
-            </li>
-            <li>
-              <svg
-                className="check-icon"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M4.5 12.75L9 17.25L19.5 6.75"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-              Kemudahan pembayaran via transfer ke Rekening Lembaga
-            </li>
-            <li>
-              <svg
-                className="check-icon"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M4.5 12.75L9 17.25L19.5 6.75"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-              Materi Lengkap: TK, SD, SMP, SMA, TKA, UTBK, OSN, Mahasiswa, &
-              Lainnya
-            </li>
-            <li>
-              <svg
-                className="check-icon"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M4.5 12.75L9 17.25L19.5 6.75"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-              Sistem belajar: pilih Privat Online, Guru Privat Datang ke Rumah
-              atau keduanya
-            </li>
-            <li>
-              <svg
-                className="check-icon"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M4.5 12.75L9 17.25L19.5 6.75"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-              Kemudahan penjadwalan: bisa atur jadwal sesuai dengan waktu luang
-              siswa
-            </li>
-            <li>
-              <svg
-                className="check-icon"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M4.5 12.75L9 17.25L19.5 6.75"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-              Free Biaya Pendaftaran
-            </li>
-          </ul>
+            <h1 className="hero-home__title">
+              {mainText}{" "}
+              <span className="hero-home__highlight">{highlightWord}</span>
+            </h1>
 
-          <div className="hero-pricing">
-            <span className="hero-price">Mulai Rp 100.000</span>
-            <span className="hero-per-month">/sesi</span>
-          </div>
-          {/* <p className="hero-bonus">
-            Gratis sesi percobaan untuk pendaftar baru!
-          </p> */}
+            <p className="hero-home__subtitle">
+              Dapatkan bimbingan intensif bersama tutor profesional dengan{" "}
+              <strong>diskon spesial hingga 20%</strong>.
+            </p>
 
-          <div className="hero-cta-section-wrapper">
-            <Link
-              to={contactData?.link_cta || "#"}
-              className="link_cta_decoration">
-              {/* <svg
-                className="icon-button-how-to-order"
-                viewBox="0 0 24 24"
-                fill="currentColor">
-                <path
-                  fill-rule="evenodd"
-                  d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z"
-                  clip-rule="evenodd"></path>
-              </svg> */}
-              <ReusableButton
-                text="Ambil Promo Sekarang!"
-                bgColor="#ffffff"
-                borderColor="#007bff"
-                textColor="#007bff"
-                icon={<ArrowRightCircleIcon />}
-                ariaLabel="Ambil promo les privat sekarang via WhatsApp"
-              />
-            </Link>
-
-            <button className="button-how-to-order">
-              {timerVisible && timerComponents.length ? (
-                <span className="hero-timer-display">{timerComponents}</span>
-              ) : (
-                // Jika tidak, tampilkan teks awal dengan ikon
-                <>
-                  Lihat Promo & Waktu!
-                  <svg
-                    className="icon-button-how-to-order"
-                    viewBox="0 0 24 24"
-                    fill="currentColor">
-                    <path
-                      fillRule="evenodd"
-                      d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z"
-                      clipRule="evenodd"></path>
-                  </svg>
-                </>
-              )}
-            </button>
-          </div>
-
-          {/* <p className="hero-guarantee">Garansi kepuasan belajar</p> */}
-        </div>
-
-        {/* Right Section: Illustrations / Graphics for Bimbel */}
-        <div className="hero-right-section">
-          <div className="hero-illustration-main">
-            {/* Top Bar for Learning Dashboard */}
-            <div className="illustration-top-bar">
-              <span className="lock-icon">📚</span>
-              <span className="domain-text">Dashboard Murid</span>
-            </div>
-            {/* Online Learning UI Placeholder */}
-            <div className="website-ui-placeholder">
-              <div className="ui-sidebar">
-                <div className="ui-icon-btn">🎯</div>
-                <div className="ui-icon-btn">📝</div>
-                <div className="ui-icon-btn">📈</div>
-                <div className="ui-icon-btn">💬</div>
-              </div>
-              <div className="ui-content">
-                <div className="container-text-block">
-                  <div className="ui-text-block">Pelajaran</div>
-                  <div className="ui-text-block">Matematika</div>
+            <div className="hero-home__features">
+              {features.map((feature) => (
+                <div className="hero-home__feature" key={feature}>
+                  <span className="hero-home__check">
+                    <Check size={15} strokeWidth={3} />
+                  </span>
+                  <span>{feature}</span>
                 </div>
-                <div className="ui-headline">Memahami Persamaan Kuadrat</div>
-                <div className="ui-gallery-label">Materi & Contoh Soal</div>
-                <div className="ui-image-grid">
-                  <div
-                    className="ui-image-item materi-img-1"
-                    onClick={() =>
-                      handleImageClick("/images/materi-matematika.webp")
-                    }
-                    style={{ cursor: "pointer" }} // Opsional: tambahkan kursor pointer
-                  ></div>
-                  <div
-                    className="ui-image-item materi-img-2"
-                    onClick={() =>
-                      handleImageClick("/images/materi-matematika2.webp")
-                    }
-                    style={{ cursor: "pointer" }} // Opsional: tambahkan kursor pointer
-                  ></div>
+              ))}
+            </div>
+
+            <div className="hero-home__price">
+              <span className="hero-home__price-label">Mulai dari</span>
+
+              <div>
+                <strong>Rp 100.000</strong>
+                <span>/sesi</span>
+              </div>
+            </div>
+
+            <div className="hero-home__actions">
+              <Link
+                to={contactData?.link_cta || "#"}
+                className="hero-home__cta-link">
+                <ReusableButton
+                  text="Ambil Promo Sekarang!"
+                  bgColor="rgba(255,255,255,.88)"
+                  borderColor="rgba(255,255,255,.92)"
+                  textColor="#007bff"
+                  icon={<ArrowRightCircleIcon />}
+                  ariaLabel="Ambil promo les privat sekarang"
+                />
+              </Link>
+
+              <div className="hero-home__timer">
+                <Clock3 size={18} />
+
+                <div>
+                  <span>Promo berakhir dalam</span>
+
+                  <strong>
+                    {formatTime(timeLeft.hours)}:{formatTime(timeLeft.minutes)}:
+                    {formatTime(timeLeft.seconds)}
+                  </strong>
                 </div>
               </div>
             </div>
-            {/* Student/Teacher Profile Card */}
-            <div className="client-profile-card">
-              <img
-                src="/images/siswa_mening.webp"
-                alt="Siswa Berprestasi"
-                className="client-avatar"
-                loading="eager"
-              />
-              <div className="client-info">
-                <p className="client-name">Siswa: Wening</p>
-                <p className="client-description">
-                  Meningkat 90% di Matematika!
-                </p>
+          </div>
+
+          <div className="hero-home__visual">
+            <div className="learning-dashboard">
+              <div className="learning-dashboard__topbar">
+                <div className="learning-dashboard__brand">
+                  <span className="learning-dashboard__brand-icon">📚</span>
+
+                  <div>
+                    <span>Learning Dashboard</span>
+                    <strong>Dashboard Murid</strong>
+                  </div>
+                </div>
+
+                <span className="learning-dashboard__status">
+                  <i></i>
+                  Online
+                </span>
               </div>
-            </div>
-            {/* Score/Improvement Badge */}
-            <div className="pagespeed-badge">
-              <span className="pagespeed-label">Peningkatan Nilai</span>
-              <div className="pagespeed-score-circle"></div>
-            </div>
-            {/* Subject/Level Icons */}
-            <div className="small-icons">
-              <div className="icon-box">
+
+              <div className="learning-dashboard__body">
+                <aside className="learning-dashboard__sidebar">
+                  <button type="button" aria-label="Target">
+                    🎯
+                  </button>
+                  <button type="button" aria-label="Materi">
+                    📝
+                  </button>
+                  <button type="button" aria-label="Progres">
+                    📈
+                  </button>
+                  <button type="button" aria-label="Diskusi">
+                    💬
+                  </button>
+                </aside>
+
+                <div className="learning-dashboard__main">
+                  <div className="learning-dashboard__chips">
+                    <span>Pelajaran</span>
+                    <span>Matematika</span>
+                  </div>
+
+                  <h2>Memahami Persamaan Kuadrat</h2>
+
+                  <div className="learning-dashboard__section-heading">
+                    <div>
+                      <span>Materi Pembelajaran</span>
+                      <strong>Materi & Contoh Soal</strong>
+                    </div>
+
+                    <span className="learning-dashboard__count">2 Materi</span>
+                  </div>
+
+                  <div className="learning-dashboard__materials">
+                    <button
+                      type="button"
+                      className="learning-material-card"
+                      onClick={() =>
+                        handleImageClick("/images/materi-matematika.webp")
+                      }>
+                      <img
+                        src="/images/materi-matematika.webp"
+                        alt="Materi Matematika Persamaan Kuadrat"
+                      />
+
+                      <span className="learning-material-card__overlay">
+                        <strong>Materi Pembelajaran</strong>
+                        <small>Klik untuk lihat</small>
+                      </span>
+                    </button>
+
+                    <button
+                      type="button"
+                      className="learning-material-card"
+                      onClick={() =>
+                        handleImageClick("/images/materi-matematika2.webp")
+                      }>
+                      <img
+                        src="/images/materi-matematika2.webp"
+                        alt="Contoh Soal Persamaan Kuadrat"
+                      />
+
+                      <span className="learning-material-card__overlay">
+                        <strong>Contoh Soal</strong>
+                        <small>Klik untuk lihat</small>
+                      </span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div className="hero-home__student-card">
                 <img
-                  src="/images/matematika.webp"
-                  alt="Matematika"
+                  src="/images/siswa_mening.webp"
+                  alt="Siswa Berprestasi Wening"
                   loading="eager"
                 />
+
+                <div>
+                  <span>Siswa: Wening</span>
+                  <strong>Meningkat 90% di Matematika!</strong>
+                </div>
               </div>
-              <div className="icon-box">
-                <img
-                  src="/images/sainsbocil.webp"
-                  alt="Sains"
-                  loading="eager"
-                />
+
+              <div className="hero-home__score">
+                <span>Peningkatan Nilai</span>
+
+                <div className="hero-home__score-ring">
+                  <strong>95%</strong>
+                </div>
               </div>
-              <div className="icon-box">
-                <img
-                  src="/images/bahasa.webp"
-                  alt="Bahasa Inggris"
-                  loading="eager"
-                />
+
+              <div className="hero-home__subjects">
+                <span>
+                  <img src="/images/matematika.webp" alt="Matematika" />
+                </span>
+
+                <span>
+                  <img src="/images/sainsbocil.webp" alt="Sains" />
+                </span>
+
+                <span>
+                  <img src="/images/bahasa.webp" alt="Bahasa Inggris" />
+                </span>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
       <ImageModal
         isOpen={isModalOpen}
         imageUrl={modalImageUrl}
         onClose={handleCloseModal}
       />
-    </div>
+    </>
   );
 };
 

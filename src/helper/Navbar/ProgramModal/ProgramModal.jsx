@@ -1,23 +1,30 @@
-/* eslint-disable no-unused-vars */
+import { AnimatePresence, motion } from "framer-motion";
 import { List, X } from "lucide-react";
 import "./ProgramModal.css";
-import { AnimatePresence, motion } from "framer-motion";
 
 const programModalVariants = {
-  hidden: { y: "100%", opacity: 0 },
-  visible: { y: "0%", opacity: 1 },
+  hidden: {
+    y: "100%",
+    opacity: 0,
+    scale: 0.98,
+  },
+  visible: {
+    y: "0%",
+    opacity: 1,
+    scale: 1,
+  },
 };
 
-// Komponen Modal Program
-function ProgramModal({ isOpen, onClose, programSubMenu }) {
+function ProgramModal({ isOpen, onClose, programSubMenu = [] }) {
   return (
     <AnimatePresence>
       {isOpen && (
         <motion.div
-          className="more-modal-backdrop"
+          className="program-modal-backdrop"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
+          transition={{ duration: 0.22 }}
           onClick={onClose}>
           <motion.div
             className="program-modal-content"
@@ -25,44 +32,68 @@ function ProgramModal({ isOpen, onClose, programSubMenu }) {
             initial="hidden"
             animate="visible"
             exit="hidden"
-            onClick={(e) => e.stopPropagation()}>
-            <div className="more-modal-header">
-              <div className="more-modal-title">
-                <List size={24} />
-                <h3>Program Lainnya</h3>
+            transition={{
+              duration: 0.32,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+            onClick={(event) => event.stopPropagation()}>
+            <span className="program-modal-glow program-modal-glow-one" />
+            <span className="program-modal-glow program-modal-glow-two" />
+
+            <div className="program-modal-header">
+              <div className="program-modal-header-left">
+                <span className="program-modal-header-icon">
+                  <List size={20} />
+                </span>
+
+                <div>
+                  <span className="program-modal-eyebrow">Pilih Program</span>
+
+                  <h3>Program Lainnya</h3>
+                </div>
               </div>
-              <button onClick={onClose} className="more-modal-close-btn">
-                <X size={24} />
+
+              <button
+                type="button"
+                onClick={onClose}
+                className="program-modal-close-btn"
+                aria-label="Tutup modal program">
+                <X size={20} />
               </button>
             </div>
-            {/* <button className="program-modal-close-button" onClick={onClose}>
-              <X size={24} />
-            </button>
-            <h2 className="program-modal-title">Pilih Program</h2> */}
+
             <div className="program-modal-list">
               {programSubMenu.map((subItem) => (
                 <a
                   key={subItem.name}
                   href={subItem.link}
-                  target={subItem.link.startsWith("http") ? "_blank" : "_self"}
+                  target={subItem.link?.startsWith("http") ? "_blank" : "_self"}
                   rel={
-                    subItem.link.startsWith("http") ? "noopener noreferrer" : ""
+                    subItem.link?.startsWith("http")
+                      ? "noopener noreferrer"
+                      : undefined
                   }
                   className="program-modal-item"
                   onClick={onClose}>
                   {subItem.icon && (
-                    <subItem.icon className="program-modal-item-icon" />
+                    <span className="program-modal-item-icon-wrapper">
+                      <subItem.icon className="program-modal-item-icon" />
+                    </span>
                   )}
+
                   <div className="program-modal-item-text-wrapper">
                     <span className="program-modal-item-name">
                       {subItem.name}
                     </span>
+
                     {subItem.desc && (
                       <span className="program-modal-item-desc">
                         {subItem.desc}
                       </span>
                     )}
                   </div>
+
+                  <span className="program-modal-item-shine" />
                 </a>
               ))}
             </div>
