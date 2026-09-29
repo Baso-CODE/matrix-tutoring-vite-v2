@@ -68,7 +68,7 @@ const FiturProgramNew = ({ location }) => {
                     <div className="feature-number-v2">{feature.id}</div>
                     <h3 className="feature-title-v2">{feature.title}</h3>
                   </div>
-                  <p className="feature-description-v2">
+                  <p className="feature-description-program-v2">
                     {feature.description}
                   </p>
                 </div>

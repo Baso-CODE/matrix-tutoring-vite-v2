@@ -1,118 +1,72 @@
-/* MasterTeacherV2.css */
-
 .container-full-master-teacher-v2 {
-  background-color: #007bff;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: #007bff;
+}
+
+.container-full-master-teacher-v2::before {
+  content: "";
+  position: absolute;
+  top: -100px;
+  left: -70px;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  filter: blur(46px);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.container-full-master-teacher-v2::after {
+  content: "";
+  position: absolute;
+  right: -100px;
+  bottom: -120px;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  filter: blur(52px);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.superparent-container-master-teacher-v2 {
+  position: relative;
+  z-index: 2;
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
+
+.title-master-teacher-v2 {
+  margin: 0;
+  text-align: center;
+  color: #ffffff;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.7rem;
+  font-weight: 800;
+}
+
+.child-title-master-teacher-v2 {
+  margin-top: 4px;
+  margin-bottom: 30px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.88);
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
 }
 
 .container-master-teacher-v2 {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   gap: 10px;
 }
-.superparent-container-master-teacher-v2 {
-  padding-top: 5%;
-  padding-bottom: 5%;
-}
-.img-card-master-teacher-v2 {
-  width: 50%;
-  max-width: 120px;
-  height: 120px;
-  object-fit: cover;
-  border-radius: 100px;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  margin-top: -60px;
-  margin-bottom: 15px;
-  flex-shrink: 0;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-.card-master-teacher-v2 {
-  background-color: white;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  padding: 20px;
-  padding-top: 80px;
-  border-radius: 15px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  height: 380px; /* Sesuaikan tinggi ini jika diperlukan */
-  justify-content: space-between;
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-}
-.card-master-teacher-v2:hover {
-  transform: translateY(-10px);
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 8px 24px;
-  cursor: pointer;
-}
 
-/* Hapus style tombol lama */
-.jurusan-master-teacher-v2,
-.univ-master-teacher-v2,
-.parent-jurusan-master-teacher-v2 {
-  display: none;
-}
-
-.mapel-master-teacher-v2 {
-  margin-top: 5px;
-  font-weight: 400;
-  font-family: "Poppins", sans-serif;
-  color: rgb(77, 77, 77);
-  margin-bottom: 0;
-  font-size: 0.9rem;
-}
-
-.program-master-teacher-v2 {
-  margin-top: 5px;
-  font-weight: 400;
-  font-family: "Poppins", sans-serif;
-  color: rgb(77, 77, 77);
-  margin-bottom: 0;
-  font-size: 0.9rem;
-}
-.nama-master-teacher-v2 {
-  font-weight: 600;
-  flex-shrink: 0;
-  font-size: 15px;
-  line-height: 19px;
-  margin-bottom: 5px;
-}
-
-.ratting-master-teacher-v2 {
-  line-height: 18px;
-  font-size: 15px;
-  color: rgb(77, 77, 77);
-  margin-top: 12px;
-
-  flex-shrink: 0;
-}
-
-.rating-container-v2 {
-  display: flex; /* Menggunakan flexbox untuk penempatan bintang */
-  justify-content: center; /* Menempatkan bintang di tengah */
-  color: #ffc107;
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-.star-icon-master-teacher {
-  font-size: 1.2rem;
-  margin: 0 2px; /* Memberikan sedikit ruang antar bintang */
-}
-/* Style baru untuk teks universitas dan jurusan */
-.univ-jurusan-text {
-  font-family: "Poppins", sans-serif;
-  color: #007bff; /* Warna biru */
-  font-weight: bold;
-  font-size: 0.9rem;
-  margin-top: auto; /* Mendorong ke bawah */
-}
-
-.swiper-wrapper {
-  padding-top: 2%;
-  padding-bottom: 40px;
-}
-.swiper {
+.container-master-teacher-v2 .swiper {
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
   position: relative;
@@ -120,69 +74,297 @@
   list-style: none;
   padding: 0;
   z-index: 1;
+}
+
+.container-master-teacher-v2 .swiper-wrapper {
+  padding-top: 66px;
+  padding-bottom: 52px;
+}
+
+.container-master-teacher-v2 .swiper-slide {
+  display: flex;
+  height: auto !important;
+}
+
+.card-master-teacher-v2 {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  width: 100%;
+  min-width: 0;
+  height: 340px;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 70px 20px 20px;
+  overflow: visible;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 24px;
+  background:
+    radial-gradient(
+      circle at 18% 10%,
+      rgba(255, 255, 255, 0.22),
+      transparent 34%
+    ),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.09));
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  backdrop-filter: blur(24px) saturate(180%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.34),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.06),
+    0 22px 45px -24px rgba(0, 43, 110, 0.52);
+  text-align: center;
+  margin-top: 2rem;
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.card-master-teacher-v2::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 12%;
+  right: 12%;
+  height: 1px;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.9),
+    transparent
+  );
+  pointer-events: none;
+}
+
+.card-master-teacher-v2::after {
+  content: "";
+  position: absolute;
+  right: -45px;
+  bottom: -55px;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  filter: blur(20px);
+  pointer-events: none;
+  transition:
+    transform 0.35s ease,
+    opacity 0.35s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .card-master-teacher-v2:hover {
+    transform: translateY(-7px);
+    border-color: rgba(255, 255, 255, 0.42);
+    background:
+      radial-gradient(
+        circle at 18% 10%,
+        rgba(255, 255, 255, 0.28),
+        transparent 34%
+      ),
+      linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.28),
+        rgba(255, 255, 255, 0.14)
+      );
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.44),
+      inset 0 -1px 0 rgba(255, 255, 255, 0.08),
+      0 30px 58px -24px rgba(0, 43, 110, 0.68);
+    cursor: pointer;
+  }
+
+  .card-master-teacher-v2:hover::after {
+    transform: translate(-8px, -6px) scale(1.08);
+    opacity: 0.95;
+  }
+
+  .card-master-teacher-v2:hover .img-card-master-teacher-v2 {
+    transform: translateY(-3px) scale(1.04);
+  }
+}
+
+.img-card-master-teacher-v2 {
+  position: relative;
+  z-index: 3;
   display: block;
+  width: 120px;
+  height: 120px;
+  flex-shrink: 0;
+  margin: -132px auto 16px;
+  object-fit: cover;
+  border: 4px solid rgba(255, 255, 255, 0.82);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.14);
+  -webkit-backdrop-filter: blur(16px) saturate(170%);
+  backdrop-filter: blur(16px) saturate(170%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.28),
+    0 14px 30px -16px rgba(0, 43, 110, 0.62);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
-/* TARGET PAGINATION BULLET */
-.swiper-pagination {
-  bottom: 0px !important;
-}
-
-.title-master-teacher-v2 {
-  text-align: center;
-  font-weight: 800;
+.nama-master-teacher-v2 {
+  position: relative;
+  z-index: 2;
+  flex-shrink: 0;
+  margin: 0 0 6px;
   color: #ffffff;
-  font-size: 1.7rem;
   font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.35;
 }
-.child-title-master-teacher-v2 {
-  margin-top: 0;
-  text-align: center;
+
+.mapel-master-teacher-v2,
+.program-master-teacher-v2 {
+  position: relative;
+  z-index: 2;
+  margin-top: 5px;
+  margin-bottom: 0;
+  color: rgba(255, 255, 255, 0.82);
   font-family: "Poppins", sans-serif;
+  font-size: 0.84rem;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.rating-container-v2 {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.rating-stars {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  padding: 6px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
+  -webkit-backdrop-filter: blur(12px) saturate(160%);
+  backdrop-filter: blur(12px) saturate(160%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    0 8px 18px -14px rgba(0, 43, 110, 0.5);
+}
+
+.star-icon-master-teacher {
+  flex-shrink: 0;
+}
+
+.univ-jurusan-text {
+  position: relative;
+  z-index: 2;
+  margin-top: auto;
+  margin-bottom: 0;
   color: #ffffff;
-  font-weight: normal;
-  margin-bottom: 30px;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.84rem;
+  font-weight: 700;
+  line-height: 1.5;
 }
 
-.swiper-pagination-bullet {
-  background: #bbb;
-  opacity: 0.8;
+.jurusan-master-teacher-v2,
+.univ-master-teacher-v2,
+.parent-jurusan-master-teacher-v2 {
+  display: none;
 }
 
-.swiper-pagination-bullet-active {
-  background: #007bff;
-  width: 25px;
-  border-radius: 5px;
+.ratting-master-teacher-v2 {
+  line-height: 18px;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.82);
+  margin-top: 12px;
+  flex-shrink: 0;
+}
+
+.container-master-teacher-v2 .swiper-pagination {
+  bottom: 0 !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container-master-teacher-v2 .swiper-pagination-bullet {
+  width: 9px;
+  height: 9px;
+  margin: 0 4px !important;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.38);
+  opacity: 1;
+  transition:
+    width 0.25s ease,
+    border-radius 0.25s ease,
+    background 0.25s ease;
+}
+
+.container-master-teacher-v2 .swiper-pagination-bullet-active {
+  width: 26px;
+  border-radius: 999px;
+  background: #ffffff;
 }
 
 @media only screen and (min-width: 320px) and (max-width: 896px) {
-  .title-master-teacher-v2 {
-    font-size: 20px;
-  }
-  .child-title-master-teacher-v2 {
-    font-size: 15px;
-  }
   .superparent-container-master-teacher-v2 {
-    margin-top: 10%;
-    margin-bottom: 10%;
+    padding-top: 10%;
+    padding-bottom: 10%;
   }
+
+  .title-master-teacher-v2 {
+    font-size: 1.25rem;
+  }
+
+  .child-title-master-teacher-v2 {
+    font-size: 0.9rem;
+  }
+
+  .container-master-teacher-v2 .swiper-wrapper {
+    padding-top: 62px;
+    padding-bottom: 52px;
+  }
+
   .card-master-teacher-v2 {
-    height: 310px;
-    padding-top: 70px;
+    height: 330px;
+    padding: 68px 18px 18px;
+    border-radius: 22px;
   }
+
   .img-card-master-teacher-v2 {
-    margin-top: -50px;
+    width: 110px;
+    height: 110px;
+    margin-top: -124px;
   }
-  .swiper-wrapper {
-    padding-bottom: 50px;
+
+  .nama-master-teacher-v2 {
+    font-size: 0.95rem;
   }
-  .swiper-pagination {
-    bottom: 0px !important;
+
+  .mapel-master-teacher-v2,
+  .program-master-teacher-v2,
+  .univ-jurusan-text {
+    font-size: 0.82rem;
   }
 }
 
 @media only screen and (min-width: 1024px) {
   .card-master-teacher-v2 {
-    height: 290px;
+    height: 320px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .card-master-teacher-v2 {
+    height: 330px;
   }
 }

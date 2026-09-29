@@ -9,12 +9,16 @@ const TestimoniCardOrtuSiswa = ({ data, location }) => {
     .map((_, index) => (
       <Star
         key={index}
-        color="#FFD700" // Warna Kuning
         size={20}
-        style={{ margin: "0 2px" }}
+        color="#FFC107"
+        fill="#FFC107"
+        strokeWidth={1.5}
+        style={{
+          margin: "0 2px",
+          filter: "drop-shadow(0 2px 4px rgba(255, 193, 7, 0.18))",
+        }}
       />
     ));
-
   return (
     <div className="testimonial-card-ortu-siswa">
       {/* Balon Kutipan Biru Kanan Atas */}

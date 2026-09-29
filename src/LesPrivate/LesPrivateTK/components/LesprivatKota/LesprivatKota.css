@@ -1,12 +1,42 @@
 .lesprivat-kota__section {
-  background: linear-gradient(135deg, #0678f2, #007bff);
-  padding-left: 10%;
-  padding-right: 10%;
-  padding-top: 5%;
-  padding-bottom: 5%;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 5% 10%;
+  background: #007bff;
+}
+
+.lesprivat-kota__section::before {
+  content: "";
+  position: absolute;
+  top: -80px;
+  left: -60px;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  filter: blur(42px);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.lesprivat-kota__section::after {
+  content: "";
+  position: absolute;
+  right: -80px;
+  bottom: -100px;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  filter: blur(50px);
+  pointer-events: none;
+  z-index: -1;
 }
 
 .lesprivat-kota__container {
+  position: relative;
+  z-index: 2;
   margin: 0 auto;
   text-align: center;
 }
@@ -16,17 +46,27 @@
 }
 
 .lesprivat-kota__title {
-  font-size: 1.2rem;
-  font-family: "Poppins", sans-serif;
-  font-weight: 800;
+  margin: 0 0 1rem;
   color: #ffffff;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 800;
+  line-height: 1.3;
   text-transform: uppercase;
-  margin-bottom: 1rem;
+}
+
+.lesprivat-kota__subtitle {
+  max-width: 48rem;
+  margin: 0 auto;
+  color: rgba(255, 255, 255, 0.9);
+  font-family: "Poppins", sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.7;
 }
 
 @media (min-width: 640px) {
   .lesprivat-kota__title {
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
 }
 
@@ -36,105 +76,288 @@
   }
 }
 
-.lesprivat-kota__subtitle {
-  font-size: 0.9rem;
-  color: #ffffff;
-  font-family: "Poppins", sans-serif;
-  opacity: 0.9;
-  max-width: 48rem;
-  margin: 0 auto;
-}
+/* =========================================================
+   MAP IMAGE
+   Tetap clean, jangan dibuat glass
+========================================================= */
 
 .lesprivat-kota__image-wrapper {
-  margin: 0 auto 2.5rem auto;
-  border-radius: 1rem;
+  margin: 0 auto 2.5rem;
   overflow: hidden;
+  border-radius: 20px;
 }
 
 .lesprivat-kota__image {
+  display: block;
   width: 100%;
   height: auto;
   object-fit: cover;
 }
 
+/* =========================================================
+   LIQUID GLASS LIST WRAPPER
+========================================================= */
+
 .lesprivat-kota__list-wrapper {
-  padding: 0 0;
+  padding: 0;
 }
 
 .lesprivat-kota__list-box {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(12px);
-  border-radius: 1rem;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   padding: 2rem;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 26px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.2),
+    rgba(255, 255, 255, 0.09)
+  );
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  backdrop-filter: blur(24px) saturate(180%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.34),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.06),
+    0 22px 45px -24px rgba(0, 43, 110, 0.5);
+}
+
+.lesprivat-kota__list-box::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 12%;
+  right: 12%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.85),
+    transparent
+  );
+  pointer-events: none;
+}
+
+.lesprivat-kota__list-box::after {
+  content: "";
+  position: absolute;
+  right: -45px;
+  bottom: -55px;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  filter: blur(20px);
+  pointer-events: none;
 }
 
 .lesprivat-kota__list-title {
+  position: relative;
+  z-index: 2;
+  margin: 0 0 1.5rem;
+  color: #ffffff;
+  font-family: "Poppins", sans-serif;
   font-size: 1.25rem;
   font-weight: 700;
-  color: #fff;
-  font-family: "Poppins", sans-serif;
-  margin-bottom: 1.5rem;
 }
 
 .lesprivat-kota__grid {
+  position: relative;
+  z-index: 2;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.75rem;
+  margin: 0;
+  padding: 0;
 }
+
+.lesprivat-kota__item {
+  width: 100%;
+  min-width: 0;
+  list-style: none;
+}
+
+/* =========================================================
+   LIQUID GLASS CITY PILL
+========================================================= */
+
+.lesprivat-kota__link {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  width: 100%;
+  min-width: 0;
+  height: 3rem;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 14px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.18),
+    rgba(255, 255, 255, 0.08)
+  );
+  color: #ffffff;
+  -webkit-backdrop-filter: blur(16px) saturate(170%);
+  backdrop-filter: blur(16px) saturate(170%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.24),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.04),
+    0 10px 20px -16px rgba(0, 43, 110, 0.4);
+  transition:
+    transform 0.28s ease,
+    border-color 0.28s ease,
+    background 0.28s ease,
+    box-shadow 0.28s ease;
+}
+
+.lesprivat-kota__link::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 12%;
+  right: 12%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.7),
+    transparent
+  );
+  pointer-events: none;
+}
+
+.lesprivat-kota__link::after {
+  content: "";
+  position: absolute;
+  right: -22px;
+  bottom: -28px;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  filter: blur(12px);
+  pointer-events: none;
+}
+
+.lesprivat-kota__link-text {
+  position: relative;
+  z-index: 2;
+  max-width: 100%;
+  overflow: hidden;
+  color: #ffffff;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  transition: transform 0.28s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .lesprivat-kota__link:hover {
+    transform: translateY(-3px);
+    border-color: rgba(255, 255, 255, 0.38);
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.28),
+      rgba(255, 255, 255, 0.14)
+    );
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.4),
+      inset 0 -1px 0 rgba(255, 255, 255, 0.06),
+      0 18px 30px -18px rgba(0, 43, 110, 0.56);
+  }
+
+  .lesprivat-kota__link:hover .lesprivat-kota__link-text {
+    transform: translateY(-1px);
+  }
+}
+
+.lesprivat-kota__link:active {
+  transform: scale(0.98);
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
 
 @media (min-width: 640px) {
   .lesprivat-kota__grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
 @media (min-width: 768px) {
   .lesprivat-kota__grid {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
-}
-
-.lesprivat-kota__item {
-  width: 100%;
-  list-style: none;
-}
-
-.lesprivat-kota__link {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 3rem;
-
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 0.5rem;
-  background: rgba(255, 255, 255, 0.15);
-  transition: all 0.3s ease;
-  overflow: hidden;
-  white-space: nowrap;
-}
-
-.lesprivat-kota__link:hover {
-  transform: scale(1.03);
-  background: rgba(255, 255, 255, 0.25);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
-}
-
-.lesprivat-kota__link-text {
-  position: relative;
-  transition: all 0.3s ease;
-  font-family: "Poppins", sans-serif;
 }
 
 @media (max-width: 1024px) {
   .lesprivat-kota__section {
-    padding-left: 4%;
-    padding-right: 4%;
-    padding-top: 10%;
-    padding-bottom: 10%;
+    padding: 10% 4%;
+  }
+}
+
+@media (max-width: 768px) {
+  .lesprivat-kota__header {
+    margin-bottom: 2rem;
+  }
+
+  .lesprivat-kota__title {
+    font-size: 1.2rem;
+  }
+
+  .lesprivat-kota__subtitle {
+    font-size: 0.85rem;
+  }
+
+  .lesprivat-kota__image-wrapper {
+    margin-bottom: 2rem;
+    border-radius: 16px;
+  }
+
+  .lesprivat-kota__list-box {
+    padding: 1.25rem;
+    border-radius: 22px;
+  }
+
+  .lesprivat-kota__list-title {
+    font-size: 1rem;
+  }
+
+  .lesprivat-kota__link {
+    height: 2.8rem;
+    border-radius: 12px;
+  }
+
+  .lesprivat-kota__link-text {
+    font-size: 0.78rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .lesprivat-kota__section {
+    padding-left: 3%;
+    padding-right: 3%;
+  }
+
+  .lesprivat-kota__grid {
+    gap: 0.6rem;
+  }
+
+  .lesprivat-kota__list-box {
+    padding: 1rem;
+  }
+
+  .lesprivat-kota__link {
+    height: 2.7rem;
+  }
+
+  .lesprivat-kota__link-text {
+    font-size: 0.74rem;
   }
 }

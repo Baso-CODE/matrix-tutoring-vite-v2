@@ -1,71 +1,205 @@
 .kurikulum__section {
+  position: relative;
+  isolation: isolate;
+  padding: 4% 10% 5%;
   text-align: center;
-  padding-left: 10%;
-  padding-right: 10%;
-  padding-top: 4%;
-  padding-bottom: 5%;
+  overflow: hidden;
+}
+
+.kurikulum__section::before {
+  content: "";
+  position: absolute;
+  top: 8%;
+  left: 6%;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: rgba(0, 123, 255, 0.08);
+  filter: blur(45px);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.kurikulum__section::after {
+  content: "";
+  position: absolute;
+  right: 6%;
+  bottom: 4%;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: rgba(77, 163, 255, 0.1);
+  filter: blur(40px);
+  pointer-events: none;
+  z-index: -1;
 }
 
 .kurikulum__title {
+  margin: 0 0 12px;
+  color: #172033;
+  font-family: "Poppins", sans-serif;
   font-size: 1.5rem;
   font-weight: 800;
+  letter-spacing: -0.02em;
   text-transform: uppercase;
-  margin-bottom: 12px;
-  color: #333;
-  font-family: "Poppins", sans-serif;
 }
 
 .kurikulum__description {
-  font-size: 0.9rem;
-  color: #444;
   max-width: 70%;
-  margin: 0 auto 40px auto;
+  margin: 0 auto 40px;
+  color: #667085;
   font-family: "Poppins", sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.7;
 }
 
 .kurikulum__table-wrapper {
-  overflow-x: auto;
+  position: relative;
+  width: 100%;
   margin-top: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.62);
+  border-radius: 24px;
+  background:
+    radial-gradient(
+      circle at 15% 0%,
+      rgba(255, 255, 255, 0.95),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 90% 100%,
+      rgba(0, 123, 255, 0.1),
+      transparent 38%
+    ),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.82), rgba(230, 242, 255, 0.5));
+  -webkit-backdrop-filter: blur(28px) saturate(185%);
+  backdrop-filter: blur(28px) saturate(185%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 1),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.12),
+    0 24px 48px -28px rgba(0, 73, 155, 0.42);
+}
+
+.kurikulum__table-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  z-index: 4;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 1),
+    transparent
+  );
+  pointer-events: none;
+}
+
+.kurikulum__table-wrapper::after {
+  content: "";
+  position: absolute;
+  right: -55px;
+  bottom: -70px;
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  filter: blur(24px);
+  pointer-events: none;
 }
 
 .kurikulum__table {
+  position: relative;
+  z-index: 2;
   width: 100%;
-
-  border-collapse: collapse;
-  font-size: 0.95rem;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  min-width: 0;
+  table-layout: fixed;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.92rem;
 }
 
 .kurikulum__table th,
 .kurikulum__table td {
-  border: 1px solid #ddd;
-  padding: 12px 16px;
+  padding: 16px 18px;
+  border-right: 1px solid rgba(0, 123, 255, 0.08);
+  border-bottom: 1px solid rgba(0, 123, 255, 0.08);
   text-align: left;
+  vertical-align: top;
+}
+
+.kurikulum__table th:last-child,
+.kurikulum__table td:last-child {
+  border-right: 0;
+}
+
+.kurikulum__table tbody tr:last-child td {
+  border-bottom: 0;
 }
 
 .kurikulum__table th {
-  background-color: #007bff;
-  color: #fff;
-  font-weight: bold;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      circle at 20% 0%,
+      rgba(255, 255, 255, 0.2),
+      transparent 35%
+    ),
+    linear-gradient(135deg, rgba(0, 123, 255, 0.94), rgba(0, 91, 190, 0.76));
+  color: #ffffff;
+  font-weight: 700;
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  backdrop-filter: blur(20px) saturate(180%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.06);
 }
 
-.kurikulum__table tr:nth-child(odd) {
-  background-color: #ffffff;
+.kurikulum__table th::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 12%;
+  right: 12%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.85),
+    transparent
+  );
+  pointer-events: none;
 }
 
-.kurikulum__table tr:nth-child(even) {
-  background-color: #f1f1f1;
+.kurikulum__table tbody tr {
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease;
 }
 
-.kurikulum__table tr:hover {
-  background-color: #e5e5e5;
-  transition: 0.3s;
+.kurikulum__table tbody tr:nth-child(odd) {
+  background: rgba(255, 255, 255, 0.58);
+}
+
+.kurikulum__table tbody tr:nth-child(even) {
+  background: rgba(238, 246, 255, 0.62);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .kurikulum__table tbody tr:hover {
+    background: rgba(255, 255, 255, 0.82);
+  }
 }
 
 .kurikulum__name {
-  font-weight: 600;
-  color: #222;
+  color: #172033;
   font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  line-height: 1.5;
 }
 
 .kurikulum__table ul {
@@ -73,24 +207,88 @@
   padding-left: 20px;
   font-family: "Poppins", sans-serif;
 }
+
 .kurikulum__table li {
-  color: #444444;
+  position: relative;
+  margin-bottom: 6px;
+  color: #526071;
+  line-height: 1.5;
+}
+
+.kurikulum__table li:last-child {
+  margin-bottom: 0;
+}
+
+.kurikulum__table li::marker {
+  color: #007bff;
 }
 
 @media (max-width: 1024px) {
   .kurikulum__section {
-    padding-left: 4%;
-    padding-right: 4%;
-    padding-top: 10%;
-    padding-bottom: 10%;
+    padding: 10% 4%;
+  }
+
+  .kurikulum__description {
+    max-width: 82%;
   }
 }
 
 @media (max-width: 768px) {
+  .kurikulum__section {
+    padding: 10% 4%;
+  }
+
   .kurikulum__title {
     font-size: 1.2rem;
   }
+
   .kurikulum__description {
-    max-width: 90%;
+    max-width: 92%;
+    margin-bottom: 30px;
+    font-size: 0.85rem;
+  }
+
+  .kurikulum__table-wrapper {
+    border-radius: 20px;
+  }
+
+  .kurikulum__table {
+    font-size: 0.82rem;
+  }
+
+  .kurikulum__table th,
+  .kurikulum__table td {
+    padding: 13px 12px;
+  }
+}
+
+@media (max-width: 560px) {
+  .kurikulum__table th:first-child,
+  .kurikulum__table td:first-child {
+    width: 38%;
+  }
+
+  .kurikulum__table th:last-child,
+  .kurikulum__table td:last-child {
+    width: 62%;
+  }
+
+  .kurikulum__table th,
+  .kurikulum__table td {
+    padding: 11px 9px;
+    word-break: break-word;
+  }
+
+  .kurikulum__table ul {
+    padding-left: 16px;
+  }
+
+  .kurikulum__table li {
+    margin-bottom: 5px;
+    line-height: 1.45;
+  }
+
+  .kurikulum__name {
+    font-size: 0.78rem;
   }
 }

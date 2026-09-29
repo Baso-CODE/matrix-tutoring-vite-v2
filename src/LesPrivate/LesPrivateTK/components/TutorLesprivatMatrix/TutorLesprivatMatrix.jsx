@@ -1,7 +1,6 @@
 import { Autoplay, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
 
@@ -72,14 +71,18 @@ const TutorLesprivatMatrix = () => {
   ];
 
   return (
-    <div className="tutor__section">
+    <section className="tutor__section">
+      <div className="tutor__glass-orb tutor__glass-orb--1" />
+      <div className="tutor__glass-orb tutor__glass-orb--2" />
+
       <h2 className="tutor__title">
         Guru Les Privat Matrix dari Perguruan Tinggi Terbaik di Indonesia
       </h2>
+
       <div className="container__tutor-description">
         <p className="tutor__description">
-          Pengajar Matrix Tutoring adalah dosen, asisten dosen, guru, mahasiswa
-          ,dan alumni dari UI, UGM, ITB, IPB, STAN, STIS, UNJ, dan berbagai
+          Pengajar Matrix Tutoring adalah dosen, asisten dosen, guru, mahasiswa,
+          dan alumni dari UI, UGM, ITB, IPB, STAN, STIS, UNJ, dan berbagai
           Perguruan Tinggi lainnya yang telah memiliki pengalaman, diseleksi
           secara ketat, dilatih dan diarahkan mengajar sesuai dengan
           spesialisasi dalam bidang ilmu yang dikuasai.
@@ -103,7 +106,14 @@ const TutorLesprivatMatrix = () => {
           {universities.map((univ, idx) => (
             <SwiperSlide key={idx}>
               <div className="tutor__card">
-                <img src={univ.logo} alt={univ.name} className="tutor__logo" />
+                <div className="tutor__card-shine" />
+                <div className="tutor__logo-wrap">
+                  <img
+                    src={univ.logo}
+                    alt={univ.name}
+                    className="tutor__logo"
+                  />
+                </div>
                 <p className="tutor__card-title">{univ.name}</p>
                 <div className="tutor__go-corner">
                   <div className="tutor__go-arrow">→</div>
@@ -113,7 +123,7 @@ const TutorLesprivatMatrix = () => {
           ))}
         </Swiper>
       </div>
-    </div>
+    </section>
   );
 };
 
