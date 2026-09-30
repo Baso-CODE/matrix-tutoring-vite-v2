@@ -14,6 +14,7 @@ import { Menus } from "./helper/utils";
 import MoreModal from "./Home/MoreModal/MoreModal";
 import { fetchContactCs } from "./lib/features/contactCsSlice";
 import { useAppDispatch } from "./lib/hooks";
+import NotFound from "./pages/NotFound/NotFound";
 
 // ✅ Semua halaman — lazy load
 const Homepage = lazy(() => import("./Home/Homepage"));
@@ -474,7 +475,7 @@ function App() {
               element={<LesPrivateSBMPTNKelurahan />}
             />
 
-            <Route path="*" element={<Homepage />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
       </main>

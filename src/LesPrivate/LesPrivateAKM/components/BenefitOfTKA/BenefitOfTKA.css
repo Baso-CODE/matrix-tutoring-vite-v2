@@ -1,157 +1,299 @@
-/* src/Components/BenefitOfTKA/BenefitOfTKA.css */
-
 .benefit-of-tka-section {
-  padding-left: 10%;
-  padding-right: 10%;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 72px 10%;
+  background: #007bff;
   text-align: center;
-  padding-bottom: 5%;
-  background-color: #007bff;
+  font-family: "Poppins", sans-serif;
 }
 
 .benefit-of-tka-container {
-  font-weight: 800;
-  color: #333333;
-  padding-top: 5rem;
-
-  margin-bottom: 15px;
-  line-height: 1.2;
+  position: relative;
+  z-index: 1;
+  margin: 0 auto;
 }
 
 .highlight-text {
-  color: #fcd201; /* Orange highlight */
+  color: #fcd201;
 }
 
 .benefit-of-tka-title {
-  font-size: 1.4rem;
-  font-family: "Poppins", sans-serif;
-  font-weight: 800;
+  margin: 0 0 14px;
   color: #ffffff;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.4rem;
+  font-weight: 800;
+  line-height: 1.3;
+  text-transform: uppercase;
 }
 
 .benefit-of-tka-subtitle {
-  font-size: 1rem;
+  max-width: 820px;
+  margin: 0 auto 44px;
+  color: rgba(255, 255, 255, 0.86);
   font-family: "Poppins", sans-serif;
-  color: #f2f2f2;
-  margin-bottom: 30px;
-  max-width: 800px;
-  font-weight: normal;
-  margin-left: auto;
-  margin-right: auto;
-  line-height: 1.6;
+  font-size: 0.95rem;
+  font-weight: 400;
+  line-height: 1.7;
 }
 
 .benefits-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px; /* Jarak antar kartu */
-  justify-content: center;
-  align-items: stretch; /* Memastikan tinggi kartu sama */
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 24px;
 }
 
 .benefit-card {
-  background-color: #ffffff;
-  border: 1px solid #e6f0ff;
-  border-radius: 18px; /* Sudut lebih membulat */
-  padding: 30px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  isolation: isolate;
   display: flex;
+  min-width: 0;
+  min-height: 270px;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-start;
+  padding: 26px 22px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.14);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  backdrop-filter: blur(24px) saturate(180%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.34),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.06),
+    0 22px 44px -24px rgba(0, 43, 110, 0.52);
   text-align: center;
-  min-height: 250px; /* Minimal tinggi kartu agar terlihat seragam */
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
-.benefit-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+.benefit-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 12%;
+  right: 12%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.88),
+    transparent
+  );
+  pointer-events: none;
+}
+
+.benefit-card::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  filter: blur(20px);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .benefit-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(255, 255, 255, 0.42);
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.42),
+      inset 0 -1px 0 rgba(255, 255, 255, 0.08),
+      0 30px 54px -24px rgba(0, 43, 110, 0.64);
+  }
+
+  .benefit-card:hover .benefit-icon-wrapper {
+    transform: translateY(-3px) scale(1.04);
+    border-color: rgba(255, 255, 255, 0.46);
+  }
+
+  .benefit-card:hover .benefit-icon {
+    transform: scale(1.04);
+  }
 }
 
 .benefit-icon-wrapper {
-  background-color: #fec200; /* Yellow background for icon */
-  border-radius: 50%;
-  width: 70px;
-  height: 70px;
+  position: relative;
+  z-index: 2;
   display: flex;
-  justify-content: center;
+  width: 86px;
+  height: 86px;
+  flex: 0 0 86px;
   align-items: center;
-  margin-bottom: 20px;
-  box-shadow: 0 4px 15px rgba(254, 194, 0, 0.3);
+  justify-content: center;
+  margin-bottom: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.34);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.14);
+  -webkit-backdrop-filter: blur(18px) saturate(175%);
+  backdrop-filter: blur(18px) saturate(175%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    0 16px 28px -20px rgba(0, 43, 110, 0.5);
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    background 0.3s ease;
+}
+
+.benefit-icon-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 14%;
+  right: 14%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.72),
+    transparent
+  );
+  pointer-events: none;
 }
 
 .benefit-icon {
-  width: 8rem;
-  height: auto;
+  position: relative;
+  z-index: 2;
+  display: block;
+  width: 74px;
+  height: 74px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
 }
 
 .card-title {
+  position: relative;
+  z-index: 2;
+  margin: 0 0 10px;
+  color: #ffffff;
+  font-family: "Poppins", sans-serif;
   font-size: 1rem;
   font-weight: 700;
-  color: #007bff;
-  margin-bottom: 10px;
-  line-height: 1.3;
-  font-family: "Poppins", sans-serif;
+  line-height: 1.45;
 }
 
 .card-description {
-  font-size: 0.9rem;
-  font-weight: normal;
-  color: #4f4f4f;
-  line-height: 1.6;
+  position: relative;
+  z-index: 2;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.82);
   font-family: "Poppins", sans-serif;
+  font-size: 0.88rem;
+  font-weight: 400;
+  line-height: 1.65;
 }
 
-/* Responsiveness */
 @media (max-width: 1024px) {
-  .benefits-grid {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 25px;
-  }
-  .benefit-card {
-    min-height: 240px;
-  }
   .benefit-of-tka-section {
     padding-left: 4%;
     padding-right: 4%;
+  }
+
+  .benefits-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
   }
 }
 
 @media (max-width: 768px) {
   .benefit-of-tka-section {
-    padding: 60px 15px;
+    padding: 56px 4%;
   }
+
   .benefit-of-tka-title {
-    font-size: 2.2rem;
+    font-size: 1.2rem;
   }
+
   .benefit-of-tka-subtitle {
-    font-size: 1.1rem;
-    margin-bottom: 40px;
+    margin-bottom: 34px;
+    font-size: 0.88rem;
   }
+
   .benefits-grid {
-    grid-template-columns: 1fr; /* Stack on small screens */
-    gap: 20px;
+    grid-template-columns: 1fr;
+    gap: 18px;
   }
+
   .benefit-card {
-    min-height: auto; /* Biarkan tinggi menyesuaikan konten */
-    padding: 25px;
+    min-height: auto;
+    padding: 22px 18px;
+    border-radius: 22px;
   }
-  .benefit-of-tka-section {
-    padding-left: 4%;
-    padding-right: 4%;
+
+  .benefit-icon-wrapper {
+    width: 78px;
+    height: 78px;
+    flex-basis: 78px;
+    border-radius: 22px;
   }
+
+  .benefit-icon {
+    width: 66px;
+    height: 66px;
+  }
+
   .card-title {
-    font-size: 1.25rem;
+    font-size: 0.98rem;
   }
+
   .card-description {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
   }
 }
 
 @media (max-width: 480px) {
-  .benefit-of-tka-title {
-    font-size: 1.8rem;
+  .benefit-of-tka-section {
+    padding-left: 3%;
+    padding-right: 3%;
   }
-  .benefit-of-tka-subtitle {
-    font-size: 1rem;
+
+  .benefit-of-tka-title {
+    font-size: 1.08rem;
+  }
+
+  .benefit-card {
+    padding: 20px 16px;
+  }
+
+  .benefit-icon-wrapper {
+    width: 72px;
+    height: 72px;
+    flex-basis: 72px;
+  }
+
+  .benefit-icon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .card-title {
+    font-size: 0.94rem;
+  }
+
+  .card-description {
+    font-size: 0.83rem;
+    line-height: 1.6;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .benefit-card,
+  .benefit-icon-wrapper,
+  .benefit-icon {
+    transition: none;
   }
 }

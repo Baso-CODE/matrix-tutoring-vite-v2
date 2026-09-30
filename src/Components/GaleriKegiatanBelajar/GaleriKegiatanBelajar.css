@@ -1,87 +1,98 @@
-/* Container Utama untuk seluruh galeri */
 .galeri-container {
   font-family: sans-serif;
   overflow: hidden;
 }
 
-/* Judul utama */
 .main-title-galeri-belajar {
-  text-align: center;
-  font-size: 1.7rem;
-  font-weight: 800;
-  text-transform: uppercase;
+  margin-bottom: 18px;
   color: #333333;
   font-family: "Poppins", sans-serif;
-  margin-bottom: 10px;
+  font-size: 1.7rem;
+  font-weight: 800;
+  text-align: center;
+  text-transform: uppercase;
 }
 
-/* Gaya Swiper utama */
-.mySwiper {
+.galeri-container .mySwiper {
   margin: 0 auto;
+  padding-top: 10px;
+  padding-bottom: 34px;
 }
 
-/* Styling untuk kartu di dalam slide */
+.galeri-container .mySwiper .swiper-wrapper {
+  align-items: stretch;
+}
+
+.galeri-container .mySwiper .swiper-slide {
+  display: flex;
+  height: auto !important;
+}
+
 .galeri-card {
   position: relative;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 20px;
+  overflow: hidden;
   border-radius: 20px;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  padding: 20px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  min-height: 52vh;
-  display: flex;
-  flex-direction: column;
 }
 
-/* Ikon bintang */
 .star-icon {
   position: absolute;
   top: 0;
   right: 0;
+  z-index: 10;
   width: 111px;
   height: auto;
   transform: translate(20%, -20%) rotate(25deg);
-  z-index: 10;
 }
 
-/* Judul kartu */
 .card-title-container {
-  background-color: #007bff;
-  color: white;
-  text-align: center;
+  position: relative;
+  z-index: 2;
+  margin-bottom: 15px;
   padding: 8px;
   border-radius: 10px;
-  margin-bottom: 15px;
+  background: #007bff;
+  color: #ffffff;
+  text-align: center;
 }
 
 .card-title-galeri-kegiatan {
-  font-size: 1.2rem;
-  font-weight: 600;
   margin: 0;
   color: #ffffff;
   font-family: "Poppins", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
 }
 
-/* Grid gambar di dalam kartu */
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 10px;
+  flex: 1;
 }
 
 .image-item {
   display: flex;
+  min-width: 0;
   flex-direction: column;
   align-items: center;
   text-align: center;
 }
 
 .image-box {
-  width: 100%;
-  padding-top: 75%; /* Rasio 4:3 */
   position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
   overflow: hidden;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -89,59 +100,72 @@
 
 .image-box img {
   position: absolute;
-  top: 0;
-  left: 0;
+  inset: 0;
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-/* Tag pada gambar */
 .image-tag {
   position: absolute;
   top: 10px;
   left: 10px;
-  background-color: #007bff;
-  color: white;
-  font-size: 0.75rem;
+  z-index: 5;
   padding: 4px 8px;
   border-radius: 5px;
-  font-weight: bold;
+  background: #007bff;
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 700;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  z-index: 5;
 }
 
 .image-caption-galeri-kegiatan {
-  font-size: 0.7rem;
+  margin: 6px 0 0;
   color: #f4f4f4;
-  margin-top: 5px;
   font-family: "Poppins", sans-serif;
+  font-size: 0.7rem;
+  line-height: 1.4;
 }
 
-/* Scrollbar kustom */
-.swiper-scrollbar {
-  background-color: #e0e0e0; /* Jalur scrollbar berwarna abu-abu terang */
-  border-radius: 10px;
-  height: 6px;
+.galeri-container .swiper-scrollbar {
   bottom: 0 !important;
+  height: 6px;
+  border-radius: 10px;
+  background: #e0e0e0;
 }
 
-.swiper-scrollbar-drag {
-  background-color: #007bff; /* Handle scrollbar berwarna biru */
+.galeri-container .swiper-scrollbar-drag {
   border-radius: 10px;
+  background: #007bff;
 }
 
 @media (max-width: 1024px) {
   .galeri-card {
-    min-height: 25vh;
+    min-height: 0;
   }
 }
 
 @media (max-width: 767px) {
-  .galeri-card {
-    min-height: 43vh;
-  } /* Judul utama */
   .main-title-galeri-belajar {
     font-size: 1.4rem;
+  }
+
+  .galeri-card {
+    min-height: 0;
+    padding: 16px;
+  }
+
+  .card-grid {
+    gap: 8px;
+  }
+
+  .card-title-galeri-kegiatan {
+    font-size: 1rem;
+  }
+
+  .image-caption-galeri-kegiatan {
+    font-size: 0.68rem;
   }
 }

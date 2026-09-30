@@ -1,135 +1,274 @@
-/* AdaptiveLearningSMP.css */
-
 .adaptive-learning-section {
-  padding: 80px 20px;
-  padding-left: 10%;
-  padding-right: 10%;
-  background-color: #007bff;
-  text-align: center;
+  position: relative;
   overflow: hidden;
+  padding: 80px 10%;
+  background: #007bff;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
 }
 
 .adaptive-learning-container {
+  position: relative;
+  z-index: 1;
   margin: 0 auto;
 }
 
 .adaptive-learning-title {
+  margin: 0 0 16px;
+  color: #ffffff;
+  font-family: "Poppins", sans-serif;
   font-size: 1.5rem;
   font-weight: 800;
-  color: #ffffff;
+  line-height: 1.25;
   text-transform: uppercase;
-  margin-bottom: 20px;
-  font-family: "Poppins", sans-serif;
-  line-height: 1.2;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.05);
 }
 
 .adaptive-learning-subtitle {
-  font-size: 1rem;
-  color: #f2f2f2;
-  margin-bottom: 60px;
   max-width: 900px;
-  margin-left: auto;
-  margin-right: auto;
-  line-height: 1.6;
+  margin: 0 auto 54px;
+  color: rgba(255, 255, 255, 0.88);
   font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  line-height: 1.7;
 }
 
 .adaptive-features-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-  margin-bottom: 60px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 26px;
+  margin: 0;
 }
 
 .adaptive-feature-card {
-  background-color: #ffffff;
-  padding: 25px;
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
+  position: relative;
+  isolation: isolate;
   display: flex;
+  min-width: 0;
+  min-height: 360px;
   flex-direction: column;
   align-items: center;
+  padding: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.14);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  backdrop-filter: blur(24px) saturate(180%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.34),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.06),
+    0 22px 44px -24px rgba(0, 43, 110, 0.52);
   text-align: center;
-  border: 1px solid #e0efff;
-  position: relative;
-  overflow: hidden;
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
-.adaptive-feature-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.15);
+.adaptive-feature-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 12%;
+  right: 12%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.88),
+    transparent
+  );
+  pointer-events: none;
 }
 
-/* Wrapper Gambar Ilustrasi di atas Card */
+.adaptive-feature-card::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 48%;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  filter: blur(20px);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .adaptive-feature-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(255, 255, 255, 0.42);
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.42),
+      inset 0 -1px 0 rgba(255, 255, 255, 0.08),
+      0 30px 54px -24px rgba(0, 43, 110, 0.64);
+  }
+
+  .adaptive-feature-card:hover .adaptive-feature-icon-wrapper {
+    transform: translateY(-2px);
+    border-color: rgba(255, 255, 255, 0.42);
+  }
+
+  .adaptive-feature-card:hover .strategy-feature-icon {
+    transform: scale(1.03);
+  }
+}
+
 .adaptive-feature-icon-wrapper {
-  width: 100%;
-  height: 160px; /* Batasi tinggi area gambar */
-  margin-bottom: 20px;
-  border-radius: 10px;
-  overflow: hidden;
+  position: relative;
+  z-index: 2;
   display: flex;
+  width: 100%;
+  height: 165px;
   align-items: center;
   justify-content: center;
-  background-color: #f7faff;
+  margin-bottom: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.12);
+  -webkit-backdrop-filter: blur(18px) saturate(170%);
+  backdrop-filter: blur(18px) saturate(170%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.24),
+    0 14px 26px -20px rgba(0, 43, 110, 0.42);
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    background 0.3s ease;
 }
 
-/* Perbaikan ukuran gambar agar pas dan rapi */
+.adaptive-feature-icon-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 15%;
+  right: 15%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.72),
+    transparent
+  );
+  pointer-events: none;
+}
+
 .strategy-feature-icon {
+  position: relative;
+  z-index: 2;
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: contain;
-  border-radius: 8px;
+  border-radius: 14px;
+  transition: transform 0.3s ease;
 }
 
 .adaptive-feature-title {
-  font-size: 1.15rem;
-  font-weight: 700;
-  color: #007bff;
-  margin-bottom: 10px;
+  position: relative;
+  z-index: 2;
+  margin: 0 0 10px;
+  color: #ffffff;
   font-family: "Poppins", sans-serif;
+  font-size: 1.08rem;
+  font-weight: 700;
+  line-height: 1.45;
 }
 
 .adaptive-feature-description {
-  font-size: 0.9rem;
-  color: #4f4f4f;
-  line-height: 1.6;
+  position: relative;
+  z-index: 2;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.82);
   font-family: "Poppins", sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.65;
 }
 
-/* Responsivitas */
 @media (max-width: 1024px) {
   .adaptive-learning-section {
     padding-left: 4%;
     padding-right: 4%;
   }
+
+  .adaptive-features-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 768px) {
+  .adaptive-learning-section {
+    padding-top: 56px;
+    padding-bottom: 56px;
+  }
+
   .adaptive-learning-title {
     font-size: 1.3rem;
   }
+
   .adaptive-learning-subtitle {
-    font-size: 1rem;
-    margin-bottom: 40px;
+    margin-bottom: 34px;
+    font-size: 0.92rem;
   }
+
   .adaptive-features-grid {
     grid-template-columns: 1fr;
-    gap: 25px;
+    gap: 20px;
   }
+
   .adaptive-feature-card {
-    padding: 20px;
+    min-height: auto;
+    padding: 16px;
+    border-radius: 22px;
   }
+
   .adaptive-feature-icon-wrapper {
     height: 150px;
+    margin-bottom: 16px;
+    border-radius: 16px;
   }
+
   .adaptive-feature-title {
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
+
   .adaptive-feature-description {
-    font-size: 0.88rem;
+    font-size: 0.86rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .adaptive-learning-section {
+    padding-left: 3%;
+    padding-right: 3%;
+  }
+
+  .adaptive-feature-card {
+    padding: 14px;
+  }
+
+  .adaptive-feature-icon-wrapper {
+    height: 140px;
+  }
+
+  .adaptive-feature-title {
+    font-size: 0.96rem;
+  }
+
+  .adaptive-feature-description {
+    font-size: 0.84rem;
+    line-height: 1.6;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .adaptive-feature-card,
+  .adaptive-feature-icon-wrapper,
+  .strategy-feature-icon {
+    transition: none;
   }
 }

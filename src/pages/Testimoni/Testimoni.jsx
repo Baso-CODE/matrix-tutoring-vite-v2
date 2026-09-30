@@ -1,7 +1,7 @@
 import SuccessStoryLesPrivate from "../../Components/SuccesStoryLesPrivate/SuccesStoryLesPrivate";
 import TestimonialSiswa from "../../Components/TestimonialSiswa/TestimonialSiswa";
+import TestimoniOrtuSiswa from "../../Components/TestimoniOrtuSiswa/TestimoniOrtuSiswa";
 import "./Testimoni.css";
-import TestimoniOrangTuaNotSlide from "./TestimoniaOrangTua";
 import TestimoniSuccessStoryHero from "./TestimoniSuccessStoryHero/TestimoniSuccessStoryHero";
 const Testimoni = () => {
   return (
@@ -9,7 +9,7 @@ const Testimoni = () => {
       <TestimoniSuccessStoryHero />
       <SuccessStoryLesPrivate />
       <TestimonialSiswa />
-      <TestimoniOrangTuaNotSlide />
+      <TestimoniOrtuSiswa />
     </div>
   );
 };

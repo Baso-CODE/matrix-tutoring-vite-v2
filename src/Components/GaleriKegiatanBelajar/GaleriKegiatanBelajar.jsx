@@ -1,7 +1,6 @@
 import { A11y, Navigation, Pagination, Scrollbar } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -198,13 +197,13 @@ const GaleriKegiatanBelajar = ({ location }) => {
     <section className="container-all">
       <div className="galeri-container">
         <h2 className="main-title-galeri-belajar">Galeri Kegiatan Belajar</h2>
+
         <Swiper
           modules={[Pagination, Navigation, Scrollbar, A11y]}
           spaceBetween={30}
           slidesPerView={1}
           centeredSlides={false}
-          loop={true}
-          // navigation={true}
+          loop
           scrollbar={{ draggable: true }}
           breakpoints={{
             1024: {
@@ -218,27 +217,33 @@ const GaleriKegiatanBelajar = ({ location }) => {
                 className="galeri-card"
                 style={{ backgroundImage: `url(${background})` }}>
                 <img
-                  src={"/images/shooting-star.webp"}
+                  src="/images/shooting-star.webp"
                   alt="Star Icon"
                   className="star-icon"
+                  loading="lazy"
                 />
+
                 <div className="card-title-container">
                   <h3 className="card-title-galeri-kegiatan">{card.title}</h3>
                 </div>
+
                 <div className="card-grid">
                   {card.images.map((image) => (
                     <div key={image.id} className="image-item">
                       <div className="image-box">
                         <img
                           src={image.src}
-                          alt={` ${image.caption} di ${
-                            location ? `${location}` : ""
-                          } - Matrix Tutoring `}
+                          alt={`${image.caption}${
+                            location ? ` di ${location}` : ""
+                          } - Matrix Tutoring`}
+                          loading="lazy"
                         />
+
                         {image.tag && (
                           <span className="image-tag">{image.tag}</span>
                         )}
                       </div>
+
                       <p className="image-caption-galeri-kegiatan">
                         {image.caption}
                       </p>
